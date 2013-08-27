@@ -309,9 +309,7 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
             [notification setInformativeText:@"There was a problem taking that shot :("];
             
         }
-        
-        [notification setDeliveryDate:[NSDate dateWithTimeInterval:1 sinceDate:[NSDate date]]];
-        
+   
         [notification setSoundName:nil];
         
         //Get the default notification center
