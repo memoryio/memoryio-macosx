@@ -4,14 +4,14 @@ r1
 cCheck dependencies
 cProcessInfoPlistFile /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist memoryio/memoryio-Info.plist
 cProcessPCH /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/memoryio-Prefix-bdodctpouwgurydwgmiogeoudloo/memoryio-Prefix.pch.pth memoryio/memoryio-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/TSAppDelegate.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/TSAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/ImageSnap.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/ImageSnap.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/main.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/ImageSnap.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/ImageSnap.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/TSAppDelegate.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/TSAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/MacOS/memoryio normal x86_64
-cCopyStringsFile /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Resources/en.lproj/InfoPlist.strings memoryio/en.lproj/InfoPlist.strings
-cCompileXIB /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/MainMenu.xib
 cCpResource memoryio/en.lproj/Credits.rtf build/Debug/memoryio.app/Contents/Resources/en.lproj/Credits.rtf
+cCopyStringsFile /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Resources/en.lproj/InfoPlist.strings memoryio/en.lproj/InfoPlist.strings
 cCpResource memoryio/../memoryIO.icns build/Debug/memoryio.app/Contents/Resources/memoryIO.icns
+cCompileXIB /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/MainMenu.xib
 cPBXCp /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app
 cProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/embedded.provisionprofile
 cProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/embedded.provisionprofile
@@ -120,32 +120,32 @@ t1375873467
 s53324
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
-c00000000521C92190000000000000066
-t1377604121
+c00000000521C96FD0000000000000066
+t1377605373
 s102
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
-t1377604142
+t1377605311
 s102
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist
-t1377604140
-s1592
+t1377605311
+s1625
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app
 t1377604123
 s102
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/MacOS/memoryio
-t2
-s0
+t1377605311
+s79808
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/PkgInfo
-t1377604140
+t1377605311
 s8
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Resources/MainMenu.nib
-t1377604142
+t1377604155
 s26890
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Resources/en.lproj/Credits.rtf
@@ -165,15 +165,15 @@ t1377604123
 s7440
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/ImageSnap.o
-t1377604141
+t1377604155
 s44084
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/TSAppDelegate.o
-t2
-s0
+t1377604155
+s93156
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/main.o
-t1377604141
+t1377604155
 s2880
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/memoryio.LinkFileList
@@ -182,7 +182,7 @@ t1377604121
 s392
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent
-t1377604142
+t1377605311
 s459
 
 N/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio.entitlements
@@ -254,9 +254,9 @@ t1377604140
 s11746120
 
 Nmemoryio/memoryio-Info.plist
-c00000000521C8A0700000000000004CC
-t1377602055
-s1228
+c00000000521C96BC00000000000004ED
+t1377605308
+s1261
 
 CBuild AST from /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/ImageSnap.m
 r0
@@ -269,16 +269,16 @@ r0
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesde93ffbac9ccb741^31edffbac9ccb741^---0#1#0#--18"Check dependencies36"6342EE1D-F7C4-4827-B75A-49AA074DBE06-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies0682447dceccb741^9c30457dceccb741^---0#1#0#--18"Check dependencies36"D040F604-1DF1-437F-AA9F-2C986D86A36C-
 
 CCodeSign /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
-s399296955.449301
-e399296955.643952
+s399298173.376167
+e399298173.542978
 r1
 xCodeSign
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
 o/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app: replacing existing signature
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"CodeSign build/Debug/memoryio.app111c73bbc9ccb741^9cdba4bbc9ccb741^-109"/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app: replacing existing signature-0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/0000000000000000^515"CodeSign build/Debug/memoryio.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    /usr/bin/codesign --force --sign 0edc06230eeb65e2ea44d2f322d412959037b28b --entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app36"14873463-BF44-4B6C-A4A5-B576FAE2D843-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"CodeSign build/Debug/memoryio.app0e65607dceccb741^8a008b7dceccb741^-109"/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app: replacing existing signature-0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/0000000000000000^515"CodeSign build/Debug/memoryio.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    /usr/bin/codesign --force --sign 0edc06230eeb65e2ea44d2f322d412959037b28b --entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app36"674789A3-14A8-4550-BE20-6F352E5F8A17-
 
 CCompileC build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/ImageSnap.o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/ImageSnap.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s399296955.034212
@@ -384,22 +384,22 @@ xx86_64
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Link /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/MacOS/memoryio685c3cbbc9ccb741^e78d4bbbc9ccb741^---0#0#0#--1042"Ld build/Debug/memoryio.app/Contents/MacOS/memoryio normal x86_64    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug -F/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug -filelist /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/Objects-normal/x86_64/memoryio.LinkFileList -mmacosx-version-min=10.8 -fobjc-arc -fobjc-link-runtime -framework QTKit -framework CoreFoundation -framework Quartz -framework QuartzCore -framework IOKit -framework CoreServices -framework ApplicationServices -framework ServiceManagement -framework Cocoa -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/MacOS/memoryio36"CDBED252-E7F5-47B2-ADE1-F92C4361D9C9-
 
 CPBXCp /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app
-s399296923.131879
-e399296923.136049
+s399298173.320414
+e399298173.326957
 r1
 xPBXCp
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
 xbuild/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Copy build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.appd0d2219bc9ccb741^14e9229bc9ccb741^---0#0#0#-19%DVTDocumentLocation2@150"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app000000000080d041^584"PBXCp /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Library/LoginItems36"C69F7929-F71D-440A-B036-2665DAF279DD-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Copy build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.appff24527dceccb741^96b3537dceccb741^---0#0#0#-19%DVTDocumentLocation2@151"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app/0000000000000000^584"PBXCp /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app build/Debug/memoryio.app/Contents/Library/LoginItems/LaunchAtLoginHelperApp.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Library/LoginItems36"9FE75497-BAD3-4A2A-9833-79C9821CCE9F-
 
 CProcessInfoPlistFile /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist memoryio/memoryio-Info.plist
-s399296955.004612
-e399296955.009950
+s399298111.448915
+e399298111.460476
 r1
 xProcessInfoPlistFile
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist
 xmemoryio/memoryio-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Process memoryio/memoryio-Info.plistfe4801bbc9ccb741^c0b103bbc9ccb741^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/memoryio-Info.plist0000000000000000^465"ProcessInfoPlistFile build/Debug/memoryio.app/Contents/Info.plist memoryio/memoryio-Info.plist    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-infoPlistUtility memoryio/memoryio-Info.plist -genpkginfo /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist36"AAE586A9-FE68-462A-BE03-8D038D1D091E-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Process memoryio/memoryio-Info.plist0dfe723fceccb741^60e8753fceccb741^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio/memoryio-Info.plist0000000000000000^465"ProcessInfoPlistFile build/Debug/memoryio.app/Contents/Info.plist memoryio/memoryio-Info.plist    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-infoPlistUtility memoryio/memoryio-Info.plist -genpkginfo /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/Info.plist36"CF67EADA-7186-4A18-B00A-1FE0EAFE9746-
 
 CProcessPCH /Users/jacobrosenthal/Library/Developer/Xcode/DerivedData/memoryio-macosx-dvkhneqcufzahweaoxlbqvpbxdxn/Index/PrecompiledHeaders/memoryio-Prefix-bwbaidlpwxmjoreuoywowhrxfeax_ast/memoryio-Prefix.pch.pth memoryio/memoryio-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
 r0
@@ -443,19 +443,19 @@ x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection204"ProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" build/Debug/memoryio.app/Contents/embedded.provisionprofile8717289bc9ccb741^30d9289bc9ccb741^---0#0#0#-19%DVTDocumentLocation2@130"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/embedded.provisionprofile0000000000000000^542"ProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" build/Debug/memoryio.app/Contents/embedded.provisionprofile    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-productPackagingUtility "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app/Contents/embedded.provisionprofile36"FE3B1C58-5E9D-47AB-A0E0-E2E5D69438FC-
 
 CProcessProductPackaging /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio.entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent
-s399296955.438898
-e399296955.441589
+s399298111.540677
+e399298111.543868
 r1
 xProcessProductPackaging
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio.entitlements
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"ProcessProductPackaging memoryio.entitlements build/memoryio.build/Debug/memoryio.build/memoryio.xcent337070bbc9ccb741^f11072bbc9ccb741^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent0000000000000000^419"ProcessProductPackaging memoryio.entitlements build/memoryio.build/Debug/memoryio.build/memoryio.xcent    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-productPackagingUtility /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio.entitlements -entitlements -format xml -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent36"D441F120-980A-49BD-BBE6-0543861C0FAC-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"ProcessProductPackaging memoryio.entitlements build/memoryio.build/Debug/memoryio.build/memoryio.xcent9a7d8a3fceccb741^963f8b3fceccb741^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent0000000000000000^419"ProcessProductPackaging memoryio.entitlements build/memoryio.build/Debug/memoryio.build/memoryio.xcent    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    builtin-productPackagingUtility /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/memoryio.entitlements -entitlements -format xml -o /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/memoryio.build/Debug/memoryio.build/memoryio.xcent36"5A009EC9-A6A8-411F-9994-46F3075EF57D-
 
 CTouch /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
-s399296955.420178
-e399296955.430853
+s399298173.351399
+e399298173.359962
 r1
 xTouch
 x/Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Touch /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.appc45a6cbbc9ccb741^880d72bbc9ccb741^---0#0#0#--195"Touch build/Debug/memoryio.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    /usr/bin/touch -c /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app36"F29F0336-8044-46B5-BA25-C4DFD826B7F1-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Touch /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.appd40b5a7dceccb741^dd265c7dceccb741^---0#0#0#--195"Touch build/Debug/memoryio.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio    /usr/bin/touch -c /Users/jacobrosenthal/Desktop/memoryio-macosx/memoryio/build/Debug/memoryio.app36"094148D4-CAF7-467B-946C-23EAE77BF65B-
 

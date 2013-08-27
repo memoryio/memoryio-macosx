@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2</string>
+	<string>0.9.1</string>
 	<key>CFBundleSignature</key>
 	<string>AUME</string>
 	<key>CFBundleVersion</key>
@@ -26,6 +26,8 @@
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2013, Augmentous</string>
 	<key>NSMainNibFile</key>
