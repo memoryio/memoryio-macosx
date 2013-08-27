@@ -1,0 +1,257 @@
+TLaunchAtLoginHelperApp
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist
+cProcessPCH /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp normal x86_64
+cCpResource LaunchAtLoginHelperApp/en.lproj/Credits.rtf build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf
+cCompileXIB /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib
+cCopyStringsFile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/InfoPlist.strings LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings
+cProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile
+cProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile
+cTouch /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+cProcessProductPackaging /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent
+cCodeSign /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Cocoa
+c00000000520229B20000000000002470
+t1375873458
+s9328
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch
+c0000000050A6631600000000000000AF
+t1353081622
+s175
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements
+c00000000521C840D0000000000000169
+t1377600525
+s361
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m
+c00000000521C8B590000000000000736
+t1377602393
+s1846
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/Credits.rtf
+c0000000050A6631600000000000001B4
+t1353081622
+s436
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings
+c0000000050A66316000000000000002D
+t1353081622
+s45
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib
+c0000000050A66316000000000002231E
+t1353081622
+s140062
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m
+c0000000050A66316000000000000010C
+t1353081622
+s268
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/MainMenu.nib
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/LaunchAtLoginHelperApp.LinkFileList
+c00000000521C92180000000000000159
+t1377604120
+s345
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o
+t2
+s0
+
+N/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile
+c0000000052197E890000000000001D10
+t1377402505
+s7440
+
+N/var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth
+t2
+s0
+
+NLaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist
+c00000000521C8A170000000000000479
+t1377602071
+s1145
+
+CBuild AST from /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m
+r0
+
+CBuild AST from /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies1ac22198c9ccb741^74073198c9ccb741^---0#1#0#--18"Check dependencies36"9DD2F115-AF2D-498A-BE06-EB56675DC9CD-
+
+CCodeSign /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+s399296921.533408
+e399296921.692182
+r1
+xCodeSign
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"CodeSign build/Debug/LaunchAtLoginHelperApp.app70ce8899c9ccb741^5132b199c9ccb741^---0#0#0#-19%DVTDocumentLocation2@124"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/0000000000000000^627"CodeSign build/Debug/LaunchAtLoginHelperApp.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    /usr/bin/codesign --force --sign 0edc06230eeb65e2ea44d2f322d412959037b28b --entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app36"4CEF712F-FFF1-48CF-AEBA-429FCBE45D00-
+
+CCompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s399296920.997705
+e399296921.110880
+r1
+xCompileC
+xbuild/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Compile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m0397ff98c9ccb741^45641c99c9ccb741^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m0000000000000000^3802"CompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o LaunchAtLoginHelperApp/TSAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-generated-files.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-own-target-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-all-target-headers.hmap -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-project-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources/x86_64 -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources -F/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug -include /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch -MMD -MT dependencies -MF /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.d --serialize-diagnostics /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.dia -c /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/TSAppDelegate.m -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/TSAppDelegate.o36"0F152199-C49F-4F3B-8C64-FDACEA081F7E-
+
+CCompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s399296920.997712
+e399296921.094196
+r1
+xCompileC
+xbuild/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Compile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.mc096ff98c9ccb741^d21d1899c9ccb741^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m0000000000000000^3748"CompileC build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o LaunchAtLoginHelperApp/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-generated-files.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-own-target-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-all-target-headers.hmap -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-project-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources/x86_64 -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources -F/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug -include /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch -MMD -MT dependencies -MF /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.dia -c /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/main.m -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/main.o36"044FE766-A076-4F9A-BF87-F570109E8F60-
+
+CCompileXIB /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib
+s399296921.414213
+e399296921.474971
+r1
+xCompileXIB
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection123"Compiling /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xibba306a99c9ccb741^83a27999c9ccb741^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib0000000000000000^728"CompileXIB LaunchAtLoginHelperApp/en.lproj/MainMenu.xib    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/MainMenu.nib /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/MainMenu.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk36"24EC4251-2287-4074-A89D-21252F6E5C83-
+
+CCopyStringsFile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/InfoPlist.strings LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings
+s399296921.414224
+e399296921.418597
+r1
+xCopyStringsFile
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/InfoPlist.strings
+xLaunchAtLoginHelperApp/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Copy LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings37376a99c9ccb741^e5296b99c9ccb741^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings0000000000000000^506"CopyStringsFile build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/InfoPlist.strings LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding UTF-16 --outdir /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj -- LaunchAtLoginHelperApp/en.lproj/InfoPlist.strings36"E97208CA-093E-4E83-B326-0B0EB7F72D48-
+
+CCpResource LaunchAtLoginHelperApp/en.lproj/Credits.rtf build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf
+s399296921.414191
+e399296921.419443
+r1
+xCpResource
+xLaunchAtLoginHelperApp/en.lproj/Credits.rtf
+xbuild/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Copy build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf26376a99c9ccb741^6b606b99c9ccb741^---0#0#0#-19%DVTDocumentLocation2@163"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf000000000080d041^571"CpResource LaunchAtLoginHelperApp/en.lproj/Credits.rtf build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj/Credits.rtf    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/en.lproj/Credits.rtf /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Resources/en.lproj36"043F296B-8B94-4582-83C5-8416EB47D6DD-
+
+CLd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp normal x86_64
+s399296921.117920
+e399296921.405951
+r1
+xLd
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Link /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp2b511e99c9ccb741^faed6799c9ccb741^---0#0#0#--1026"Ld build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp normal x86_64    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -L/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug -F/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug -filelist /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/Objects-normal/x86_64/LaunchAtLoginHelperApp.LinkFileList -mmacosx-version-min=10.7 -fobjc-arc -fobjc-link-runtime -framework Cocoa -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/MacOS/LaunchAtLoginHelperApp36"3168E48F-9654-4FD7-B671-F8EED87D32D7-
+
+CProcessInfoPlistFile /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist
+s399296920.199015
+e399296920.202833
+r1
+xProcessInfoPlistFile
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist
+xLaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Process LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist31093398c9ccb741^faed3398c9ccb741^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist0000000000000000^605"ProcessInfoPlistFile build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    builtin-infoPlistUtility LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Info.plist -genpkginfo /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/Info.plist36"4DA9CAAC-4E90-49D6-9027-59AA577E47FB-
+
+CProcessPCH /Users/jacobrosenthal/Library/Developer/Xcode/DerivedData/memoryio-macosx-dvkhneqcufzahweaoxlbqvpbxdxn/Index/PrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-eiajwrcinclfurfttqxszihupqxa_ast/LaunchAtLoginHelperApp-Prefix.pch.pth LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s399296920.211611
+e399296920.990971
+r1
+xProcessPCH
+x/var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth
+xLaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Precompile LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pchcd563698c9ccb741^a3aefd98c9ccb741^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch0000000000000000^3772"ProcessPCH /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-generated-files.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-own-target-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-all-target-headers.hmap -iquote /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp-project-headers.hmap -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources/x86_64 -I/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/DerivedSources -F/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug --serialize-diagnostics /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.dia -c /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp-Prefix.pch -o /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/zp/bpw8zd0141j5zf7l8m_qtt8w0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/LaunchAtLoginHelperApp-Prefix-dsbnsvfsbcpclxctoqgiscxzyegh/LaunchAtLoginHelperApp-Prefix.pch.d36"13C5228D-721B-47C6-9F61-F039D1FEB310-
+
+CProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile
+s399296921.494176
+e399296921.497804
+r1
+xProcessProductPackaging
+x/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection218"ProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofilea7957e99c9ccb741^c47a7f99c9ccb741^---0#0#0#-19%DVTDocumentLocation2@158"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile0000000000000000^598"ProcessProductPackaging "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    builtin-productPackagingUtility "/Users/jacobrosenthal/Library/MobileDevice/Provisioning Profiles/AF3FB252-0839-4CF4-8E54-84A34EEE151F.provisionprofile" -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app/Contents/embedded.provisionprofile36"C028F93D-6D19-416A-B66A-81D85D853567-
+
+CProcessProductPackaging /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent
+s399296921.522396
+e399296921.525351
+r1
+xProcessProductPackaging
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection181"ProcessProductPackaging LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent18d28599c9ccb741^51828699c9ccb741^---0#0#0#-19%DVTDocumentLocation2@183"file://localhost/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent000000000080d041^619"ProcessProductPackaging LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    builtin-productPackagingUtility /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.entitlements -entitlements -format xml -o /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/LaunchAtLoginHelperApp.build/Debug/LaunchAtLoginHelperApp.build/LaunchAtLoginHelperApp.xcent36"0CB9551E-EB32-4A25-8496-F3600F9F12F2-
+
+CTouch /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+s399296921.505889
+e399296921.514818
+r1
+xTouch
+x/Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Touch /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app1f9e8199c9ccb741^71cb8399c9ccb741^---0#0#0#--251"Touch build/Debug/LaunchAtLoginHelperApp.app    cd /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp    /usr/bin/touch -c /Users/jacobrosenthal/Desktop/memoryio-macosx/LaunchAtLoginHelperApp/build/Debug/LaunchAtLoginHelperApp.app36"4B8D5FE1-508F-4C0B-A344-C1268C9FF9C4-
+
