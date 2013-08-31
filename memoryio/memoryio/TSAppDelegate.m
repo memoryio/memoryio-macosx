@@ -94,20 +94,7 @@
 
 - (IBAction)aboutAction:(id)sender
 {
-    NSTextView *accessory = [[NSTextView alloc] initWithFrame:NSMakeRect(0,0,200,15)];
-    NSFont *font = [NSFont systemFontOfSize:[NSFont systemFontSize]];
-    NSDictionary *textAttributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
-    [accessory insertText:[[NSAttributedString alloc] initWithString:@"Memory.IO is the easiest way to start lifelogging. When Memory.IO is running in your menu bar it will take a photo when you wake up your Mac, and save it to your Pictures directory. You'll know when its taking a photo as the light will turn green. Mug for the camera, or go about your business, but within a few days you'll have an awesome picture log!"
-                                                          attributes:textAttributes]];
-    [accessory setEditable:NO];
-    [accessory setDrawsBackground:NO];
-    
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"About Memory.IO"];
-    [alert setInformativeText:@"Check out more at http://www.memory.io"];
-    [alert setAccessoryView:accessory];
-    [alert runModal];
-    
+    [[NSApplication sharedApplication] orderFrontStandardAboutPanel:self];
 }
 
 - (IBAction)forceAction:(id)sender

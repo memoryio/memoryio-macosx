@@ -152,6 +152,7 @@
 				2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */,
 				5B197FD217CB789200E2E608 /* ImageSnap.h */,
 				5B197FD317CB789200E2E608 /* ImageSnap.m */,
+				5B0A99DA17CB808700088E71 /* MainMenu.xib */,
 				2247EBE015A22FFB00A5C034 /* Supporting Files */,
 			);
 			path = memoryio;
@@ -161,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				2247EBE115A22FFB00A5C034 /* memoryio-Info.plist */,
-				5B0A99DA17CB808700088E71 /* MainMenu.xib */,
 				5B197FDC17CB7A7400E2E608 /* memoryIO.icns */,
 				2247EBE215A22FFB00A5C034 /* InfoPlist.strings */,
 				2247EBE515A22FFB00A5C034 /* main.m */,
