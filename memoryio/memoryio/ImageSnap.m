@@ -7,7 +7,7 @@
 //  ImageSnap
 //
 //  Created by Robert Harder on 9/10/09.
-//  Created by Jacob Rosenthal on 8/22/13.
+//  Extended by Jacob Rosenthal on 8/22/13.
 //
 @implementation ImageSnap
 
