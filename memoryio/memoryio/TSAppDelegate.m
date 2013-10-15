@@ -20,6 +20,7 @@
 @synthesize notifier;
 @synthesize statusItem;
 @synthesize statusMenu;
+@synthesize statusImage;
 @synthesize startupMenuItem;
 
 - (instancetype)init {
@@ -56,7 +57,13 @@
 	
 	[statusItem setTarget:self];
     
-	[statusItem setTitle:@"IO"];
+    //Used to detect where our files are
+    NSBundle *bundle = [NSBundle mainBundle];
+
+    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+
+    //Sets the images in our NSStatusItem
+    [statusItem setImage:statusImage];
     
     //put menu in menubar
     [statusItem setMenu:statusMenu];

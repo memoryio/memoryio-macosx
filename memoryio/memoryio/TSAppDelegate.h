@@ -12,6 +12,7 @@
 @interface TSAppDelegate : NSObject <NSUserNotificationCenterDelegate, NSSharingServiceDelegate, NSApplicationDelegate>
 
 @property NSStatusItem *statusItem;
+@property NSImage *statusImage;
 @property IBOutlet NSMenu *statusMenu;
 @property IBOutlet NSMenuItem *startupMenuItem;
 @property QTCaptureDevice *device;
