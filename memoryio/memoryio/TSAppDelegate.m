@@ -43,7 +43,7 @@
 {
     
     //make run at startup up to date - TODO, check this more often?
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"launchatlogin3"]) {
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"]) {
         [startupMenuItem setState:NSOnState];
     }else{
         [startupMenuItem setState:NSOffState];
@@ -85,7 +85,7 @@
         if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES)) {
             [sender setState: NSOnState];
             [userDefaults setBool:YES
-                             forKey:@"launchatlogin3"];
+                             forKey:@"memoryio-launchatlogin"];
         }
     }else{
 
@@ -94,7 +94,7 @@
         if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", NO)) {
             [sender setState: NSOffState];
             [userDefaults setBool:NO
-                           forKey:@"launchatlogin3"];
+                           forKey:@"memoryio-launchatlogin"];
         }
     }
 }
@@ -121,7 +121,7 @@
     for (NSString *arg in [[NSProcessInfo processInfo] arguments]) {
         if ([arg isEqualToString:@"launchAtLogin"]) startedAtLogin = YES;
     }
-    NSLog(@"Is Kind of NSString: %d", startedAtLogin);
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -138,8 +138,6 @@
 	switch (notification.activationType) {
 		case NSUserNotificationActivationTypeActionButtonClicked:
 			NSLog(@"Reply Button was clicked -> quick reply");
-            //grab url or bookmark from userinfo
-            NSLog(([notification.userInfo objectForKey:@"imageURL"]));
             [self tweetText:@"  #memoryio" withPhoto:[notification.userInfo objectForKey:@"imageURL"]];
 			break;
 		case NSUserNotificationActivationTypeContentsClicked:
