@@ -16,7 +16,6 @@
 		2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2247EC6515A2364F00A5C034 /* ServiceManagement.framework */; };
 		5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A99DA17CB808700088E71 /* MainMenu.xib */; };
 		5B197FD417CB789200E2E608 /* ImageSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B197FD317CB789200E2E608 /* ImageSnap.m */; };
-		5B197FDD17CB7A7400E2E608 /* memoryIO.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5B197FDC17CB7A7400E2E608 /* memoryIO.icns */; };
 		5B197FDF17CB7BBA00E2E608 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FDE17CB7BBA00E2E608 /* ApplicationServices.framework */; };
 		5B197FE117CB7BC300E2E608 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE017CB7BC300E2E608 /* CoreServices.framework */; };
 		5B197FE317CB7BCD00E2E608 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE217CB7BCD00E2E608 /* IOKit.framework */; };
@@ -71,7 +70,6 @@
 		5B17DBB917CCC38B00220E2B /* memoryio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = memoryio.entitlements; path = ../memoryio.entitlements; sourceTree = "<group>"; };
 		5B197FD217CB789200E2E608 /* ImageSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSnap.h; sourceTree = "<group>"; };
 		5B197FD317CB789200E2E608 /* ImageSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSnap.m; sourceTree = "<group>"; };
-		5B197FDC17CB7A7400E2E608 /* memoryIO.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = memoryIO.icns; path = ../memoryIO.icns; sourceTree = "<group>"; };
 		5B197FDE17CB7BBA00E2E608 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		5B197FE017CB7BC300E2E608 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		5B197FE217CB7BCD00E2E608 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -79,8 +77,8 @@
 		5B197FE517CB7BD800E2E608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5B197FE817CB7BE400E2E608 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		5B197FEA17CB7D3800E2E608 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
-		5BFDCF4C180D3ABA001D1B74 /* io_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = io_logo.icns; sourceTree = "<group>"; };
-		5BFDCF4F180D3E2E001D1B74 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		5BFDCF4C180D3ABA001D1B74 /* io_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = io_logo.icns; path = ../io_logo.icns; sourceTree = "<group>"; };
+		5BFDCF4F180D3E2E001D1B74 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +104,6 @@
 		2247EBCA15A22FFA00A5C034 = {
 			isa = PBXGroup;
 			children = (
-				5BFDCF4F180D3E2E001D1B74 /* icon.png */,
-				5BFDCF4C180D3ABA001D1B74 /* io_logo.icns */,
 				2247EC5C15A231EC00A5C034 /* LaunchAtLoginHelperApp.xcodeproj */,
 				2247EBDF15A22FFB00A5C034 /* memoryio */,
 				2247EBD815A22FFB00A5C034 /* Frameworks */,
@@ -167,8 +163,9 @@
 		2247EBE015A22FFB00A5C034 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5BFDCF4F180D3E2E001D1B74 /* icon.png */,
+				5BFDCF4C180D3ABA001D1B74 /* io_logo.icns */,
 				2247EBE115A22FFB00A5C034 /* memoryio-Info.plist */,
-				5B197FDC17CB7A7400E2E608 /* memoryIO.icns */,
 				2247EBE215A22FFB00A5C034 /* InfoPlist.strings */,
 				2247EBE515A22FFB00A5C034 /* main.m */,
 				2247EBE715A22FFB00A5C034 /* memoryio-Prefix.pch */,
@@ -256,7 +253,6 @@
 			files = (
 				2247EBE415A22FFB00A5C034 /* InfoPlist.strings in Resources */,
 				2247EBEA15A22FFB00A5C034 /* Credits.rtf in Resources */,
-				5B197FDD17CB7A7400E2E608 /* memoryIO.icns in Resources */,
 				5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */,
 				5BFDCF4D180D3ABA001D1B74 /* io_logo.icns in Resources */,
 				5BFDCF50180D3E2E001D1B74 /* icon.png in Resources */,
