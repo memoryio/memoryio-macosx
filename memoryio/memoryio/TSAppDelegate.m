@@ -299,7 +299,7 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
             
             //Set the text of the notification
             [notification setInformativeText:@"There was a problem taking that shot :("];
-            
+            [notification setHasActionButton:false];
         }
    
         [notification setSoundName:nil];
