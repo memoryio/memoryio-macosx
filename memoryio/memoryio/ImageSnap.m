@@ -90,87 +90,96 @@
         NSLog(@"Stopping...");
         [snap stopSession];                     // Stop session
         NSLog(@"Stopped.");
-    }   // end if: able to start session
-    
-    NSMutableData *photoDataWithExif = [[NSMutableData alloc] init];
-    
-    // create the image somehow, load from file, draw into it...
-    CGImageSourceRef source;
-    
-    source = CGImageSourceCreateWithData((__bridge CFDataRef)[rawImage TIFFRepresentation], NULL);
-    
-    //get all the metadata in the image
-    NSDictionary *metadata = (__bridge NSDictionary *) CGImageSourceCopyPropertiesAtIndex(source,0,NULL);
-    
-    //make the metadata dictionary mutable so we can add properties to it
-    NSMutableDictionary *metadataAsMutable = [metadata mutableCopy];
-    
-    //get existing exif data dictionary
-    NSMutableDictionary *EXIFDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
-    
-    if(!EXIFDictionary) {
-        //if the image does not have an EXIF dictionary (not all images do), then create one for us to use
-        EXIFDictionary = [NSMutableDictionary dictionary];
-    }
-    
-    NSDate *today = [NSDate date];
-    
-    NSString *dateString = [today descriptionWithCalendarFormat:nil timeZone:nil locale:nil];
-    
-    NSArray *chunks = [dateString componentsSeparatedByString: @" "];
-    NSString *filename = [chunks componentsJoinedByString:@"_"];
-    
-    //set DateTimeOriginal exif data
-    [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
-    
-    //set DateCreated exif data
-    [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
-    
-    //add our modified EXIF data back into the image’s metadata
-    [metadataAsMutable setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
-    
-    //add compression in
-    [metadataAsMutable setObject:[NSNumber numberWithFloat:.9] forKey:(NSString *)kCGImageDestinationLossyCompressionQuality];
-    
-    CFStringRef UTI = kUTTypeJPEG; //this is the type of image (e.g., public.jpeg)
-    
-    CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)photoDataWithExif,UTI,1,NULL);
-    
-    if(!destination) {
-        NSLog(@"***Could not create image destination ***");
-        return NULL;
-    }
-    
-    //add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
-    CGImageDestinationAddImageFromSource(destination,source,0, (__bridge CFDictionaryRef) metadataAsMutable);
-    
-    //tell the destination to write the image data and metadata into our data object.
-    if(!CGImageDestinationFinalize(destination)) {
-        NSLog(@"***Could not create data from image destination ***");
-        return NULL;
-    }
-    
-    //cleanup
-    CFRelease(destination);
-    CFRelease(source);
-    
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    NSLog(@"Creating folder");
-    [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, filename, @".jpg"];
+        
+        if (rawImage != nil) {                  // We got an image, ok, try to deal with it. If no image, don't try to make files etc.
+            NSMutableData *photoDataWithExif = [[NSMutableData alloc] init];
+            
+            // create the image somehow, load from file, draw into it...
+            CGImageSourceRef source;
+            
+            source = CGImageSourceCreateWithData((__bridge CFDataRef)[rawImage TIFFRepresentation], NULL);
+            
+            //get all the metadata in the image
+            NSDictionary *metadata = (__bridge NSDictionary *) CGImageSourceCopyPropertiesAtIndex(source,0,NULL);
+            
+            //make the metadata dictionary mutable so we can add properties to it
+            NSMutableDictionary *metadataAsMutable = [metadata mutableCopy];
+            
+            //get existing exif data dictionary
+            NSMutableDictionary *EXIFDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
+            
+            if(!EXIFDictionary) {
+                //if the image does not have an EXIF dictionary (not all images do), then create one for us to use
+                EXIFDictionary = [NSMutableDictionary dictionary];
+            }
+            
+            NSDate *today = [NSDate date];
+            
+            NSString *dateString = [today descriptionWithCalendarFormat:nil timeZone:nil locale:nil];
+            
+            NSArray *chunks = [dateString componentsSeparatedByString: @" "];
+            NSString *filename = [chunks componentsJoinedByString:@"_"];
+            
+            //set DateTimeOriginal exif data
+            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
+            
+            //set DateCreated exif data
+            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
+            
+            //add our modified EXIF data back into the image’s metadata
+            [metadataAsMutable setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
+            
+            //add compression in
+            [metadataAsMutable setObject:[NSNumber numberWithFloat:.9] forKey:(NSString *)kCGImageDestinationLossyCompressionQuality];
+            
+            CFStringRef UTI = kUTTypeJPEG; //this is the type of image (e.g., public.jpeg)
+            
+            CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)photoDataWithExif,UTI,1,NULL);
+            
+            if(!destination) {
+                NSLog(@"***Could not create image destination ***");
+                return NULL;
+            }
+            
+            //add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
+            CGImageDestinationAddImageFromSource(destination,source,0, (__bridge CFDictionaryRef) metadataAsMutable);
+            
+            //tell the destination to write the image data and metadata into our data object.
+            if(!CGImageDestinationFinalize(destination)) {
+                NSLog(@"***Could not create data from image destination ***");
+                return NULL;
+            }
+            
+            //cleanup
+            CFRelease(destination);
+            CFRelease(source);
+            
+            NSFileManager *manager = [NSFileManager defaultManager];
+            
+            NSLog(@"Creating folder");
+            [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+            
+            NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, filename, @".jpg"];
+            
+            NSURL *imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+            
+            Boolean result = [photoDataWithExif writeToURL:imageURL atomically:NO];
+            
+            if(result){
+                return imageURL;
+            } else {
+                return NULL;
+            }
 
-    NSURL *imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
-    
-    Boolean result = [photoDataWithExif writeToURL:imageURL atomically:NO];
-    
-    if(result){
-        return imageURL;
-    }else{
-        return NULL;
-    }
-    
+        } else { // end if: rawImage not nil
+            NSLog(@"rawImage == nil\n");
+            return NULL;
+        } // rawImage was empty, return NULL, just like we weren't able to save the file.
+        
+    }   // end if: able to start session
+    // At this point, a session never got started, return NULL
+    NSLog(@"startSession:device failed.\n");
+    return NULL;
 }   // end
 
 /**
@@ -197,12 +206,16 @@
 //    }   // end while: no frame yet
     
     // Convert frame to an NSImage
-    NSCIImageRep *imageRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:frame]];
-    NSImage *image = [[NSImage alloc] initWithSize:[imageRep size]];
-    [image addRepresentation:imageRep];
-	NSLog(@"Snapshot taken.\n" );
-    
-    return image;
+    if (frame != nil) { // we have an object, probably a frame, not nil
+        NSCIImageRep *imageRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:frame]];
+        NSImage *image = [[NSImage alloc] initWithSize:[imageRep size]];
+        [image addRepresentation:imageRep];
+        NSLog(@"Snapshot taken.\n" );
+        return image;
+    } else { // we didn't get a frame or anything. let the upstream function know we failed. Otherwise they will get an image with no frames inside. Hard to detect. ImageIO will thrown an exception.
+        NSLog(@"snapshot: no frame captures. returning nil.\n" );
+        return nil;
+    }
 }
 
 /**
