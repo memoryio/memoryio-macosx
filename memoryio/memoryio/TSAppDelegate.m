@@ -176,6 +176,7 @@
 }
 
 // register to receive system power notifications
+// mainly for when the system goes to sleep and wakes up
 - (void)subscribePowerNotifications
 {
     root_port = IORegisterForSystemPower( (__bridge void *)(self), &notifyPortRef, powerCallback, &notifierObject );
@@ -192,6 +193,7 @@
 }
 
 // unsubscribe system sleep notifications
+// mainly for when the system goes to sleep and wakes up
 - (void)unsubscribePowerNotifications{
     // remove the sleep notification port from the application runloop
     CFRunLoopRemoveSource( CFRunLoopGetCurrent(),
@@ -210,6 +212,7 @@
 }
 
 // register to receive system display notifications
+// mainly for when the display goes to sleep and wakes up
 - (void)subscribeDisplayNotifications
 {
 	displayWrangler = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceNameMatching("IODisplayWrangler"));
@@ -232,6 +235,7 @@
 }
 
 // unsubscribe system display notifications
+// mainly for when the display goes to sleep and wakes up
 - (void)unsubscribeDisplayNotifications
 {
     CFRunLoopRemoveSource(CFRunLoopGetCurrent(),IONotificationPortGetRunLoopSource(notificationPort),kCFRunLoopCommonModes);
@@ -245,6 +249,8 @@
     switch ( messageType )
     {
         case kIOMessageDeviceHasPoweredOn :
+            // mainly for when the display goesto sleep and wakes up
+            NSLog(@"messageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
             break;
         case kIOMessageSystemWillSleep:
             IOAllowPowerChange(root_port,(long)messageArgument);
@@ -253,23 +259,27 @@
             IOAllowPowerChange(root_port,(long)messageArgument);
             break;
         case kIOMessageSystemHasPoweredOn:
+            // mainly for when the system goes to sleep and wakes up
+            NSLog(@"messageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
             [self takePhotoWithDelay:2.0f];
             break;
     }
 }
 
+// mainly for when the system goes to sleep and wakes up
 void powerCallback( void *context, io_service_t service, natural_t messageType, void *messageArgument )
 {
     [(__bridge TSAppDelegate *)context messageReceived: messageType withArgument: messageArgument];
 }
 
+// mainly for when the display goesto sleep and wakes up
 void displayCallback (void *context, io_service_t service, natural_t messageType, void *messageArgument)
 {
     [(__bridge TSAppDelegate *)context messageReceived: messageType withArgument: messageArgument];
 }
 
 - (void) takePhotoWithDelay: (float) delay {
-    
+    // This dispatch takes the function away from the UI so the menu returns immediately
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                
         NSURL *imageURL = [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
@@ -293,7 +303,7 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
             //put the userinfo in so we can tweet later
             [notification setUserInfo:userInfo];
             
-        }else{
+        } else {
             
             //Set the text of the notification
             [notification setInformativeText:@"There was a problem taking that shot :("];
@@ -309,7 +319,7 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
         
         //Scheldule our NSUserNotification
         [center scheduleNotification:notification];
-    });
+    }); // end of dispatch_async
     
 }
 
