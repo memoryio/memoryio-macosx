@@ -244,13 +244,13 @@
     IONotificationPortDestroy(notificationPort );
 }
 
-- (void) messageReceived:(natural_t)messageType withArgument:(void *)messageArgument{
+- (void) powerMessageReceived:(natural_t)messageType withArgument:(void *)messageArgument{
     //careful here, kIOMessageDeviceHasPoweredOn and kIOMessageSystemHasPoweredOn will fire after sleep
     switch ( messageType )
     {
         case kIOMessageDeviceHasPoweredOn :
             // mainly for when the display goesto sleep and wakes up
-            NSLog(@"messageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
+            NSLog(@"powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
             break;
         case kIOMessageSystemWillSleep:
             IOAllowPowerChange(root_port,(long)messageArgument);
@@ -260,7 +260,7 @@
             break;
         case kIOMessageSystemHasPoweredOn:
             // mainly for when the system goes to sleep and wakes up
-            NSLog(@"messageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
+            NSLog(@"powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
             [self takePhotoWithDelay:2.0f];
             break;
     }
@@ -269,13 +269,13 @@
 // mainly for when the system goes to sleep and wakes up
 void powerCallback( void *context, io_service_t service, natural_t messageType, void *messageArgument )
 {
-    [(__bridge TSAppDelegate *)context messageReceived: messageType withArgument: messageArgument];
+    [(__bridge TSAppDelegate *)context powerMessageReceived: messageType withArgument: messageArgument];
 }
 
 // mainly for when the display goesto sleep and wakes up
 void displayCallback (void *context, io_service_t service, natural_t messageType, void *messageArgument)
 {
-    [(__bridge TSAppDelegate *)context messageReceived: messageType withArgument: messageArgument];
+    [(__bridge TSAppDelegate *)context powerMessageReceived: messageType withArgument: messageArgument];
 }
 
 - (void) takePhotoWithDelay: (float) delay {
