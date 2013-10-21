@@ -106,7 +106,7 @@
 
 - (IBAction)forceAction:(id)sender
 {
-    [self takePhotoWithDelay:0.0f];
+    [self takePhotoWithDelay:2.0f];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -253,7 +253,7 @@
             IOAllowPowerChange(root_port,(long)messageArgument);
             break;
         case kIOMessageSystemHasPoweredOn:
-            [self takePhotoWithDelay:5.0f];
+            [self takePhotoWithDelay:2.0f];
             break;
     }
 }
@@ -268,15 +268,13 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
     [(__bridge TSAppDelegate *)context messageReceived: messageType withArgument: messageArgument];
 }
 
-- (void) takePhotoWithDelay: (float) delay{
+- (void) takePhotoWithDelay: (float) delay {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        [NSThread sleepForTimeInterval:delay];
-        
+               
         NSURL *imageURL = [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
                               toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
-                          withWarmup:[NSNumber numberWithInt:2] ];
+                          withWarmup:[NSNumber numberWithInt:delay] ];
         
         //Initalize new notification
         NSUserNotification *notification = [[NSUserNotification alloc] init];
