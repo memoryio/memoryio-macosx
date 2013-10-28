@@ -25,6 +25,7 @@
 		5B197FEB17CB7D3800E2E608 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FEA17CB7D3800E2E608 /* QTKit.framework */; };
 		5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3A13F3181DA2DE00C1F09E /* Images.xcassets */; };
 		5B6A0C11181DA8B100891D55 /* io_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A0C10181DA8B100891D55 /* io_logo.png */; };
+		5B6A0C13181DAC7F00891D55 /* io_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A0C12181DAC7F00891D55 /* io_logo.icns */; };
 		5BFDCF50180D3E2E001D1B74 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFDCF4F180D3E2E001D1B74 /* icon.png */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		5B197FEA17CB7D3800E2E608 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		5B3A13F3181DA2DE00C1F09E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B6A0C10181DA8B100891D55 /* io_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = io_logo.png; path = ../io_logo.png; sourceTree = "<group>"; };
+		5B6A0C12181DAC7F00891D55 /* io_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = io_logo.icns; path = ../io_logo.icns; sourceTree = "<group>"; };
 		5BFDCF4F180D3E2E001D1B74 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		2247EBE015A22FFB00A5C034 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B6A0C12181DAC7F00891D55 /* io_logo.icns */,
 				5B6A0C10181DA8B100891D55 /* io_logo.png */,
 				5BFDCF4F180D3E2E001D1B74 /* icon.png */,
 				2247EBE115A22FFB00A5C034 /* memoryio-Info.plist */,
@@ -264,6 +267,7 @@
 				5B6A0C11181DA8B100891D55 /* io_logo.png in Resources */,
 				5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */,
 				5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */,
+				5B6A0C13181DAC7F00891D55 /* io_logo.icns in Resources */,
 				5BFDCF50180D3E2E001D1B74 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
