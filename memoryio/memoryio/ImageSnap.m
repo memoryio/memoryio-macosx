@@ -190,8 +190,11 @@
     NSLog(@"Taking snapshot...\n");
 	
     CVImageBufferRef frame = nil;               // Hold frame we find
-//    while( frame == nil ){                      // While waiting for a frame
-//		
+    
+    int count = 0;
+    
+    while( frame == nil && count < 100 ){                      // While waiting for a frame
+		
 		NSLog(@"\tEntering synchronized block to see if frame is captured yet...");
         @synchronized(self){                    // Lock since capture is on another thread
             frame = mCurrentImageBuffer;        // Hold current frame
@@ -199,12 +202,13 @@
         }   // end sync: self
 		NSLog(@"Done.\n" );
 		
-//        if( frame == nil ){                     // Still no frame? Wait a little while.
-//            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow: 0.1]];
-//        }   // end if: still nothing, wait
-//		
-//    }   // end while: no frame yet
-    
+        if( frame == nil ){                     // Still no frame? Wait a little while.
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow: 0.1]];
+            count++;
+        }   // end if: still nothing, wait
+		
+    }   // end while: no frame yet
+
     // Convert frame to an NSImage
     if (frame != nil) { // we have an object, probably a frame, not nil
         NSCIImageRep *imageRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:frame]];
