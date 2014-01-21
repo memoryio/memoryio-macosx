@@ -103,7 +103,9 @@
 
 - (IBAction)aboutAction:(id)sender
 {
+    [sender setState: NSOffState];
     [[NSApplication sharedApplication] orderFrontStandardAboutPanel:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)forceAction:(id)sender
