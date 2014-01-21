@@ -22,6 +22,8 @@
 @synthesize statusMenu;
 @synthesize statusImage;
 @synthesize startupMenuItem;
+@synthesize windowOutlet;
+@synthesize previewImage;
 
 - (instancetype)init {
     self = [super init]; // or call the designated initalizer
@@ -107,6 +109,48 @@
 - (IBAction)forceAction:(id)sender
 {
     [self takePhotoWithDelay:2.0f];
+}
+
+-(IBAction)preview:(id)sender
+{
+    
+    NSError *error;
+    NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:
+                         [NSString stringWithFormat:@"%@%@",
+                          NSHomeDirectory(),
+                          @"/Pictures/memoryIO/"] error:&error ];
+    
+    NSString* tempPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+    NSString* tempFile = [tempPath stringByAppendingPathComponent:pictures.lastObject];
+    NSURL* URL = [NSURL fileURLWithPath:tempFile];
+    
+    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:URL];
+    
+    if(!backgroundImage){
+        
+        //Used to detect where our files are
+        NSBundle *bundle = [NSBundle mainBundle];
+        backgroundImage = [[NSImage alloc] initWithContentsOfFile:
+                           [bundle pathForResource:@"io_logo" ofType:@"png"]];
+    }
+    
+    [self setPhoto:backgroundImage];
+    
+    [windowOutlet makeKeyAndOrderFront: self];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+-(IBAction)setPhoto:(NSImage*)backgroundImage
+{
+    NSSize imageSize = [backgroundImage size];
+    
+    [windowOutlet setAspectRatio:imageSize];
+    
+    [previewImage setImage:backgroundImage];
+    
+    NSRect frame = [windowOutlet frame];
+    frame.size.width = (frame.size.height * imageSize.width) / imageSize.height;
+    [windowOutlet setFrame:frame display:YES animate:YES];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -293,6 +337,10 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
         
         if(imageURL != NULL){
             
+            NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:imageURL];
+            
+            [self setPhoto:backgroundImage];
+
             [notification setActionButtonTitle:@"tweet"];
             
             //Set the text of the notification

@@ -11,10 +11,14 @@
 //
 @interface TSAppDelegate : NSObject <NSUserNotificationCenterDelegate, NSSharingServiceDelegate, NSApplicationDelegate>
 
-@property NSStatusItem *statusItem;
-@property NSImage *statusImage;
 @property IBOutlet NSMenu *statusMenu;
 @property IBOutlet NSMenuItem *startupMenuItem;
+@property (weak) IBOutlet NSWindow *windowOutlet;
+@property (weak) IBOutlet NSImageView *previewImage;
+
+@property NSStatusItem *statusItem;
+@property NSImage *statusImage;
+
 @property QTCaptureDevice *device;
 @property NSNumber *warmup;
 @property NSString *filename;
@@ -31,5 +35,6 @@
 - (IBAction)forceAction:(id)sender;
 - (IBAction)aboutAction:(id)sender;
 - (IBAction)startupAction:(id)sender;
+- (IBAction)preview:(id)sender;
 
 @end
