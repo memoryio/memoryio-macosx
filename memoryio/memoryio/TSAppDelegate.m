@@ -157,7 +157,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSLog(@"Starting SleepUnmounter");
+    NSLog(@"Starting memoryio");
     
     [self subscribeDisplayNotifications];
     [self subscribePowerNotifications];
@@ -172,7 +172,7 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-    NSLog(@"SleepUnmounter is exiting...");
+    NSLog(@"memoryio is exiting...");
     
     [self unsubscribeDisplayNotifications];
     [self unsubscribePowerNotifications];
