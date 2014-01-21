@@ -704,14 +704,35 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" imageFrameStyle="photo" id="Htj-fv-cGP"/>
                     </imageView>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-XL-rdf">
+                        <rect key="frame" x="384" y="13" width="77" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Tweet" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4yt-S2-9Qy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="tweet:" target="494" id="kd2-KZ-neU"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="9g8-XL-rdf" firstAttribute="top" secondItem="HGe-kt-fev" secondAttribute="bottom" constant="-41" id="I7n-iB-2Rx"/>
                     <constraint firstItem="HGe-kt-fev" firstAttribute="leading" secondItem="pxf-gu-lPg" secondAttribute="leading" id="KN2-rQ-DrK"/>
+                    <constraint firstItem="9g8-XL-rdf" firstAttribute="leading" secondItem="HGe-kt-fev" secondAttribute="trailing" constant="-90" id="d9S-oc-4ek"/>
                     <constraint firstItem="HGe-kt-fev" firstAttribute="top" secondItem="pxf-gu-lPg" secondAttribute="top" id="qWg-AW-B5V"/>
                     <constraint firstAttribute="bottom" secondItem="HGe-kt-fev" secondAttribute="bottom" id="sdg-v4-fiT"/>
                     <constraint firstAttribute="trailing" secondItem="HGe-kt-fev" secondAttribute="trailing" id="twD-6h-uA4"/>
                 </constraints>
             </view>
         </window>
+        <button verticalHuggingPriority="750" id="xpJ-UY-I6d">
+            <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ReR-4Z-y2J">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+        </button>
     </objects>
 </document>

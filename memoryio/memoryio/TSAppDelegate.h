@@ -36,5 +36,6 @@
 - (IBAction)aboutAction:(id)sender;
 - (IBAction)startupAction:(id)sender;
 - (IBAction)preview:(id)sender;
+- (IBAction)tweet:(id)sender;
 
 @end

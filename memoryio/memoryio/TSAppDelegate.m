@@ -115,19 +115,8 @@
 
 -(IBAction)preview:(id)sender
 {
-    
-    NSError *error;
-    NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:
-                         [NSString stringWithFormat:@"%@%@",
-                          NSHomeDirectory(),
-                          @"/Pictures/memoryIO/"] error:&error ];
-    
-    NSString* tempPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
-    NSString* tempFile = [tempPath stringByAppendingPathComponent:pictures.lastObject];
-    NSURL* URL = [NSURL fileURLWithPath:tempFile];
-    
-    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:URL];
-    
+    NSImage *backgroundImage = [self getLastImage];
+
     if(!backgroundImage){
         
         //Used to detect where our files are
@@ -140,6 +129,23 @@
     
     [windowOutlet makeKeyAndOrderFront: self];
     [NSApp activateIgnoringOtherApps:YES];
+}
+
+-(NSImage*)getLastImage
+{
+    NSError *error;
+    NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:
+                         [NSString stringWithFormat:@"%@%@",
+                          NSHomeDirectory(),
+                          @"/Pictures/memoryIO/"] error:&error ];
+    
+    NSString* tempPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+    NSString* tempFile = [tempPath stringByAppendingPathComponent:pictures.lastObject];
+    NSURL* URL = [NSURL fileURLWithPath:tempFile];
+    
+    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:URL];
+    
+    return backgroundImage;
 }
 
 -(IBAction)setPhoto:(NSImage*)backgroundImage
@@ -184,10 +190,11 @@
 	switch (notification.activationType) {
 		case NSUserNotificationActivationTypeActionButtonClicked:
 			NSLog(@"Reply Button was clicked -> quick reply");
-            [self tweetText:@"  #memoryio" withPhoto:[notification.userInfo objectForKey:@"imageURL"]];
 			break;
 		case NSUserNotificationActivationTypeContentsClicked:
 			NSLog(@"Notification body was clicked -> redirect to item");
+            [windowOutlet makeKeyAndOrderFront: self];
+            [NSApp activateIgnoringOtherApps:YES];
 			break;
 		default:
 			NSLog(@"Notfiication appears to have been dismissed!");
@@ -195,21 +202,11 @@
 	}
 }
 
-- (void) tweetText:(NSString *)text withPhoto:(NSString *)photoPath{
-    
-    NSURL *imageURL = [NSURL fileURLWithPath:photoPath isDirectory:NO];
-    
-    NSError *err;
-    if ([imageURL checkResourceIsReachableAndReturnError:&err] == NO){
-        [[NSAlert alertWithError:err] runModal];
-    }
-    
-    NSImageRep *imageRep = [NSImageRep imageRepWithContentsOfURL:imageURL];
-    
-    NSImage *image = [[NSImage alloc] initWithSize:[imageRep size]];
-    [image addRepresentation:imageRep];
-    
-    NSArray * shareItems = [NSArray arrayWithObjects:text, image, nil];
+- (IBAction)tweet:(id)sender
+{
+    NSImage *backgroundImage = [self getLastImage];
+
+    NSArray * shareItems = [NSArray arrayWithObjects:@"  #memoryio", backgroundImage, nil];
     
     NSSharingService *service = [NSSharingService sharingServiceNamed:NSSharingServiceNamePostOnTwitter];
     service.delegate = self;
@@ -337,24 +334,18 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
         //Set the title of the notification
         [notification setTitle:@"memoryio"];
         
-        if(imageURL != NULL){
+        if(imageURL != NULL)
+        {
             
             NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:imageURL];
             
             [self setPhoto:backgroundImage];
 
-            [notification setActionButtonTitle:@"tweet"];
-            
             //Set the text of the notification
             [notification setInformativeText:@"Well, Look at you!"];
             
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[imageURL path] forKey:@"imageURL"];
-            
-            //put the userinfo in so we can tweet later
-            [notification setUserInfo:userInfo];
-            
-        } else {
-            
+        } else
+        {
             //Set the text of the notification
             [notification setInformativeText:@"There was a problem taking that shot :("];
             [notification setHasActionButton:false];
