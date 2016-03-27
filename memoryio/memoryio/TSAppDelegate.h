@@ -1,5 +1,4 @@
 #import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
 #import "ImageSnap.h"
 
 //
@@ -18,10 +17,6 @@
 
 @property NSStatusItem *statusItem;
 @property NSImage *statusImage;
-
-@property QTCaptureDevice *device;
-@property NSNumber *warmup;
-@property NSString *filename;
 
 @property io_connect_t  root_port;
 @property IONotificationPortRef  notifyPortRef;

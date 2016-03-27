@@ -1,356 +1,278 @@
-#import <Foundation/Foundation.h>
-#import "ImageSnap.h"
-#import <ApplicationServices/ApplicationServices.h>
-
 //
 //  ImageSnap.m
 //  ImageSnap
 //
 //  Created by Robert Harder on 9/10/09.
-//  Extended by Jacob Rosenthal on 8/22/13.
 //
+
+#import "ImageSnap.h"
+
+static BOOL g_verbose = NO;
+static BOOL g_quiet = NO;
+
+NSString *const VERSION = @"0.2.5";
+
+@interface ImageSnap()
+
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCaptureDeviceInput *captureDeviceInput;
+@property (nonatomic, strong) AVCaptureStillImageOutput *captureStillImageOutput;
+@property (nonatomic, assign) CVImageBufferRef currentImageBuffer;
+@property (nonatomic, strong) AVCaptureConnection *videoConnection;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+#if OS_OBJECT_HAVE_OBJC_SUPPORT == 1
+@property (nonatomic, strong) dispatch_queue_t imageQueue;
+#else
+@property (nonatomic, assign) dispatch_queue_t imageQueue;
+#endif
+
+@end
+
 @implementation ImageSnap
 
-- (void)dealloc{
-	
-    CVBufferRelease(mCurrentImageBuffer);
-    
-}
+#pragma mark - Object Lifecycle
 
 - (instancetype)init {
-    self = [super init]; // or call the designated initalizer
+    self = [super init];
+    
     if (self) {
-        mCaptureSession = nil;
-        mCaptureDeviceInput = nil;
-        mCaptureDecompressedVideoOutput = nil;
-        mCurrentImageBuffer = nil;
+        _dateFormatter = [NSDateFormatter new];
+        _dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+        
+        _imageQueue = dispatch_queue_create("Image Queue", NULL);
     }
     
     return self;
 }
 
-// Returns an array of video devices attached to this computer.
-+ (NSArray *)videoDevices{
-    NSMutableArray *results = [NSMutableArray arrayWithCapacity:3];
-    [results addObjectsFromArray:[QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo]];
-    [results addObjectsFromArray:[QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeMuxed]];
+- (void)dealloc {
+    [self.captureSession stopRunning];
+    CVBufferRelease(self.currentImageBuffer);
+}
+
+#pragma mark - Public Interface
+
+/**
+ * Returns all attached AVCaptureDevice objects that have video.
+ * This includes video-only devices (AVMediaTypeVideo) and
+ * audio/video devices (AVMediaTypeMuxed).
+ *
+ * @return array of video devices
+ */
++ (NSArray *)videoDevices {
+    NSMutableArray *results = [NSMutableArray new];
+    
+    [results addObjectsFromArray:[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]];
+    [results addObjectsFromArray:[AVCaptureDevice devicesWithMediaType:AVMediaTypeMuxed]];
+    
     return results;
 }
 
 // Returns the default video device or nil if none found.
-+ (QTCaptureDevice *)defaultVideoDevice{
-	QTCaptureDevice *device = nil;
++ (AVCaptureDevice *)defaultVideoDevice {
     
-	device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
-	if( device == nil ){
-        device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeMuxed];
-	}
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    if (device == nil) {
+        device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeMuxed];
+    }
+    
     return device;
 }
 
 // Returns the named capture device or nil if not found.
-+ (QTCaptureDevice *)deviceNamed:(NSString *)name{
-    QTCaptureDevice *result = nil;
++ (AVCaptureDevice *)deviceNamed:(NSString *)name {
+    AVCaptureDevice *result;
     
     NSArray *devices = [ImageSnap videoDevices];
-	for( QTCaptureDevice *device in devices ){
-        if ( [name isEqualToString:[device description]] ){
+    for (AVCaptureDevice *device in devices) {
+        if ([name isEqualToString:device.localizedName]) {
             result = device;
-        }   // end if: match
-    }   // end for: each device
+        }
+    }
     
     return result;
-}   // end
+}
 
-
-
-+ (NSURL *)saveSingleSnapshotFrom:(QTCaptureDevice *)device
+- (NSURL *)saveSingleSnapshotFrom:(AVCaptureDevice *)device
                         toFile:(NSString *)path
-                    withWarmup:(NSNumber *)warmup{
+                    withWarmup:(NSNumber *)warmup
+                 withTimelapse:(NSNumber *)timelapse {
     
-    ImageSnap *snap;
-    NSImage *rawImage = nil;
+    NSURL *imageURL = NULL;
+    double interval = timelapse == nil ? -1 : timelapse.doubleValue;
     
-    snap = [[ImageSnap alloc] init];            // Instance of this ImageSnap class
-    NSLog(@"Starting device...");
-    if( [snap startSession:device] ){           // Try starting session
-        NSLog(@"Device started.\n");
+    verbose("Starting device...");
+    [self.captureSession startRunning];
+    verbose("Device started.\n");
+    
+    if (warmup == nil) {
+        // Skip warmup
+        verbose("Skipping warmup period.\n");
+    } else {
+        double delay = warmup.doubleValue;
+        verbose("Delaying %.2lf seconds for warmup...", delay);
+//        NSDate *now = [[NSDate alloc] init];
+//        [[NSRunLoop currentRunLoop] runUntilDate:[now dateByAddingTimeInterval:warmup.doubleValue]];
+        [NSThread sleepForTimeInterval:[warmup floatValue]];
+        verbose("Warmup complete.\n");
+    }
+    
+    if (interval > 0) {
+        verbose("Time lapse: snapping every %.2lf seconds to current directory.\n", interval);
         
-        if( warmup == nil ){
-            // Skip warmup
-            NSLog(@"Skipping warmup period.\n");
-        } else {
-            double delay = [warmup doubleValue];
-            NSLog(@"Delaying %.2lf seconds for warmup...",delay);
-            [NSThread sleepForTimeInterval:[warmup floatValue]];
-            NSLog(@"Warmup complete.\n");
+        for (unsigned long seq = 0; ; seq++) {
+            
+            // capture and write
+            [self takeSnapshotWithFilename:[self fileNameWithSequenceNumber:seq]];                // Capture a frame
+            
+            // sleep
+            [[NSRunLoop currentRunLoop] runUntilDate:[[NSDate date] dateByAddingTimeInterval:interval]];
         }
         
-        rawImage = [snap snapshot];                // Capture a frame
-        NSLog(@"Stopping...");
-        [snap stopSession];                     // Stop session
-        NSLog(@"Stopped.");
+    } else {
         
-        if (rawImage != nil) {                  // We got an image, ok, try to deal with it. If no image, don't try to make files etc.
-            NSMutableData *photoDataWithExif = [[NSMutableData alloc] init];
-            
-            // create the image somehow, load from file, draw into it...
-            CGImageSourceRef source;
-            
-            source = CGImageSourceCreateWithData((__bridge CFDataRef)[rawImage TIFFRepresentation], NULL);
-            
-            //get all the metadata in the image
-            NSDictionary *metadata = (__bridge NSDictionary *) CGImageSourceCopyPropertiesAtIndex(source,0,NULL);
-            
-            //make the metadata dictionary mutable so we can add properties to it
-            NSMutableDictionary *metadataAsMutable = [metadata mutableCopy];
-            
-            //get existing exif data dictionary
-            NSMutableDictionary *EXIFDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
-            
-            if(!EXIFDictionary) {
-                //if the image does not have an EXIF dictionary (not all images do), then create one for us to use
-                EXIFDictionary = [NSMutableDictionary dictionary];
-            }
-            
-            NSDate *today = [NSDate date];
-            
-            NSString *dateString = [today descriptionWithCalendarFormat:nil timeZone:nil locale:nil];
-            
-            NSArray *chunks = [dateString componentsSeparatedByString: @" "];
-            NSString *filename = [chunks componentsJoinedByString:@"_"];
-            
-            //set DateTimeOriginal exif data
-            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
-            
-            //set DateCreated exif data
-            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
-            
-            //add our modified EXIF data back into the image’s metadata
-            [metadataAsMutable setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
-            
-            //add compression in
-            [metadataAsMutable setObject:[NSNumber numberWithFloat:.9] forKey:(NSString *)kCGImageDestinationLossyCompressionQuality];
-            
-            CFStringRef UTI = kUTTypeJPEG; //this is the type of image (e.g., public.jpeg)
-            
-            CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)photoDataWithExif,UTI,1,NULL);
-            
-            if(!destination) {
-                NSLog(@"***Could not create image destination ***");
-                return NULL;
-            }
-            
-            //add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
-            CGImageDestinationAddImageFromSource(destination,source,0, (__bridge CFDictionaryRef) metadataAsMutable);
-            
-            //tell the destination to write the image data and metadata into our data object.
-            if(!CGImageDestinationFinalize(destination)) {
-                NSLog(@"***Could not create data from image destination ***");
-                return NULL;
-            }
-            
-            //cleanup
-            CFRelease(destination);
-            CFRelease(source);
-            
-            NSFileManager *manager = [NSFileManager defaultManager];
-            
-            NSLog(@"Creating folder");
-            [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-            
-            NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, filename, @".jpg"];
-            
-            NSURL *imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
-            
-            Boolean result = [photoDataWithExif writeToURL:imageURL atomically:NO];
-            
-            if(result){
-                return imageURL;
-            } else {
-                return NULL;
-            }
+        NSDate *now = [NSDate date];
+        NSString *nowstr = [self.dateFormatter stringFromDate:now];
 
-        } else { // end if: rawImage not nil
-            NSLog(@"rawImage == nil\n");
-            return NULL;
-        } // rawImage was empty, return NULL, just like we weren't able to save the file.
+        NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".jpg"];
         
-    }   // end if: able to start session
-    // At this point, a session never got started, return NULL
-    NSLog(@"startSession:device failed.\n");
-    return NULL;
-}   // end
+        imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+
+        [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:self.videoConnection
+                                                                  completionHandler:
+         ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+             
+             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+             dispatch_async(self.imageQueue, ^{
+                 [imageData writeToURL:imageURL atomically:YES];
+                 [self stopSession];
+             });
+         }];
+
+        //        [self takeSnapshotWithFilename:[self fileNameWithSequenceNumber:0]];                // Capture a frame
+    }
+    
+//    [self stopSession];
+    return imageURL;
+}
+
+- (void)setUpSessionWithDevice:(AVCaptureDevice *)device {
+    
+    NSError *error;
+    
+    // Create the capture session
+    self.captureSession = [AVCaptureSession new];
+    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
+        self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+    }
+    
+    // Create input object from the device
+    self.captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    if (!error && [self.captureSession canAddInput:self.captureDeviceInput]) {
+        [self.captureSession addInput:self.captureDeviceInput];
+    }
+    
+    self.captureStillImageOutput = [AVCaptureStillImageOutput new];
+    self.captureStillImageOutput.outputSettings = @{ AVVideoCodecKey : AVVideoCodecJPEG};
+    
+    if ([self.captureSession canAddOutput:self.captureStillImageOutput]) {
+        [self.captureSession addOutput:self.captureStillImageOutput];
+    }
+    
+    for (AVCaptureConnection *connection in self.captureStillImageOutput.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([port.mediaType isEqual:AVMediaTypeVideo] ) {
+                self.videoConnection = connection;
+                break;
+            }
+        }
+        if (self.videoConnection) { break; }
+    }
+    
+    if ([self.captureSession canAddOutput:self.captureStillImageOutput]) {
+        [self.captureSession addOutput:self.captureStillImageOutput];
+    }
+}
+
+- (void)getReadyToTakePicture {
+    [self.captureSession startRunning];
+}
+
+#pragma mark - Internal Methods
 
 /**
  * Returns current snapshot or nil if there is a problem
  * or session is not started.
  */
-- (NSImage *)snapshot{
-    NSLog(@"Taking snapshot...\n");
-	
-    CVImageBufferRef frame = nil;               // Hold frame we find
+- (void)takeSnapshotWithFilename:(NSString *)filename {
+    __weak __typeof__(filename) weakFilename = filename;
     
-    int count = 0;
-    
-    while( frame == nil && count < 100 ){                      // While waiting for a frame
-		
-		NSLog(@"\tEntering synchronized block to see if frame is captured yet...");
-        @synchronized(self){                    // Lock since capture is on another thread
-            frame = mCurrentImageBuffer;        // Hold current frame
-            CVBufferRetain(frame);              // Retain it (OK if nil)
-        }   // end sync: self
-		NSLog(@"Done.\n" );
-		
-        if( frame == nil ){                     // Still no frame? Wait a little while.
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow: 0.1]];
-            count++;
-        }   // end if: still nothing, wait
-		
-    }   // end while: no frame yet
+    [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:self.videoConnection
+                                                              completionHandler:
+     ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+         
+         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+         
+         dispatch_async(self.imageQueue, ^{
+             [imageData writeToFile:weakFilename atomically:YES];
+         });
+     }];
+}
 
-    // Convert frame to an NSImage
-    if (frame != nil) { // we have an object, probably a frame, not nil
-        NSCIImageRep *imageRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:frame]];
-        NSImage *image = [[NSImage alloc] initWithSize:[imageRep size]];
-        [image addRepresentation:imageRep];
-        NSLog(@"Snapshot taken.\n" );
-        return image;
-    } else { // we didn't get a frame or anything. let the upstream function know we failed. Otherwise they will get an image with no frames inside. Hard to detect. ImageIO will thrown an exception.
-        NSLog(@"snapshot: no frame captures. returning nil.\n" );
-        return nil;
-    }
+/**
+ * Returns current snapshot or nil if there is a problem
+ * or session is not started.
+ */
+- (void)takeSnapshotWithUrl:(NSURL *)url {
+    __weak __typeof__(url) weakUrl = url;
+    
+    [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:self.videoConnection
+                                                              completionHandler:
+     ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+         
+         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+         
+         dispatch_async(self.imageQueue, ^{
+             [imageData writeToURL:weakUrl atomically:YES];
+         });
+     }];
 }
 
 /**
  * Blocks until session is stopped.
  */
-- (void)stopSession{
-	NSLog(@"Stopping session...\n" );
+- (void)stopSession {
+    verbose("Stopping session...\n" );
     
     // Make sure we've stopped
-    while( mCaptureSession != nil ){
-		NSLog(@"\tCaptureSession != nil\n");
+    while (self.captureSession != nil) {
+        verbose("\tCaptureSession != nil\n");
         
-		NSLog(@"\tStopping CaptureSession...");
-        [mCaptureSession stopRunning];
-		NSLog(@"Done.\n");
+        verbose("\tStopping CaptureSession...");
+        [self.captureSession stopRunning];
+        verbose("Done.\n");
         
-        if( [mCaptureSession isRunning] ){
-			NSLog(@"[mCaptureSession isRunning]");
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow: 0.1]];
-        }else {
-            NSLog(@"\tShutting down 'stopSession(..)'" );
+        if ([self.captureSession isRunning]) {
+            verbose("[captureSession isRunning]");
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+        } else {
+            verbose("\tShutting down 'stopSession(..)'" );
             
-            mCaptureSession = nil;
-            mCaptureDeviceInput = nil;
-            mCaptureDecompressedVideoOutput = nil;
-        }   // end if: stopped
-        
-    }   // end while: not stopped
+            self.captureSession = nil;
+            self.captureDeviceInput = nil;
+            self.captureStillImageOutput = nil;
+        }
+    }
 }
 
-/**
- * Begins the capture session. Frames begin coming in.
- */
-- (BOOL)startSession:(QTCaptureDevice *)device{
-	
-	NSLog(@"Starting capture session...\n" );
-	
-    if( device == nil ) {
-		NSLog(@"\tCannot start session: no device provided.\n" );
-		return NO;
-	}
+- (NSString *)fileNameWithSequenceNumber:(unsigned long)sequenceNumber {
     
-    NSError *error = nil;
+    NSDate *now = [NSDate date];
+    NSString *nowstr = [self.dateFormatter stringFromDate:now];
     
-    // If we've already started with this device, return
-    if( [device isEqual:[mCaptureDeviceInput device]] &&
-       mCaptureSession != nil &&
-       [mCaptureSession isRunning] ){
-        return YES;
-    }   // end if: already running
-	
-    else if( mCaptureSession != nil ){
-		NSLog(@"\tStopping previous session.\n" );
-        [self stopSession];
-    }   // end if: else stop session
-    
-	
-	// Create the capture session
-	NSLog(@"\tCreating QTCaptureSession..." );
-    mCaptureSession = [[QTCaptureSession alloc] init];
-	NSLog(@"Done.\n");
-	if( ![device open:&error] ){
-		NSLog( @"\tCould not create capture session.\n" );
-        mCaptureSession = nil;
-		return NO;
-	}
-    
-	
-	// Create input object from the device
-	NSLog(@"\tCreating QTCaptureDeviceInput with %s...", [[device description] UTF8String] );
-	mCaptureDeviceInput = [[QTCaptureDeviceInput alloc] initWithDevice:device];
-	NSLog(@"Done.\n");
-	if (![mCaptureSession addInput:mCaptureDeviceInput error:&error]) {
-		NSLog( @"\tCould not convert device to input device.\n");
-        mCaptureSession = nil;
-        mCaptureDeviceInput = nil;
-		return NO;
-	}
-    
-	
-	// Decompressed video output
-	NSLog(@"\tCreating QTCaptureDecompressedVideoOutput...");
-	mCaptureDecompressedVideoOutput = [[QTCaptureDecompressedVideoOutput alloc] init];
-	[mCaptureDecompressedVideoOutput setDelegate:self];
-	NSLog(@"Done.\n" );
-	if (![mCaptureSession addOutput:mCaptureDecompressedVideoOutput error:&error]) {
-		NSLog( @"\tCould not create decompressed output.\n");
-        mCaptureSession = nil;
-        mCaptureDeviceInput = nil;
-        mCaptureDecompressedVideoOutput = nil;
-		return NO;
-	}
-    
-    // Clear old image?
-	NSLog(@"\tEntering synchronized block to clear memory...");
-    @synchronized(self){
-        if( mCurrentImageBuffer != nil ){
-            CVBufferRelease(mCurrentImageBuffer);
-            mCurrentImageBuffer = nil;
-        }   // end if: clear old image
-    }   // end sync: self
-	NSLog(@"Done.\n");
-    
-	[mCaptureSession startRunning];
-	NSLog(@"Session started.\n");
-    
-    return YES;
-}   // end startSession
-
-// This delegate method is called whenever the QTCaptureDecompressedVideoOutput receives a frame
-- (void)captureOutput:(QTCaptureOutput *)captureOutput
-  didOutputVideoFrame:(CVImageBufferRef)videoFrame
-     withSampleBuffer:(QTSampleBuffer *)sampleBuffer
-       fromConnection:(QTCaptureConnection *)connection
-{
-	NSLog(@"." );
-    if (videoFrame == nil ) {
-		NSLog(@"'nil' Frame captured.\n" );
-        return;
-    }
-    
-    // Swap out old frame for new one
-    CVImageBufferRef imageBufferToRelease;
-    CVBufferRetain(videoFrame);
-	
-    @synchronized(self){
-        imageBufferToRelease = mCurrentImageBuffer;
-        mCurrentImageBuffer = videoFrame;
-    }   // end sync
-    CVBufferRelease(imageBufferToRelease);
-    
+    return [NSString stringWithFormat:@"snapshot-%05lu-%s.jpg", sequenceNumber, nowstr.UTF8String];
 }
 
 @end

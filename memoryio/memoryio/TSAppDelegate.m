@@ -193,7 +193,7 @@
 			break;
 		case NSUserNotificationActivationTypeContentsClicked:
 			NSLog(@"Notification body was clicked -> redirect to item");
-            [windowOutlet makeKeyAndOrderFront: self];
+            [self preview:nil];
             [NSApp activateIgnoringOtherApps:YES];
 			break;
 		default:
@@ -324,32 +324,37 @@ void displayCallback (void *context, io_service_t service, natural_t messageType
 - (void) takePhotoWithDelay: (float) delay {
     // This dispatch takes the function away from the UI so the menu returns immediately
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-               
-        NSURL *imageURL = [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
-                              toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
-                          withWarmup:[NSNumber numberWithInt:delay] ];
-        
+
+        ImageSnap *imageSnap = [ImageSnap new];
+        [imageSnap setUpSessionWithDevice:[ImageSnap defaultVideoDevice]];
+        [imageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
+                                                     toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
+                                                 withWarmup:[NSNumber numberWithInt:delay] withTimelapse:nil];
+
+
         //Initalize new notification
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         //Set the title of the notification
         [notification setTitle:@"memoryio"];
         
-        if(imageURL != NULL)
-        {
-            
-            NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:imageURL];
-            
-            [self setPhoto:backgroundImage];
-
-            //Set the text of the notification
-            [notification setInformativeText:@"Well, Look at you!"];
-            
-        } else
-        {
-            //Set the text of the notification
-            [notification setInformativeText:@"There was a problem taking that shot :("];
-            [notification setHasActionButton:false];
-        }
+        [notification setInformativeText:@"Well, Look at you!"];
+    
+//        if(imageURL != NULL)
+//        {
+//            
+//            NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:imageURL];
+//            
+//            [self setPhoto:backgroundImage];
+//
+//            //Set the text of the notification
+//            [notification setInformativeText:@"Well, Look at you!"];
+//            
+//        } else
+//        {
+//            //Set the text of the notification
+//            [notification setInformativeText:@"There was a problem taking that shot :("];
+//            [notification setHasActionButton:false];
+//        }
    
         [notification setSoundName:nil];
         
