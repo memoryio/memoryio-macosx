@@ -133,6 +133,11 @@
 				CLASSPREFIX = TS;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Tim Schröder";
+				TargetAttributes = {
+					2247EC0015A2300E00A5C034 = {
+						DevelopmentTeam = J97VZ3QA63;
+					};
+				};
 			};
 			buildConfigurationList = 2247EBFB15A2300E00A5C034 /* Build configuration list for PBXProject "LaunchAtLoginHelperApp" */;
 			compatibilityVersion = "Xcode 3.2";
