@@ -2,6 +2,8 @@
 #import "ServiceManagement/SMLoginItem.h"
 
 #import "ImageSnap.h"
+#import "NSGIF.h"
+#import "AVRecorderDocument.h"
 #import "NotificationManager.h"
 //
 //  TSAppDelegate.h
@@ -19,6 +21,7 @@
 
 - (IBAction)quitAction:(id)sender;
 - (IBAction)forceAction:(id)sender;
+- (IBAction)forceActionGIF:(id)sender;
 - (IBAction)aboutAction:(id)sender;
 - (IBAction)startupAction:(id)sender;
 - (IBAction)preview:(id)sender;

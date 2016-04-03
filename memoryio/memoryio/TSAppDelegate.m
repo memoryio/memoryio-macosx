@@ -108,6 +108,11 @@ NSImage *statusImage;
     [self takePhotoWithDelay:2.0f];
 }
 
+- (IBAction)forceActionGIF:(id)sender
+{
+    [self takeGIF];
+}
+
 -(IBAction)preview:(id)sender
 {
     NSImage *backgroundImage = [self getLastImage];
@@ -249,6 +254,48 @@ NSImage *statusImage;
 
                         }]; // end of callback Block
     }); // end of dispatch_async main thread
+}
+
+- (void) takeGIF
+{
+    NSString *fileName = [NSString stringWithFormat:@"AVRecorder_%@.mov", [[NSProcessInfo processInfo] globallyUniqueString]];
+    NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    NSLog(@"%@", fileName);
+
+    AVRecorderDocument *recorder = [[AVRecorderDocument alloc] init];
+    [recorder recordToURL:fileURL withLength:[NSNumber numberWithInt:2] withCallbackBlock:^(NSError *recordError) {
+
+        NSLog(@"recordToURL Finished: %@", recordError);
+
+        if (recordError != nil && [[[recordError userInfo] objectForKey:AVErrorRecordingSuccessfullyFinishedKey] boolValue] == NO)
+        {
+            [self postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+        } else
+        {
+            NSLog(@"generating gif");
+
+            [NSGIF createGIFfromURL:fileURL withFrameCount:10 delayTime:.01f loopCount:0 completion:^(NSURL *tempGIFURL) {
+                NSError *error = nil;
+                NSLog(@"Finished generating GIF: %@", tempGIFURL);
+
+                NSDateFormatter *dateFormatter;
+                dateFormatter = [NSDateFormatter new];
+                dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+                NSDate *now = [NSDate date];
+                NSString *nowstr = [dateFormatter stringFromDate:now];
+                NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+                NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".gif"];
+
+                NSLog(@"Cleaning up and moving");
+                NSURL *GifURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+                [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];
+                [[NSFileManager defaultManager] moveItemAtURL:tempGIFURL toURL:GifURL error:&error];
+                NSLog(@"Finished moving GIF to : %@", GifURL);
+                [self postNotification:@"Well, Look at you!" withActionBoolean:true];
+
+            }];
+        }
+    }];
 }
 
 @end

@@ -1,20 +1,37 @@
 PODS:
+  - AVCapture (0.0.1)
+  - NSGIF (1.1.1)
   - SimpleExif (0.0.1)
 
 DEPENDENCIES:
+  - AVCapture (from `git@github.com:jacobrosenthal/AVCapture.git`)
+  - NSGIF (from `git@github.com:jacobrosenthal/NSGIF.git`, branch `memoryio`)
   - SimpleExif (from `git@github.com:jacobrosenthal/SimpleExif.git`, branch `memoryio`)
 
 EXTERNAL SOURCES:
+  AVCapture:
+    :git: git@github.com:jacobrosenthal/AVCapture.git
+  NSGIF:
+    :branch: memoryio
+    :git: git@github.com:jacobrosenthal/NSGIF.git
   SimpleExif:
     :branch: memoryio
     :git: git@github.com:jacobrosenthal/SimpleExif.git
 
 CHECKOUT OPTIONS:
+  AVCapture:
+    :commit: dbaa7f6d6aaadd0e41a9ef5f386bd4e6a49fcee3
+    :git: git@github.com:jacobrosenthal/AVCapture.git
+  NSGIF:
+    :commit: c4c79f2ec006614784c50a21b34572d23aa89759
+    :git: git@github.com:jacobrosenthal/NSGIF.git
   SimpleExif:
     :commit: 5672f21cf9a961efb9d2dd1cb34aba11e06bc470
     :git: git@github.com:jacobrosenthal/SimpleExif.git
 
 SPEC CHECKSUMS:
+  AVCapture: 4d859258bf6cbe8f6fa5c909b00b3d597b99cf7a
+  NSGIF: 04635e6fbb5fce1c79bdfd4d2de3a5fadee6043b
   SimpleExif: c3e116ed2e939c97f5b7f3a747ead7a789716f1e
 
 COCOAPODS: 0.39.0
