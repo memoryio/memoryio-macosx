@@ -14,6 +14,7 @@
 		2247EBED15A22FFB00A5C034 /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */; };
 		2247EC6415A2325A00A5C034 /* LaunchAtLoginHelperApp.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 2247EC6115A231EC00A5C034 /* LaunchAtLoginHelperApp.app */; };
 		2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2247EC6515A2364F00A5C034 /* ServiceManagement.framework */; };
+		5B040F791CB0ACF20082947C /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B040F781CB0ACF20082947C /* NotificationManager.m */; };
 		5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A99DA17CB808700088E71 /* MainMenu.xib */; };
 		5B197FD417CB789200E2E608 /* ImageSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B197FD317CB789200E2E608 /* ImageSnap.m */; };
 		5B197FDF17CB7BBA00E2E608 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FDE17CB7BBA00E2E608 /* ApplicationServices.framework */; };
@@ -68,6 +69,8 @@
 		2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
 		2247EC5C15A231EC00A5C034 /* LaunchAtLoginHelperApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LaunchAtLoginHelperApp.xcodeproj; path = ../LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.xcodeproj; sourceTree = "<group>"; };
 		2247EC6515A2364F00A5C034 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		5B040F771CB0ACF20082947C /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		5B040F781CB0ACF20082947C /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		5B0A99DA17CB808700088E71 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		5B17DBB917CCC38B00220E2B /* memoryio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = memoryio.entitlements; path = ../memoryio.entitlements; sourceTree = "<group>"; };
 		5B197FD217CB789200E2E608 /* ImageSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSnap.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				5B17DBB917CCC38B00220E2B /* memoryio.entitlements */,
 				2247EBEB15A22FFB00A5C034 /* TSAppDelegate.h */,
 				2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */,
+				5B040F771CB0ACF20082947C /* NotificationManager.h */,
+				5B040F781CB0ACF20082947C /* NotificationManager.m */,
 				5B197FD217CB789200E2E608 /* ImageSnap.h */,
 				5B197FD317CB789200E2E608 /* ImageSnap.m */,
 				5B0A99DA17CB808700088E71 /* MainMenu.xib */,
@@ -281,6 +286,7 @@
 			files = (
 				2247EBE615A22FFB00A5C034 /* main.m in Sources */,
 				2247EBED15A22FFB00A5C034 /* TSAppDelegate.m in Sources */,
+				5B040F791CB0ACF20082947C /* NotificationManager.m in Sources */,
 				5B197FD417CB789200E2E608 /* ImageSnap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

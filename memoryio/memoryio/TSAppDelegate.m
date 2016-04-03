@@ -1,7 +1,4 @@
-#import <IOKit/IOMessage.h>
-#import <IOKit/pwr_mgt/IOPMLib.h>
 #import "TSAppDelegate.h"
-#import "ImageSnap.h"
 
 //
 //  TSAppDelegate.m
@@ -12,37 +9,35 @@
 //
 @implementation TSAppDelegate
 
-@synthesize root_port;
-@synthesize notifyPortRef;
-@synthesize notifierObject;
-@synthesize displayWrangler;
-@synthesize notificationPort;
-@synthesize notifier;
-@synthesize statusItem;
 @synthesize statusMenu;
-@synthesize statusImage;
 @synthesize startupMenuItem;
 @synthesize windowOutlet;
 @synthesize previewImage;
 
-- (instancetype)init {
-    self = [super init]; // or call the designated initalizer
-    if (self) {
-        
-        root_port = NULL;
-        notifyPortRef = NULL;
-        notifierObject = NULL;
-        
-        displayWrangler = NULL;
-        notificationPort = NULL;
-        notifier = NULL;
-    }
-    
-    return self;
-}
+NotificationManager *notificationManager;
+NSStatusItem *statusItem;
+NSImage *statusImage;
 
 - (void)awakeFromNib
 {
+
+    notificationManager = [[NotificationManager alloc] init];
+    typeof(self) __weak weakSelf = self;
+    [notificationManager setNotificationBlock:^(natural_t messageType, void *messageArgument) {
+
+        switch ( messageType )
+        {
+            case kIOMessageDeviceHasPoweredOn :
+                // mainly for when the display goesto sleep and wakes up
+                NSLog(@"powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
+                break;
+            case kIOMessageSystemHasPoweredOn:
+                // mainly for when the system goes to sleep and wakes up
+                NSLog(@"powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
+                [weakSelf takePhotoWithDelay:2.0f];
+                break;
+        }
+    }];
     
     //make run at startup up to date - TODO, check this more often?
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"]) {
@@ -51,13 +46,13 @@
         [startupMenuItem setState:NSOffState];
     }
     
-	statusItem = [[NSStatusBar systemStatusBar]
+    statusItem = [[NSStatusBar systemStatusBar]
                   statusItemWithLength:NSVariableStatusItemLength];
-	[statusItem setHighlightMode:YES];
-	[statusItem setEnabled:YES];
-	[statusItem setToolTip:@"MemoryIO"];
-	
-	[statusItem setTarget:self];
+    [statusItem setHighlightMode:YES];
+    [statusItem setEnabled:YES];
+    [statusItem setToolTip:@"MemoryIO"];
+
+    [statusItem setTarget:self];
     
     //Used to detect where our files are
     NSBundle *bundle = [NSBundle mainBundle];
@@ -66,7 +61,7 @@
 
     //Sets the images in our NSStatusItem
     [statusItem setImage:statusImage];
-    
+
     //put menu in menubar
     [statusItem setMenu:statusMenu];
 }
@@ -87,7 +82,7 @@
         if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES)) {
             [sender setState: NSOnState];
             [userDefaults setBool:YES
-                             forKey:@"memoryio-launchatlogin"];
+                           forKey:@"memoryio-launchatlogin"];
         }
     }else{
 
@@ -165,41 +160,33 @@
 {
     NSLog(@"Starting memoryio");
     
-    [self subscribeDisplayNotifications];
-    [self subscribePowerNotifications];
+    [notificationManager subscribeDisplayNotifications];
+    [notificationManager subscribePowerNotifications];
     
     //put startup stuff here //NSUserDefaults standarduserdefaults boolforkey
     BOOL startedAtLogin = NO;
     for (NSString *arg in [[NSProcessInfo processInfo] arguments]) {
         if ([arg isEqualToString:@"launchAtLogin"]) startedAtLogin = YES;
     }
-
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-{
-    NSLog(@"memoryio is exiting...");
     
-    [self unsubscribeDisplayNotifications];
-    [self unsubscribePowerNotifications];
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
 {
     [center removeDeliveredNotification:notification];
-	switch (notification.activationType) {
-		case NSUserNotificationActivationTypeActionButtonClicked:
-			NSLog(@"Reply Button was clicked -> quick reply");
-			break;
-		case NSUserNotificationActivationTypeContentsClicked:
-			NSLog(@"Notification body was clicked -> redirect to item");
-            [windowOutlet makeKeyAndOrderFront: self];
+    switch (notification.activationType) {
+        case NSUserNotificationActivationTypeActionButtonClicked:
+            NSLog(@"Reply Button was clicked -> quick reply");
+            break;
+        case NSUserNotificationActivationTypeContentsClicked:
+            NSLog(@"Notification body was clicked -> redirect to item");
+            [self preview:nil];
             [NSApp activateIgnoringOtherApps:YES];
-			break;
-		default:
-			NSLog(@"Notfiication appears to have been dismissed!");
-			break;
-	}
+            break;
+        default:
+            NSLog(@"Notfiication appears to have been dismissed!");
+            break;
+    }
 }
 
 - (IBAction)tweet:(id)sender
@@ -207,7 +194,7 @@
     NSImage *backgroundImage = [self getLastImage];
 
     NSArray * shareItems = [NSArray arrayWithObjects:@"  #memoryio", backgroundImage, nil];
-    
+
     NSSharingService *service = [NSSharingService sharingServiceNamed:NSSharingServiceNamePostOnTwitter];
     service.delegate = self;
     [service performWithItems:shareItems];
@@ -218,149 +205,45 @@
     return YES;
 }
 
-// register to receive system power notifications
-// mainly for when the system goes to sleep and wakes up
-- (void)subscribePowerNotifications
-{
-    root_port = IORegisterForSystemPower( (__bridge void *)(self), &notifyPortRef, powerCallback, &notifierObject );
-    if ( root_port == 0 )
-    {
-        printf("IORegisterForSystemPower failed\n");
-        [NSApp terminate:self];
-    }
+- (void) postNotification:(NSString *) informativeText withActionBoolean:(BOOL)hasActionButton{
+    //Initalize new notification
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    //Set the title of the notification
+    [notification setTitle:@"memoryio"];
     
-    // add the notification port to the application runloop
-    CFRunLoopAddSource( CFRunLoopGetCurrent(),
-                       IONotificationPortGetRunLoopSource(notifyPortRef), kCFRunLoopCommonModes );
+    [notification setInformativeText:informativeText];
+    [notification setHasActionButton:hasActionButton];
     
-}
-
-// unsubscribe system sleep notifications
-// mainly for when the system goes to sleep and wakes up
-- (void)unsubscribePowerNotifications{
-    // remove the sleep notification port from the application runloop
-    CFRunLoopRemoveSource( CFRunLoopGetCurrent(),
-                          IONotificationPortGetRunLoopSource(notifyPortRef),
-                          kCFRunLoopCommonModes );
     
-    // deregister for system sleep notifications
-    IODeregisterForSystemPower( &notifierObject );
+    [notification setSoundName:nil];
     
-    // IORegisterForSystemPower implicitly opens the Root Power Domain IOService
-    // so we close it here
-    IOServiceClose( root_port );
+    //Get the default notification center
+    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     
-    // destroy the notification port allocated by IORegisterForSystemPower
-    IONotificationPortDestroy( notifyPortRef );
-}
-
-// register to receive system display notifications
-// mainly for when the display goes to sleep and wakes up
-- (void)subscribeDisplayNotifications
-{
-	displayWrangler = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceNameMatching("IODisplayWrangler"));
-	if (! displayWrangler) {
-		//message (LOG_ERR, "IOServiceGetMatchingService failed\n");
-		[NSApp terminate:self];
-	}
-	notificationPort = IONotificationPortCreate(kIOMasterPortDefault);
-	if (! notificationPort) {
-		//message (LOG_ERR, "IONotificationPortCreate failed\n");
-		[NSApp terminate:self];
-	}
-	if (IOServiceAddInterestNotification(notificationPort, displayWrangler, kIOGeneralInterest,
-                                         displayCallback, (__bridge void *)(self), &notifier) != kIOReturnSuccess) {
-		//message (LOG_ERR, "IOServiceAddInterestNotification failed\n");
-		[NSApp terminate:self];
-	}
-	CFRunLoopAddSource (CFRunLoopGetCurrent(), IONotificationPortGetRunLoopSource(notificationPort), kCFRunLoopDefaultMode);
-	IOObjectRelease (displayWrangler);
-}
-
-// unsubscribe system display notifications
-// mainly for when the display goes to sleep and wakes up
-- (void)unsubscribeDisplayNotifications
-{
-    CFRunLoopRemoveSource(CFRunLoopGetCurrent(),IONotificationPortGetRunLoopSource(notificationPort),kCFRunLoopCommonModes);
-    IODeregisterForSystemPower(&notifier);
-    IOServiceClose(displayWrangler);
-    IONotificationPortDestroy(notificationPort );
-}
-
-- (void) powerMessageReceived:(natural_t)messageType withArgument:(void *)messageArgument{
-    //careful here, kIOMessageDeviceHasPoweredOn and kIOMessageSystemHasPoweredOn will fire after sleep
-    switch ( messageType )
-    {
-        case kIOMessageDeviceHasPoweredOn :
-            // mainly for when the display goesto sleep and wakes up
-            NSLog(@"powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
-            break;
-        case kIOMessageSystemWillSleep:
-            IOAllowPowerChange(root_port,(long)messageArgument);
-            break;
-        case kIOMessageCanSystemSleep:
-            IOAllowPowerChange(root_port,(long)messageArgument);
-            break;
-        case kIOMessageSystemHasPoweredOn:
-            // mainly for when the system goes to sleep and wakes up
-            NSLog(@"powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
-            [self takePhotoWithDelay:2.0f];
-            break;
-    }
-}
-
-// mainly for when the system goes to sleep and wakes up
-void powerCallback( void *context, io_service_t service, natural_t messageType, void *messageArgument )
-{
-    [(__bridge TSAppDelegate *)context powerMessageReceived: messageType withArgument: messageArgument];
-}
-
-// mainly for when the display goesto sleep and wakes up
-void displayCallback (void *context, io_service_t service, natural_t messageType, void *messageArgument)
-{
-    [(__bridge TSAppDelegate *)context powerMessageReceived: messageType withArgument: messageArgument];
+    center.delegate=self;
+    
+    //Scheldule our NSUserNotification
+    [center scheduleNotification:notification];
 }
 
 - (void) takePhotoWithDelay: (float) delay {
     // This dispatch takes the function away from the UI so the menu returns immediately
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-               
+        
         NSURL *imageURL = [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
-                              toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
-                          withWarmup:[NSNumber numberWithInt:delay] ];
+                                                     toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
+                                                 withWarmup:[NSNumber numberWithInt:delay] ];
         
-        //Initalize new notification
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        //Set the title of the notification
-        [notification setTitle:@"memoryio"];
-        
-        if(imageURL != NULL)
-        {
-            
-            NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:imageURL];
-            
-            [self setPhoto:backgroundImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(!imageURL)
+            {
+                [self postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+            } else {
+                [self postNotification:@"Well, Look at you!" withActionBoolean:true];
+            }
+        }); // end of dispatch_async main thread
 
-            //Set the text of the notification
-            [notification setInformativeText:@"Well, Look at you!"];
-            
-        } else
-        {
-            //Set the text of the notification
-            [notification setInformativeText:@"There was a problem taking that shot :("];
-            [notification setHasActionButton:false];
-        }
-   
-        [notification setSoundName:nil];
-        
-        //Get the default notification center
-        NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
-        
-        center.delegate=self;
-        
-        //Scheldule our NSUserNotification
-        [center scheduleNotification:notification];
-    }); // end of dispatch_async
+    }); // end of dispatch_async global thread
     
 }
 

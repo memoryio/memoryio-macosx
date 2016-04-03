@@ -1,7 +1,8 @@
 #import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
-#import "ImageSnap.h"
+#import "ServiceManagement/SMLoginItem.h"
 
+#import "ImageSnap.h"
+#import "NotificationManager.h"
 //
 //  TSAppDelegate.h
 //  TSAppDelegate
@@ -15,21 +16,6 @@
 @property IBOutlet NSMenuItem *startupMenuItem;
 @property (weak) IBOutlet NSWindow *windowOutlet;
 @property (weak) IBOutlet NSImageView *previewImage;
-
-@property NSStatusItem *statusItem;
-@property NSImage *statusImage;
-
-@property QTCaptureDevice *device;
-@property NSNumber *warmup;
-@property NSString *filename;
-
-@property io_connect_t  root_port;
-@property IONotificationPortRef  notifyPortRef;
-@property io_object_t            notifierObject;
-
-@property io_service_t		displayWrangler;
-@property IONotificationPortRef  notificationPort;
-@property io_object_t     notifier;
 
 - (IBAction)quitAction:(id)sender;
 - (IBAction)forceAction:(id)sender;
