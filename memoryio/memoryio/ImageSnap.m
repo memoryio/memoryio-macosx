@@ -113,18 +113,18 @@
                 EXIFDictionary = [NSMutableDictionary dictionary];
             }
             
-            NSDate *today = [NSDate date];
-            
-            NSString *dateString = [today descriptionWithCalendarFormat:nil timeZone:nil locale:nil];
-            
-            NSArray *chunks = [dateString componentsSeparatedByString: @" "];
-            NSString *filename = [chunks componentsJoinedByString:@"_"];
-            
+            NSDateFormatter *dateFormatter;
+            dateFormatter = [NSDateFormatter new];
+            dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+
+            NSDate *now = [NSDate date];
+            NSString *nowstr = [dateFormatter stringFromDate:now];
+
             //set DateTimeOriginal exif data
-            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
+            [EXIFDictionary setValue:nowstr forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
             
             //set DateCreated exif data
-            [EXIFDictionary setValue:dateString forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
+            [EXIFDictionary setValue:nowstr forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
             
             //add our modified EXIF data back into the image’s metadata
             [metadataAsMutable setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
@@ -159,8 +159,8 @@
             NSLog(@"Creating folder");
             [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
             
-            NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, filename, @".jpg"];
-            
+            NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".jpg"];
+
             NSURL *imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
             
             Boolean result = [photoDataWithExif writeToURL:imageURL atomically:NO];
