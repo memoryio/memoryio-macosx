@@ -1,27 +1,33 @@
-#import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
-
 //
 //  ImageSnap.h
 //  ImageSnap
 //
 //  Created by Robert Harder on 9/10/09.
-//  Extended by Jacob Rosenthal on 8/22/13.
 //
-@interface ImageSnap : NSObject {
-    
-    QTCaptureSession                    *mCaptureSession;
-    QTCaptureDeviceInput                *mCaptureDeviceInput;
-    QTCaptureDecompressedVideoOutput    *mCaptureDecompressedVideoOutput;
-    CVImageBufferRef                    mCurrentImageBuffer;
-}
+
+#import <AVFoundation/AVFoundation.h>
+#import <Cocoa/Cocoa.h>
+#include "ImageSnap.h"
+#import "ExifContainer.h"
+#import "NSImage+Exif.h"
+
+#define error(...) fprintf(stderr, __VA_ARGS__)
+#define console(...) (!g_quiet && printf(__VA_ARGS__))
+#define verbose(...) (g_verbose && !g_quiet && fprintf(stderr, __VA_ARGS__))
+
+static BOOL g_verbose;
+static BOOL g_quiet;
+
+FOUNDATION_EXPORT NSString *const VERSION;
+
+@interface ImageSnap : NSObject
 
 /**
  * Returns all attached QTCaptureDevice objects that have video.
  * This includes video-only devices (QTMediaTypeVideo) and
  * audio/video devices (QTMediaTypeMuxed).
  *
- * @return autoreleased array of video devices
+ * @return array of video devices
  */
 + (NSArray *)videoDevices;
 
@@ -29,23 +35,17 @@
  * Returns the default QTCaptureDevice object for video
  * or nil if none is found.
  */
-+ (QTCaptureDevice *)defaultVideoDevice;
++ (AVCaptureDevice *)defaultVideoDevice;
 
 /**
  * Returns the QTCaptureDevice with the given name
  * or nil if the device cannot be found.
  */
-+ (QTCaptureDevice *)deviceNamed:(NSString *)name;
++ (AVCaptureDevice *)deviceNamed:(NSString *)name;
 
-/**
- * Primary one-stop-shopping message for capturing an image.
- * Activates the video source, saves a frame, stops the source,
- * and saves the file.
- */
-+ (NSURL *)saveSingleSnapshotFrom:(QTCaptureDevice *)device toFile:(NSString *)path
-                    withWarmup:(NSNumber *)warmup;
-
-- (BOOL)startSession:(QTCaptureDevice *)device;
-- (void)stopSession;
++ (void)saveSingleSnapshotFrom:(AVCaptureDevice *)device
+                        toPath:(NSString *)path
+                    withWarmup:(NSNumber *)warmup
+             withCallbackBlock:(void (^)(NSURL *imageURL, NSError *error))callbackBlock;
 
 @end

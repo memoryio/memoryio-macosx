@@ -23,11 +23,12 @@
 		5B197FE617CB7BD800E2E608 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE417CB7BD800E2E608 /* Quartz.framework */; };
 		5B197FE717CB7BD800E2E608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE517CB7BD800E2E608 /* QuartzCore.framework */; };
 		5B197FE917CB7BE400E2E608 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE817CB7BE400E2E608 /* CoreFoundation.framework */; };
-		5B197FEB17CB7D3800E2E608 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FEA17CB7D3800E2E608 /* QTKit.framework */; };
 		5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3A13F3181DA2DE00C1F09E /* Images.xcassets */; };
+		5B60CD7A1CB0D78700F44D91 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B60CD791CB0D78700F44D91 /* AVFoundation.framework */; };
 		5B6A0C11181DA8B100891D55 /* io_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A0C10181DA8B100891D55 /* io_logo.png */; };
 		5B6A0C13181DAC7F00891D55 /* io_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A0C12181DAC7F00891D55 /* io_logo.icns */; };
 		5BFDCF50180D3E2E001D1B74 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFDCF4F180D3E2E001D1B74 /* icon.png */; };
+		C696455A2A2C9A968C3F2B14 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37BFE1C8ED09CA55423FA57 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
 		2247EC5C15A231EC00A5C034 /* LaunchAtLoginHelperApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LaunchAtLoginHelperApp.xcodeproj; path = ../LaunchAtLoginHelperApp/LaunchAtLoginHelperApp.xcodeproj; sourceTree = "<group>"; };
 		2247EC6515A2364F00A5C034 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		3481110F62A5D323403BF292 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5B040F771CB0ACF20082947C /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		5B040F781CB0ACF20082947C /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		5B0A99DA17CB808700088E71 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -83,9 +85,12 @@
 		5B197FE817CB7BE400E2E608 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		5B197FEA17CB7D3800E2E608 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		5B3A13F3181DA2DE00C1F09E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5B60CD791CB0D78700F44D91 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5B6A0C10181DA8B100891D55 /* io_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = io_logo.png; path = ../io_logo.png; sourceTree = "<group>"; };
 		5B6A0C12181DAC7F00891D55 /* io_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = io_logo.icns; path = ../io_logo.icns; sourceTree = "<group>"; };
 		5BFDCF4F180D3E2E001D1B74 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		CA6AE536B6D0A0E3F306766E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D37BFE1C8ED09CA55423FA57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B197FEB17CB7D3800E2E608 /* QTKit.framework in Frameworks */,
+				5B60CD7A1CB0D78700F44D91 /* AVFoundation.framework in Frameworks */,
 				5B197FE917CB7BE400E2E608 /* CoreFoundation.framework in Frameworks */,
 				5B197FE617CB7BD800E2E608 /* Quartz.framework in Frameworks */,
 				5B197FE717CB7BD800E2E608 /* QuartzCore.framework in Frameworks */,
@@ -102,6 +107,7 @@
 				5B197FDF17CB7BBA00E2E608 /* ApplicationServices.framework in Frameworks */,
 				2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */,
 				2247EBDA15A22FFB00A5C034 /* Cocoa.framework in Frameworks */,
+				C696455A2A2C9A968C3F2B14 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +121,7 @@
 				2247EBDF15A22FFB00A5C034 /* memoryio */,
 				2247EBD815A22FFB00A5C034 /* Frameworks */,
 				2247EBD615A22FFB00A5C034 /* Products */,
+				42D4B3C6537258AAF918831A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +136,7 @@
 		2247EBD815A22FFB00A5C034 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B60CD791CB0D78700F44D91 /* AVFoundation.framework */,
 				5B197FEA17CB7D3800E2E608 /* QTKit.framework */,
 				5B197FE817CB7BE400E2E608 /* CoreFoundation.framework */,
 				5B197FE417CB7BD800E2E608 /* Quartz.framework */,
@@ -138,6 +146,7 @@
 				5B197FDE17CB7BBA00E2E608 /* ApplicationServices.framework */,
 				2247EBD915A22FFB00A5C034 /* Cocoa.framework */,
 				2247EBDB15A22FFB00A5C034 /* Other Frameworks */,
+				D37BFE1C8ED09CA55423FA57 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,6 +202,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		42D4B3C6537258AAF918831A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3481110F62A5D323403BF292 /* Pods.debug.xcconfig */,
+				CA6AE536B6D0A0E3F306766E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,10 +218,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2247EBF315A22FFB00A5C034 /* Build configuration list for PBXNativeTarget "memoryio" */;
 			buildPhases = (
+				38244CD6237FB09648309E84 /* Check Pods Manifest.lock */,
 				2247EBD115A22FFB00A5C034 /* Sources */,
 				2247EBD215A22FFB00A5C034 /* Frameworks */,
 				2247EBD315A22FFB00A5C034 /* Resources */,
 				2247EC6315A2323900A5C034 /* Copy Helper App */,
+				762EA2ABD340C7FB17678C08 /* Embed Pods Frameworks */,
+				F29DD83F0313A0BFCD2B75D3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +299,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38244CD6237FB09648309E84 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		762EA2ABD340C7FB17678C08 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F29DD83F0313A0BFCD2B75D3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2247EBD115A22FFB00A5C034 /* Sources */ = {
@@ -378,6 +447,7 @@
 		};
 		2247EBF415A22FFB00A5C034 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3481110F62A5D323403BF292 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = memoryio.entitlements;
@@ -394,6 +464,7 @@
 		};
 		2247EBF515A22FFB00A5C034 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA6AE536B6D0A0E3F306766E /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = memoryio.entitlements;

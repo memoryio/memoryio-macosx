@@ -227,24 +227,28 @@ NSImage *statusImage;
 }
 
 - (void) takePhotoWithDelay: (float) delay {
-    // This dispatch takes the function away from the UI so the menu returns immediately
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSURL *imageURL = [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
-                                                     toFile:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"]
-                                                 withWarmup:[NSNumber numberWithInt:delay] ];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(!imageURL)
-            {
-                [self postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
-            } else {
-                [self postNotification:@"Well, Look at you!" withActionBoolean:true];
-            }
-        }); // end of dispatch_async main thread
 
-    }); // end of dispatch_async global thread
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+
+        typeof(self) __weak weakSelf = self;
+        [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
+                                   toPath:path
+                               withWarmup:[NSNumber numberWithInt:delay]
+                        withCallbackBlock:^(NSURL *imageURL, NSError *error) {
+
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                if(error)
+                                {
+                                    [weakSelf postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+                                } else {
+                                    [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
+                                }
+                            }); // end of dispatch_async main thread
+
+                        }]; // end of callback Block
+    }); // end of dispatch_async main thread
 }
 
 @end

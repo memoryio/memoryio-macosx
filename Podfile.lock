@@ -1,0 +1,20 @@
+PODS:
+  - SimpleExif (0.0.1)
+
+DEPENDENCIES:
+  - SimpleExif (from `git@github.com:jacobrosenthal/SimpleExif.git`, branch `memoryio`)
+
+EXTERNAL SOURCES:
+  SimpleExif:
+    :branch: memoryio
+    :git: git@github.com:jacobrosenthal/SimpleExif.git
+
+CHECKOUT OPTIONS:
+  SimpleExif:
+    :commit: 5672f21cf9a961efb9d2dd1cb34aba11e06bc470
+    :git: git@github.com:jacobrosenthal/SimpleExif.git
+
+SPEC CHECKSUMS:
+  SimpleExif: c3e116ed2e939c97f5b7f3a747ead7a789716f1e
+
+COCOAPODS: 0.39.0
