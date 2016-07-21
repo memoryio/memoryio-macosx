@@ -20,18 +20,20 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AVCapture:
-    :commit: dbaa7f6d6aaadd0e41a9ef5f386bd4e6a49fcee3
+    :commit: 754a6b47bc63c9da23a9c127237904a39e3213cc
     :git: git@github.com:jacobrosenthal/AVCapture.git
   NSGIF:
     :commit: c4c79f2ec006614784c50a21b34572d23aa89759
     :git: git@github.com:jacobrosenthal/NSGIF.git
   SimpleExif:
-    :commit: 5672f21cf9a961efb9d2dd1cb34aba11e06bc470
+    :commit: ab5a85f97677c6f4010b9da61c8e981ae62a0c79
     :git: git@github.com:jacobrosenthal/SimpleExif.git
 
 SPEC CHECKSUMS:
-  AVCapture: 4d859258bf6cbe8f6fa5c909b00b3d597b99cf7a
+  AVCapture: c626a8b76db962dfb5a444f89f87b277573bd684
   NSGIF: 04635e6fbb5fce1c79bdfd4d2de3a5fadee6043b
-  SimpleExif: c3e116ed2e939c97f5b7f3a747ead7a789716f1e
+  SimpleExif: 066e88afee34bcf5d6c4c2905fc240f53112d419
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 5aee51139ae050f2d043d3495a128a92e09320f0
+
+COCOAPODS: 1.0.1
