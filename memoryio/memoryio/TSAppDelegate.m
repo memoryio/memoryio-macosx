@@ -34,7 +34,7 @@ NSImage *statusImage;
             case kIOMessageSystemHasPoweredOn:
                 // mainly for when the system goes to sleep and wakes up
                 NSLog(@"powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
-                [weakSelf takePhotoWithDelay:2.0f];
+                [weakSelf takeGIF];
                 break;
         }
     }];
@@ -274,7 +274,7 @@ NSImage *statusImage;
         {
             NSLog(@"generating gif");
 
-            [NSGIF createGIFfromURL:fileURL withFrameCount:10 delayTime:.01f loopCount:0 completion:^(NSURL *tempGIFURL) {
+            [NSGIF createGIFfromURL:fileURL withFrameCount:10 delayTime:.15f loopCount:0 completion:^(NSURL *tempGIFURL) {
                 NSError *error = nil;
                 NSLog(@"Finished generating GIF: %@", tempGIFURL);
 
