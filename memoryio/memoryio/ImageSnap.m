@@ -19,13 +19,6 @@ NSString *const VERSION = @"0.2.5";
 @property (nonatomic, strong) AVCaptureStillImageOutput *captureStillImageOutput;
 @property (nonatomic, assign) CVImageBufferRef currentImageBuffer;
 @property (nonatomic, strong) AVCaptureConnection *videoConnection;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
-
-#if OS_OBJECT_HAVE_OBJC_SUPPORT == 1
-@property (nonatomic, strong) dispatch_queue_t imageQueue;
-#else
-@property (nonatomic, assign) dispatch_queue_t imageQueue;
-#endif
 
 @end
 
@@ -76,10 +69,29 @@ NSString *const VERSION = @"0.2.5";
     return result;
 }
 
++ (NSURL *)NSURLfromPath:(NSString *)path andDate:(NSDate *)now{
+
+    NSDateFormatter *dateFormatter;
+    dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+
+    NSString *nowstr = [dateFormatter stringFromDate:now];
+
+    NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".jpg"];
+
+    return [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+}
+
 + (void)saveSingleSnapshotFrom:(AVCaptureDevice *)device
                         toPath:(NSString *)path
                     withWarmup:(NSNumber *)warmup
              withCallbackBlock:(void (^)(NSURL *imageURL, NSError *error))callbackBlock{
+
+    NSOperationQueue *queue = [NSOperationQueue new];
+    queue.maxConcurrentOperationCount =1;
+
+    NSDate *now = [NSDate date];
+    NSURL *imageURL = [self NSURLfromPath:path andDate:now];
 
     verbose("Starting device...");
 
@@ -126,6 +138,30 @@ NSString *const VERSION = @"0.2.5";
 
     verbose("Device started.\n");
 
+    void (^stopSession)(void) = ^void(void) {
+        verbose("Stopping session...\n");
+
+        // Make sure we've stopped
+        while (captureSession != nil) {
+            verbose("\tCaptureSession != nil\n");
+
+            verbose("\tStopping CaptureSession...");
+            [captureSession stopRunning];
+            verbose("Done.\n");
+
+            if ([captureSession isRunning]) {
+                verbose("[captureSession isRunning]");
+                [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+            } else {
+                verbose("\tShutting down 'stopSession(..)'" );
+
+                captureSession = nil;
+                captureDeviceInput = nil;
+                captureStillImageOutput = nil;
+            }
+        }
+    };
+
     if (warmup == nil) {
         // Skip warmup
         verbose("Skipping warmup period.\n");
@@ -136,61 +172,32 @@ NSString *const VERSION = @"0.2.5";
         verbose("Warmup complete.\n");
     }
 
+    void(^saveImage)(CMSampleBufferRef imageDataSampleBuffer, NSError *error) = ^void(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+
+        // usually happens if you close lid while its grabbing a photos
+        if(error){
+            [queue addOperationWithBlock:stopSession];
+            callbackBlock(NULL, error);
+            return;
+        }
+
+        verbose("Making exif data");
+        ExifContainer *container = [[ExifContainer alloc] init];
+        [container addCreationDate:now];
+        [container addDigitizedDate:now];
+
+        NSData *rawImageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        NSData *imageData = [NSImage getAppendedDataForImageData:rawImageData exif:container];
+
+        [queue addOperationWithBlock:^void(void) {
+            [imageData writeToURL:imageURL atomically:YES];
+        }];
+        [queue addOperationWithBlock:stopSession];
+        callbackBlock(imageURL, error);
+    };
+
     [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
-                                                         completionHandler:
-     ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-
-         NSDateFormatter *dateFormatter;
-         dateFormatter = [NSDateFormatter new];
-         dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
-
-         NSDate *now = [NSDate date];
-         NSString *nowstr = [dateFormatter stringFromDate:now];
-
-         NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".jpg"];
-
-         NSURL *imageURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
-
-         NSLog(@"Making exif data");
-         ExifContainer *container = [[ExifContainer alloc] init];
-         [container addCreationDate:now];
-         [container addDigitizedDate:now];
-
-         NSData *rawImageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-
-         NSData *imageData = [NSImage getAppendedDataForImageData:rawImageData exif:container];
-
-         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-
-             [imageData writeToURL:imageURL atomically:YES];
-
-             verbose("Stopping session...\n" );
-
-             // Make sure we've stopped
-             while (captureSession != nil) {
-                 verbose("\tCaptureSession != nil\n");
-
-                 verbose("\tStopping CaptureSession...");
-                 [captureSession stopRunning];
-                 verbose("Done.\n");
-
-                 if ([captureSession isRunning]) {
-                     verbose("[captureSession isRunning]");
-                     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-                 } else {
-                     verbose("\tShutting down 'stopSession(..)'" );
-
-                     captureSession = nil;
-                     captureDeviceInput = nil;
-                     captureStillImageOutput = nil;
-                 }
-             }
-
-         });
-
-         verbose("Callback...\n" );
-         callbackBlock(imageURL, error);
-     }];
+                                                         completionHandler:saveImage];
 }
 
 @end

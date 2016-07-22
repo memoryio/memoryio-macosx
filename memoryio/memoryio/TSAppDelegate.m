@@ -29,11 +29,11 @@ NSImage *statusImage;
         {
             case kIOMessageDeviceHasPoweredOn :
                 // mainly for when the display goesto sleep and wakes up
-                NSLog(@"powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
+                verbose("powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
                 break;
             case kIOMessageSystemHasPoweredOn:
                 // mainly for when the system goes to sleep and wakes up
-                NSLog(@"powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
+                verbose("powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
                 [weakSelf takePhotoWithDelay:2.0f];
                 break;
         }
@@ -158,7 +158,7 @@ NSImage *statusImage;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSLog(@"Starting memoryio");
+    verbose("Starting memoryio");
     
     [notificationManager subscribeDisplayNotifications];
     [notificationManager subscribePowerNotifications];
@@ -176,15 +176,15 @@ NSImage *statusImage;
     [center removeDeliveredNotification:notification];
     switch (notification.activationType) {
         case NSUserNotificationActivationTypeActionButtonClicked:
-            NSLog(@"Reply Button was clicked -> quick reply");
+            verbose("Reply Button was clicked -> quick reply");
             break;
         case NSUserNotificationActivationTypeContentsClicked:
-            NSLog(@"Notification body was clicked -> redirect to item");
+            verbose("Notification body was clicked -> redirect to item");
             [self preview:nil];
             [NSApp activateIgnoringOtherApps:YES];
             break;
         default:
-            NSLog(@"Notfiication appears to have been dismissed!");
+            verbose("Notfiication appears to have been dismissed!");
             break;
     }
 }
@@ -228,31 +228,28 @@ NSImage *statusImage;
 
 - (void) takePhotoWithDelay: (float) delay {
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
 
-        NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+    // create directory if it doesnt exist
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    NSError *error = nil;
+    [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
 
-        NSFileManager *fileManager= [NSFileManager defaultManager];
-        NSError *error = nil;
-        [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+    typeof(self) __weak weakSelf = self;
+    [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
+                               toPath:path
+                           withWarmup:[NSNumber numberWithInt:delay]
+                    withCallbackBlock:^(NSURL *imageURL, NSError *error) {
 
-        typeof(self) __weak weakSelf = self;
-        [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
-                                   toPath:path
-                               withWarmup:[NSNumber numberWithInt:delay]
-                        withCallbackBlock:^(NSURL *imageURL, NSError *error) {
+                            if(error)
+                            {
+                                [weakSelf postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+                            } else {
+                                [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
+                            }
 
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                if(error)
-                                {
-                                    [weakSelf postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
-                                } else {
-                                    [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
-                                }
-                            }); // end of dispatch_async main thread
 
-                        }]; // end of callback Block
-    }); // end of dispatch_async main thread
+                    }]; // end of callback Block
 }
 
 @end
