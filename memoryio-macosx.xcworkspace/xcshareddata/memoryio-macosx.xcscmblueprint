@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D14CB814F890EF0E944B378D4A5B07E7B7F1E3B2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D14CB814F890EF0E944B378D4A5B07E7B7F1E3B2" : 0,
+    "339686AE0FF3EF6058E651F0A35A24E736A5423E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B178B568-5569-4750-B187-1D12E69F4362",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D14CB814F890EF0E944B378D4A5B07E7B7F1E3B2" : "memoryio-macosx\/",
+    "339686AE0FF3EF6058E651F0A35A24E736A5423E" : "SimpleExif\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "memoryio-macosx",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "memoryio-macosx.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jacobrosenthal\/SimpleExif.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "339686AE0FF3EF6058E651F0A35A24E736A5423E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:memoryio\/memoryio-macosx.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D14CB814F890EF0E944B378D4A5B07E7B7F1E3B2"
+    }
+  ]
+}
