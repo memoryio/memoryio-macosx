@@ -232,6 +232,10 @@ NSImage *statusImage;
 
         NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
 
+        NSFileManager *fileManager= [NSFileManager defaultManager];
+        NSError *error = nil;
+        [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+
         typeof(self) __weak weakSelf = self;
         [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
                                    toPath:path
