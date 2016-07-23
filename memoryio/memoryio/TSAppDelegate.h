@@ -13,9 +13,13 @@
 @interface TSAppDelegate : NSObject <NSUserNotificationCenterDelegate, NSSharingServiceDelegate, NSApplicationDelegate>
 
 @property IBOutlet NSMenu *statusMenu;
-@property IBOutlet NSMenuItem *startupMenuItem;
+@property IBOutlet NSButton *startupButton;
 @property (weak) IBOutlet NSWindow *windowOutlet;
 @property (weak) IBOutlet NSImageView *previewImage;
+@property (weak) IBOutlet NSPopUpButton *locationPull;
+@property (weak) IBOutlet NSPopUpButton *modePull;
+@property (weak) IBOutlet NSTextField *photoDelayText;
+@property (weak) IBOutlet NSTextField *warmupDelayText;
 
 - (IBAction)quitAction:(id)sender;
 - (IBAction)forceAction:(id)sender;
