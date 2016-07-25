@@ -283,7 +283,7 @@ NSString *defaultPath;
     NSNumber *warmupDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-warmup-delay"];
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
 
-    //    NSLog(@"%@, %@", warmupDelay, path);
+//    NSLog(@"%@, %@", warmupDelay, path);
 
     // create directory if it doesnt exist
     NSFileManager *fileManager= [NSFileManager defaultManager];
@@ -311,8 +311,33 @@ NSString *defaultPath;
                     }]; // end of callback Block
 }
 
+- (NSURL *)NSURLfromPath:(NSString *)path andDate:(NSDate *)now{
+
+    NSDateFormatter *dateFormatter;
+    dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+
+    NSString *nowstr = [dateFormatter stringFromDate:now];
+
+    NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".gif"];
+
+    return [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+}
+
+
 - (void) takeGif
 {
+    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
+    // create directory if it doesnt exist
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    NSError *error = nil;
+    [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+    //check error
+    if(error){
+        [self postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+        return;
+    }
+
     NSString *fileName = [NSString stringWithFormat:@"AVRecorder_%@.mov", [[NSProcessInfo processInfo] globallyUniqueString]];
     NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
 //    NSLog(@"%@", fileName);
@@ -337,24 +362,16 @@ NSString *defaultPath;
 //            NSLog(@"%f, %d, %d", delayTime.floatValue, frameCount.intValue, loopCount.intValue);
 
             [NSGIF createGIFfromURL:fileURL withFrameCount:frameCount.intValue delayTime:delayTime.floatValue loopCount:loopCount.intValue completion:^(NSURL *tempGIFURL) {
-                NSError *error = nil;
 //                NSLog(@"Finished generating GIF: %@", tempGIFURL);
 
-                NSDateFormatter *dateFormatter;
-                dateFormatter = [NSDateFormatter new];
-                dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
                 NSDate *now = [NSDate date];
-                NSString *nowstr = [dateFormatter stringFromDate:now];
-                NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
-                NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".gif"];
+                NSURL *GifURL = [self NSURLfromPath:path andDate:now];
 
 //                NSLog(@"Cleaning up and moving");
-                NSURL *GifURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
                 [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];
-                [[NSFileManager defaultManager] moveItemAtURL:tempGIFURL toURL:GifURL error:&error];
+                [[NSFileManager defaultManager] moveItemAtURL:tempGIFURL toURL:GifURL error:nil];
 //                NSLog(@"Finished moving GIF to : %@", GifURL);
                 [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
-
             }];
         }
     }];
