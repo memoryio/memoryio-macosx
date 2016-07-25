@@ -17,6 +17,9 @@
 @synthesize modePull;
 @synthesize photoDelayText;
 @synthesize warmupDelayText;
+@synthesize frameCountText;
+@synthesize frameDelayText;
+@synthesize loopCountText;
 
 // not actually using these atm, but defining them to make mapping clear
 typedef enum : NSUInteger
@@ -26,7 +29,7 @@ typedef enum : NSUInteger
 
 typedef enum : NSUInteger
 {
-    Photo = 0
+    Photo = 0, Gif
 } ModeValue;
 
 
@@ -37,6 +40,24 @@ NSString *defaultPath;
 
 
 #pragma Setup
+
+- (void) populateFrameCount{
+
+    NSNumber *frameCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-count"];
+    [frameCountText setIntValue:frameCount.intValue];
+}
+
+- (void) populateLoopCount{
+
+    NSNumber *loopCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-loop-count"];
+    [loopCountText setIntValue:loopCount.intValue];
+}
+
+- (void) populateFrameDelay{
+
+    NSNumber *frameDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-delay"];
+    [frameDelayText setFloatValue:frameDelay.floatValue];
+}
 
 - (void) populateLocation{
     [locationPull removeAllItems];
@@ -56,21 +77,23 @@ NSString *defaultPath;
 - (void) populateMode{
     [modePull removeAllItems];
     [modePull addItemWithTitle:@"Photo"];
-    [modePull selectItemAtIndex:0];
+    [modePull addItemWithTitle:@"Gif"];
 
-    [[NSUserDefaults standardUserDefaults] valueForKey:@"memoryio-mode"];
+    NSNumber *mode = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-mode"];
+
+    [modePull selectItemAtIndex:[mode intValue]];
 }
 
 - (void) populatePhotoDelay{
 
-    float photoDelay = [[NSUserDefaults standardUserDefaults] floatForKey:@"memoryio-photo-delay"];
-    [photoDelayText setFloatValue:photoDelay];
+    NSNumber *photoDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-photo-delay"];
+    [photoDelayText setFloatValue:photoDelay.floatValue];
 }
 
 - (void) populateWarmupDelay{
 
-    float warmupDelay = [[NSUserDefaults standardUserDefaults] floatForKey:@"memoryio-warmup-delay"];
-    [warmupDelayText setFloatValue:warmupDelay];
+    NSNumber *warmupDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-warmup-delay"];
+    [warmupDelayText setFloatValue:warmupDelay.floatValue];
 }
 
 - (void)setNSUserDefaults{
@@ -78,8 +101,8 @@ NSString *defaultPath;
     // boolforkey returns NO if key does not exist
 
     //set mode
-    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"memoryio-mode"]) {
-        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInteger:0] forKey:@"memoryio-mode"];
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-mode"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:@"memoryio-mode"];
     }
 
     //set location
@@ -88,12 +111,29 @@ NSString *defaultPath;
     }
 
     //set warmup delay
-    if(![[NSUserDefaults standardUserDefaults] floatForKey:@"memoryio-warmup-delay"]) {
-        [[NSUserDefaults standardUserDefaults] setFloat:2.0f forKey:@"memoryio-warmup-delay"];
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-warmup-delay"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:2.0f] forKey:@"memoryio-warmup-delay"];
     }
 
-    //set photo delay
-    // floatForKey returns 0 if key does not exist
+    //set warmup delay
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-photo-delay"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:0.0f] forKey:@"memoryio-photo-delay"];
+    }
+
+    //set frame delay
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-delay"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:0.20f] forKey:@"memoryio-gif-frame-delay"];
+    }
+
+    //set frame count
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-count"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:10] forKey:@"memoryio-gif-frame-count"];
+    }
+
+    //set frame count
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-loop-count"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:@"memoryio-gif-loop-count"];
+    }
 }
 
 - (void) setupMenuBar{
@@ -119,6 +159,9 @@ NSString *defaultPath;
 
 - (void) setupPreferences{
 
+    [self populateFrameCount];
+    [self populateLoopCount];
+    [self populateFrameDelay];
     [self populateLocation];
     [self populateMode];
     [self populatePhotoDelay];
@@ -140,24 +183,28 @@ NSString *defaultPath;
     typeof(self) __weak weakSelf = self;
     [notificationManager setNotificationBlock:^(natural_t messageType, void *messageArgument) {
 
+        NSNumber *delay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-photo-delay"];
+        NSNumber *mode = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-mode"];
+
         switch ( messageType )
         {
             case kIOMessageDeviceHasPoweredOn :
                 // mainly for when the display goesto sleep and wakes up
-                verbose("powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
+//                verbose("powerMessageReceived: got a kIOMessageDeviceHasPoweredOn - device powered on");
                 break;
             case kIOMessageSystemHasPoweredOn:
                 // mainly for when the system goes to sleep and wakes up
-                verbose("powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
+//                verbose("powerMessageReceived: got a kIOMessageSystemHasPoweredOn - system powered on");
 
-                NSNumber *mode = [[NSUserDefaults standardUserDefaults] valueForKey:@"memoryio-mode"];
-                if([mode isEqual:[NSNumber numberWithInteger:1]]){
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( delay.floatValue * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-                    float photoDelay = [[NSUserDefaults standardUserDefaults] floatForKey:@"memoryio-photo-delay"];
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(photoDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if([mode isEqual:[NSNumber numberWithInteger:0]]){
                         [weakSelf takePhoto];
-                    });
-                }
+                    }else{
+                        [weakSelf takeGif];
+                    }
+
+                });
                 break;
         }
     }];
@@ -168,7 +215,7 @@ NSString *defaultPath;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    verbose("Starting memoryio");
+//    verbose("Starting memoryio");
 
     defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
 
@@ -183,15 +230,15 @@ NSString *defaultPath;
     [center removeDeliveredNotification:notification];
     switch (notification.activationType) {
         case NSUserNotificationActivationTypeActionButtonClicked:
-            verbose("Reply Button was clicked -> quick reply");
+//            verbose("Reply Button was clicked -> quick reply");
             break;
         case NSUserNotificationActivationTypeContentsClicked:
-            verbose("Notification body was clicked -> redirect to item");
+//            verbose("Notification body was clicked -> redirect to item");
             [self preview:nil];
             [NSApp activateIgnoringOtherApps:YES];
             break;
         default:
-            verbose("Notfiication appears to have been dismissed!");
+//            verbose("Notfiication appears to have been dismissed!");
             break;
     }
 }
@@ -232,11 +279,11 @@ NSString *defaultPath;
 }
 
 - (void) takePhoto{
-    typeof(self) __weak weakSelf = self;
 
-    float warmupDelay = [[NSUserDefaults standardUserDefaults] floatForKey:@"memoryio-warmup-delay"];
-
+    NSNumber *warmupDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-warmup-delay"];
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
+
+    //    NSLog(@"%@, %@", warmupDelay, path);
 
     // create directory if it doesnt exist
     NSFileManager *fileManager= [NSFileManager defaultManager];
@@ -245,13 +292,14 @@ NSString *defaultPath;
 
     //check error
     if(error){
-        [weakSelf postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+        [self postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
         return;
     }
 
+    typeof(self) __weak weakSelf = self;
     [ImageSnap saveSingleSnapshotFrom:[ImageSnap defaultVideoDevice]
                                toPath:path
-                           withWarmup:[NSNumber numberWithInt:warmupDelay]
+                           withWarmup:warmupDelay
                     withCallbackBlock:^(NSURL *imageURL, NSError *error) {
 
                         if(error)
@@ -261,6 +309,55 @@ NSString *defaultPath;
                             [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
                         }
                     }]; // end of callback Block
+}
+
+- (void) takeGif
+{
+    NSString *fileName = [NSString stringWithFormat:@"AVRecorder_%@.mov", [[NSProcessInfo processInfo] globallyUniqueString]];
+    NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+//    NSLog(@"%@", fileName);
+
+    typeof(self) __weak weakSelf = self;
+    AVRecorderDocument *recorder = [AVRecorderDocument new];
+    [recorder recordToURL:fileURL withLength:[NSNumber numberWithInt:2] withCallbackBlock:^(NSError *recordError) {
+
+//        NSLog(@"recordToURL Finished: %@", recordError);
+
+        if (recordError != nil && [[[recordError userInfo] objectForKey:AVErrorRecordingSuccessfullyFinishedKey] boolValue] == NO)
+        {
+            [weakSelf postNotification:@"There was a problem taking that shot :(" withActionBoolean:false];
+        } else
+        {
+//            NSLog(@"generating gif");
+
+            NSNumber *delayTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-delay"];
+            NSNumber *frameCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-count"];
+            NSNumber *loopCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-loop-count"];
+
+//            NSLog(@"%f, %d, %d", delayTime.floatValue, frameCount.intValue, loopCount.intValue);
+
+            [NSGIF createGIFfromURL:fileURL withFrameCount:frameCount.intValue delayTime:delayTime.floatValue loopCount:loopCount.intValue completion:^(NSURL *tempGIFURL) {
+                NSError *error = nil;
+//                NSLog(@"Finished generating GIF: %@", tempGIFURL);
+
+                NSDateFormatter *dateFormatter;
+                dateFormatter = [NSDateFormatter new];
+                dateFormatter.dateFormat = @"yyyy-MM-dd_HH-mm-ss.SSS";
+                NSDate *now = [NSDate date];
+                NSString *nowstr = [dateFormatter stringFromDate:now];
+                NSString *path = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+                NSString *pathAndFilename = [NSString stringWithFormat:@"%@%@%@", path, nowstr, @".gif"];
+
+//                NSLog(@"Cleaning up and moving");
+                NSURL *GifURL = [NSURL fileURLWithPath:pathAndFilename isDirectory:NO];
+                [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];
+                [[NSFileManager defaultManager] moveItemAtURL:tempGIFURL toURL:GifURL error:&error];
+//                NSLog(@"Finished moving GIF to : %@", GifURL);
+                [weakSelf postNotification:@"Well, Look at you!" withActionBoolean:true];
+
+            }];
+        }
+    }];
 }
 
 -(NSImage*)getLastImage
@@ -278,7 +375,7 @@ NSString *defaultPath;
     return backgroundImage;
 }
 
--(IBAction)setPhoto:(NSImage*)backgroundImage
+-(void)setPhoto:(NSImage*)backgroundImage
 {
     NSSize imageSize = [backgroundImage size];
 
@@ -309,6 +406,11 @@ NSString *defaultPath;
 - (IBAction)forceAction:(id)sender
 {
     [self takePhoto];
+}
+
+- (IBAction)forceActionGif:(id)sender
+{
+    [self takeGif];
 }
 
 -(IBAction)preview:(id)sender
@@ -369,18 +471,32 @@ NSString *defaultPath;
 }
 
 - (IBAction)setMode:(NSPopUpButton*)sender {
-    NSMenuItem *selected = [sender selectedItem];
-    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInteger:[selected tag]] forKey:@"memoryio-mode"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:[sender indexOfSelectedItem]] forKey:@"memoryio-mode"];
 }
 
 //formatting is handled in nib because I cant figure out how to attach it programmatically
 - (IBAction)photoDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setFloat:[sender floatValue] forKey:@"memoryio-photo-delay"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-photo-delay"];
 }
 
 //formatting is handled in nib because I cant figure out how to attach it programmatically
 - (IBAction)warmupDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setFloat:[sender floatValue] forKey:@"memoryio-warmup-delay"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-warmup-delay"];
+}
+
+//formatting is handled in nib because I cant figure out how to attach it programmatically
+- (IBAction)frameCountDidChange:(NSTextField*)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)[sender integerValue]] forKey:@"memoryio-gif-frame-count"];
+}
+
+//formatting is handled in nib because I cant figure out how to attach it programmatically
+- (IBAction)frameDelayDidChange:(NSTextField*)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-gif-frame-delay"];
+}
+
+//formatting is handled in nib because I cant figure out how to attach it programmatically
+- (IBAction)loopCountDidChange:(NSTextField*)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)[sender integerValue]] forKey:@"memoryio-gif-loop-count"];
 }
 
 

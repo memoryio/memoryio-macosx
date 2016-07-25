@@ -2,6 +2,8 @@
 #import "ServiceManagement/SMLoginItem.h"
 
 #import "ImageSnap.h"
+#import "NSGIF.h"
+#import "AVRecorderDocument.h"
 #import "NotificationManager.h"
 //
 //  TSAppDelegate.h
@@ -20,9 +22,13 @@
 @property (weak) IBOutlet NSPopUpButton *modePull;
 @property (weak) IBOutlet NSTextField *photoDelayText;
 @property (weak) IBOutlet NSTextField *warmupDelayText;
+@property (weak) IBOutlet NSTextField *frameCountText;
+@property (weak) IBOutlet NSTextField *frameDelayText;
+@property (weak) IBOutlet NSTextField *loopCountText;
 
 - (IBAction)quitAction:(id)sender;
 - (IBAction)forceAction:(id)sender;
+- (IBAction)forceActionGif:(id)sender;
 - (IBAction)aboutAction:(id)sender;
 - (IBAction)startupAction:(id)sender;
 - (IBAction)preview:(id)sender;
