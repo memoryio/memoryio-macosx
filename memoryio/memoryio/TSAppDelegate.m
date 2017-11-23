@@ -380,14 +380,25 @@ NSString *defaultPath;
 -(NSImage*)getLastImage
 {
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
+    NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[NSURL fileURLWithPath:path]
+                                                      includingPropertiesForKeys:@[NSURLContentModificationDateKey]
+                                                                         options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                                           error:nil];
 
-    NSError *error;
-    NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:&error ];
+    NSArray *sortedContent = [pictures sortedArrayUsingComparator:
+                              ^(NSURL *file1, NSURL *file2)
+                              {
+                                  // compare
+                                  NSDate *file1Date;
+                                  [file1 getResourceValue:&file1Date forKey:NSURLContentModificationDateKey error:nil];
+                                  
+                                  NSDate *file2Date;
+                                  [file2 getResourceValue:&file2Date forKey:NSURLContentModificationDateKey error:nil];
+                                  
+                                  return [file1Date compare: file2Date];
+                              }];
 
-    NSString* tempFile = [path stringByAppendingPathComponent:pictures.lastObject];
-    NSURL* URL = [NSURL fileURLWithPath:tempFile];
-
-    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:URL];
+    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:sortedContent.lastObject];
 
     return backgroundImage;
 }
