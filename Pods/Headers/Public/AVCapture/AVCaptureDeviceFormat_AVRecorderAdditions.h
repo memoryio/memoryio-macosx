@@ -1,0 +1,1 @@
+../../../AVCapture/Classes/AVCaptureDeviceFormat_AVRecorderAdditions.h

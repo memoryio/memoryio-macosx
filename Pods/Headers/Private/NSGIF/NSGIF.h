@@ -1,0 +1,1 @@
+../../../NSGIF/NSGIF/NSGIF.h

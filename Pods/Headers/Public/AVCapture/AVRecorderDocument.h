@@ -1,0 +1,1 @@
+../../../AVCapture/Classes/AVRecorderDocument.h

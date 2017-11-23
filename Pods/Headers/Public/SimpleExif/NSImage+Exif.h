@@ -1,0 +1,1 @@
+../../../SimpleExif/Classes/osx/NSImage+Exif.h

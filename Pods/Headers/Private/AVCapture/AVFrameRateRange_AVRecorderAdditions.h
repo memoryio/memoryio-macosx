@@ -1,0 +1,1 @@
+../../../AVCapture/Classes/AVFrameRateRange_AVRecorderAdditions.h
