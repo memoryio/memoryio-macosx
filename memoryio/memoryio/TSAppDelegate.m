@@ -11,8 +11,6 @@
 
 @synthesize statusMenu;
 @synthesize startupButton;
-@synthesize windowOutlet;
-@synthesize previewImage;
 @synthesize locationPull;
 @synthesize modePull;
 @synthesize photoDelayText;
@@ -38,6 +36,37 @@ NSStatusItem *statusItem;
 NSImage *statusImage;
 NSString *defaultPath;
 
+#pragma Members that setup during instantiate
+- (NSWindow *)previewWindow
+{
+    if (_previewWindow == nil)
+    {
+        NSImageView *imageView = [[NSImageView alloc] init];
+        [imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
+
+        NSButton *tweetButton = [[NSButton alloc] initWithFrame:NSMakeRect(384, 13, 77, 32)];
+        tweetButton.title = @"Tweet";
+        [tweetButton setButtonType:NSMomentaryPushButton];
+        [tweetButton setBezelStyle:NSRoundedBezelStyle];
+        [tweetButton setAction:@selector(tweet:)];
+        [tweetButton setTarget:self];
+        [imageView addSubview:tweetButton];
+
+        // http://robin.github.io/cocoa/mac/2016/03/28/title-bar-and-toolbar-showcase/
+        _previewWindow =  [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 608, 480, 270)
+                                                      styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable | NSWindowStyleMaskFullSizeContentView
+                                                        backing: NSBackingStoreBuffered    defer:YES];
+        [_previewWindow setTitlebarAppearsTransparent:YES];
+
+        [_previewWindow setMovable:YES];
+        [_previewWindow setHasShadow:YES];
+        [_previewWindow setReleasedWhenClosed:NO];
+
+        [_previewWindow setAspectRatio:NSMakeSize(480, 270)];
+        [_previewWindow setContentView:imageView];
+    }
+    return _previewWindow;
+}
 
 #pragma Setup
 
@@ -400,18 +429,6 @@ NSString *defaultPath;
     return backgroundImage;
 }
 
--(void)setPhoto:(NSImage*)backgroundImage
-{
-    NSSize imageSize = [backgroundImage size];
-
-    [windowOutlet setAspectRatio:imageSize];
-
-    [previewImage setImage:backgroundImage];
-
-    NSRect frame = [windowOutlet frame];
-    frame.size.width = (frame.size.height * imageSize.width) / imageSize.height;
-    [windowOutlet setFrame:frame display:YES animate:YES];
-}
 
 
 #pragma Menu
@@ -438,19 +455,18 @@ NSString *defaultPath;
     [self takeGif];
 }
 
--(IBAction)preview:(id)sender
+-(IBAction)preview:(id __unused)sender
 {
+//    verbose("preview");
     NSImage *backgroundImage = [self getLastImage];
-
     if(!backgroundImage){
         backgroundImage = [NSImage imageNamed:@"statusIcon"];
     }
-
-    [self setPhoto:backgroundImage];
-
-    [windowOutlet makeKeyAndOrderFront: self];
+    [[[self previewWindow] contentView] setImage:backgroundImage];
+    [[self previewWindow] makeKeyAndOrderFront: nil];
     [NSApp activateIgnoringOtherApps:YES];
 }
+
 
 
 #pragma Preferences
