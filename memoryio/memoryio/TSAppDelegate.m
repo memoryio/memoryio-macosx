@@ -145,10 +145,7 @@ NSString *defaultPath;
 
     [statusItem setTarget:self];
 
-    //Used to detect where our files are
-    NSBundle *bundle = [NSBundle mainBundle];
-
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+    statusImage = [NSImage imageNamed:@"statusIcon"];
 
     //Sets the images in our NSStatusItem
     [statusItem setImage:statusImage];
@@ -446,11 +443,7 @@ NSString *defaultPath;
     NSImage *backgroundImage = [self getLastImage];
 
     if(!backgroundImage){
-
-        //Used to detect where our files are
-        NSBundle *bundle = [NSBundle mainBundle];
-        backgroundImage = [[NSImage alloc] initWithContentsOfFile:
-                           [bundle pathForResource:@"io_logo" ofType:@"png"]];
+        backgroundImage = [NSImage imageNamed:@"statusIcon"];
     }
 
     [self setPhoto:backgroundImage];
