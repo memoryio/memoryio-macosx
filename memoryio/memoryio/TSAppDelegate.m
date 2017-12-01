@@ -10,33 +10,27 @@
 @implementation TSAppDelegate
 
 @synthesize statusMenu;
-@synthesize startupButton;
-@synthesize locationPull;
-@synthesize modePull;
-@synthesize photoDelayText;
-@synthesize warmupDelayText;
-@synthesize frameCountText;
-@synthesize frameDelayText;
-@synthesize loopCountText;
-
-// not actually using these atm, but defining them to make mapping clear
-typedef enum : NSUInteger
-{
-    Default = 0, Other, User
-} LocationValue;
-
-typedef enum : NSUInteger
-{
-    Photo = 0, Gif
-} ModeValue;
-
 
 NotificationManager *notificationManager;
 NSStatusItem *statusItem;
 NSImage *statusImage;
-NSString *defaultPath;
 
 #pragma Members that setup during instantiate
+- (NSWindowController *)preferencesWindowController
+{
+    if (_preferencesWindowController == nil)
+    {
+        NSViewController *general = [[GeneralPreferencesViewController alloc] init];
+        NSViewController *photo = [[PhotoPreferencesViewController alloc] init];
+        NSViewController *gif = [[GifPreferencesViewController alloc] init];
+        NSArray *controllers = [[NSArray alloc] initWithObjects:general, photo, gif, nil];
+
+        NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
+        _preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title];
+    }
+    return _preferencesWindowController;
+}
+
 - (NSWindow *)previewWindow
 {
     if (_previewWindow == nil)
@@ -70,61 +64,6 @@ NSString *defaultPath;
 
 #pragma Setup
 
-- (void) populateFrameCount{
-
-    NSNumber *frameCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-count"];
-    [frameCountText setIntValue:frameCount.intValue];
-}
-
-- (void) populateLoopCount{
-
-    NSNumber *loopCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-loop-count"];
-    [loopCountText setIntValue:loopCount.intValue];
-}
-
-- (void) populateFrameDelay{
-
-    NSNumber *frameDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-gif-frame-delay"];
-    [frameDelayText setFloatValue:frameDelay.floatValue];
-}
-
-- (void) populateLocation{
-    [locationPull removeAllItems];
-    [locationPull addItemWithTitle:defaultPath];
-    [locationPull addItemWithTitle:@"Other"];
-
-    NSString *location = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
-
-    if([location isEqualToString:defaultPath]) {
-        [locationPull selectItemAtIndex:0];
-    }else{
-        [locationPull addItemWithTitle:location];
-        [locationPull selectItemAtIndex:2];
-    }
-}
-
-- (void) populateMode{
-    [modePull removeAllItems];
-    [modePull addItemWithTitle:@"Photo"];
-    [modePull addItemWithTitle:@"Gif"];
-
-    NSNumber *mode = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-mode"];
-
-    [modePull selectItemAtIndex:[mode intValue]];
-}
-
-- (void) populatePhotoDelay{
-
-    NSNumber *photoDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-photo-delay"];
-    [photoDelayText setFloatValue:photoDelay.floatValue];
-}
-
-- (void) populateWarmupDelay{
-
-    NSNumber *warmupDelay = [[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-warmup-delay"];
-    [warmupDelayText setFloatValue:warmupDelay.floatValue];
-}
-
 - (void)setNSUserDefaults{
     //set startup
     // boolforkey returns NO if key does not exist
@@ -134,6 +73,7 @@ NSString *defaultPath;
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:@"memoryio-mode"];
     }
 
+    NSString *defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
     //set location
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"]) {
         [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
@@ -183,24 +123,6 @@ NSString *defaultPath;
     [statusItem setMenu:statusMenu];
 }
 
-- (void) setupPreferences{
-
-    [self populateFrameCount];
-    [self populateLoopCount];
-    [self populateFrameDelay];
-    [self populateLocation];
-    [self populateMode];
-    [self populatePhotoDelay];
-    [self populateWarmupDelay];
-
-    bool launchAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"];
-    if(launchAtLogin) {
-        [startupButton setState:NSOnState];
-    }else{
-        [startupButton setState:NSOffState];
-    }
-}
-
 -(void)setupNotifications{
     notificationManager = [[NotificationManager alloc] init];
     [notificationManager subscribeDisplayNotifications];
@@ -242,11 +164,7 @@ NSString *defaultPath;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 //    verbose("Starting memoryio");
-
-    defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
-
     [self setNSUserDefaults];
-    [self setupPreferences];
     [self setupNotifications];
     [self setupMenuBar];
 }
@@ -467,73 +385,10 @@ NSString *defaultPath;
     [NSApp activateIgnoringOtherApps:YES];
 }
 
-
-
-#pragma Preferences
-
-- (IBAction)startupAction:(id)sender
+- (IBAction)preferencesAction:(id)sender
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-
-    if ([sender state] == NSOnState){
-        if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES)) {
-            [userDefaults setBool:YES forKey:@"memoryio-launchatlogin"];
-        }
-    }else{
-        if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", NO)) {
-            [userDefaults setBool:NO forKey:@"memoryio-launchatlogin"];
-        }
-    }
-}
-
-- (IBAction)setLocation:(NSPopUpButton*)sender {
-
-    if([sender indexOfSelectedItem] == 0){
-        [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
-    }
-    else if([sender indexOfSelectedItem] == 1){
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        [panel setCanChooseFiles:NO];
-        [panel setCanChooseDirectories:YES];
-        [panel setAllowsMultipleSelection:NO];
-
-        NSInteger clicked = [panel runModal];
-
-        if (clicked == NSFileHandlingPanelOKButton) {
-            NSString *path = [NSString stringWithFormat:@"%@%@", [panel URL].path, @"/"];
-            [[NSUserDefaults standardUserDefaults] setObject:path forKey:@"memoryio-location"];
-        }
-    }
-    [self populateLocation];
-}
-
-- (IBAction)setMode:(NSPopUpButton*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:[sender indexOfSelectedItem]] forKey:@"memoryio-mode"];
-}
-
-//formatting is handled in nib because I cant figure out how to attach it programmatically
-- (IBAction)photoDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-photo-delay"];
-}
-
-//formatting is handled in nib because I cant figure out how to attach it programmatically
-- (IBAction)warmupDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-warmup-delay"];
-}
-
-//formatting is handled in nib because I cant figure out how to attach it programmatically
-- (IBAction)frameCountDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)[sender integerValue]] forKey:@"memoryio-gif-frame-count"];
-}
-
-//formatting is handled in nib because I cant figure out how to attach it programmatically
-- (IBAction)frameDelayDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-gif-frame-delay"];
-}
-
-//formatting is handled in nib because I cant figure out how to attach it programmatically
-- (IBAction)loopCountDidChange:(NSTextField*)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)[sender integerValue]] forKey:@"memoryio-gif-loop-count"];
+    [self.preferencesWindowController showWindow:nil];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 

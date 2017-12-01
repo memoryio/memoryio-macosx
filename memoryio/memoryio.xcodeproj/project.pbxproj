@@ -16,7 +16,6 @@
 		2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2247EC6515A2364F00A5C034 /* ServiceManagement.framework */; };
 		37847B9531E4B9858F4A2132 /* libPods-memoryio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73431D9DCAF2C3CFADDCD42C /* libPods-memoryio.a */; };
 		5B040F791CB0ACF20082947C /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B040F781CB0ACF20082947C /* NotificationManager.m */; };
-		5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A99DA17CB808700088E71 /* MainMenu.xib */; };
 		5B197FD417CB789200E2E608 /* ImageSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B197FD317CB789200E2E608 /* ImageSnap.m */; };
 		5B197FDF17CB7BBA00E2E608 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FDE17CB7BBA00E2E608 /* ApplicationServices.framework */; };
 		5B197FE117CB7BC300E2E608 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE017CB7BC300E2E608 /* CoreServices.framework */; };
@@ -26,6 +25,13 @@
 		5B197FE917CB7BE400E2E608 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B197FE817CB7BE400E2E608 /* CoreFoundation.framework */; };
 		5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3A13F3181DA2DE00C1F09E /* Images.xcassets */; };
 		5B60CD7A1CB0D78700F44D91 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B60CD791CB0D78700F44D91 /* AVFoundation.framework */; };
+		5B6CF8A41FD08A370064BC95 /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */; };
+		5B6CF8A61FD08A370064BC95 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A11FD08A370064BC95 /* GeneralPreferencesViewController.m */; };
+		5B6CF8AA1FD0CD050064BC95 /* PhotoPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */; };
+		5B6CF8AB1FD0CD050064BC95 /* GifPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A91FD0CD040064BC95 /* GifPreferencesView.xib */; };
+		5B6CF8B01FD0CDCB0064BC95 /* GifPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */; };
+		5B6CF8B11FD0CDCB0064BC95 /* PhotoPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */; };
+		5B6CF8B31FD0F9FA0064BC95 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +77,6 @@
 		49D09DF42EDF71646F2C3933 /* Pods-memoryio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoryio.release.xcconfig"; path = "../Pods/Target Support Files/Pods-memoryio/Pods-memoryio.release.xcconfig"; sourceTree = "<group>"; };
 		5B040F771CB0ACF20082947C /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		5B040F781CB0ACF20082947C /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
-		5B0A99DA17CB808700088E71 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		5B17DBB917CCC38B00220E2B /* memoryio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = memoryio.entitlements; path = ../memoryio.entitlements; sourceTree = "<group>"; };
 		5B197FD217CB789200E2E608 /* ImageSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSnap.h; sourceTree = "<group>"; };
 		5B197FD317CB789200E2E608 /* ImageSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSnap.m; sourceTree = "<group>"; };
@@ -84,6 +89,16 @@
 		5B197FEA17CB7D3800E2E608 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		5B3A13F3181DA2DE00C1F09E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B60CD791CB0D78700F44D91 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
+		5B6CF8A11FD08A370064BC95 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		5B6CF8A31FD08A370064BC95 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPreferencesView.xib; sourceTree = "<group>"; };
+		5B6CF8A91FD0CD040064BC95 /* GifPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GifPreferencesView.xib; sourceTree = "<group>"; };
+		5B6CF8AC1FD0CDCB0064BC95 /* GifPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPreferencesViewController.h; sourceTree = "<group>"; };
+		5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreferencesViewController.m; sourceTree = "<group>"; };
+		5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreferencesViewController.m; sourceTree = "<group>"; };
+		5B6CF8AF1FD0CDCB0064BC95 /* PhotoPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreferencesViewController.h; sourceTree = "<group>"; };
+		5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		648603ABED5CBF7AFCA167C1 /* Pods-memoryio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoryio.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-memoryio/Pods-memoryio.debug.xcconfig"; sourceTree = "<group>"; };
 		73431D9DCAF2C3CFADDCD42C /* libPods-memoryio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memoryio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AE536B6D0A0E3F306766E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +178,15 @@
 		2247EBDF15A22FFB00A5C034 /* memoryio */ = {
 			isa = PBXGroup;
 			children = (
+				5B6CF8A91FD0CD040064BC95 /* GifPreferencesView.xib */,
+				5B6CF8AC1FD0CDCB0064BC95 /* GifPreferencesViewController.h */,
+				5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */,
+				5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */,
+				5B6CF8AF1FD0CDCB0064BC95 /* PhotoPreferencesViewController.h */,
+				5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */,
+				5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */,
+				5B6CF8A31FD08A370064BC95 /* GeneralPreferencesViewController.h */,
+				5B6CF8A11FD08A370064BC95 /* GeneralPreferencesViewController.m */,
 				5B17DBB917CCC38B00220E2B /* memoryio.entitlements */,
 				2247EBEB15A22FFB00A5C034 /* TSAppDelegate.h */,
 				2247EBEC15A22FFB00A5C034 /* TSAppDelegate.m */,
@@ -170,8 +194,8 @@
 				5B040F781CB0ACF20082947C /* NotificationManager.m */,
 				5B197FD217CB789200E2E608 /* ImageSnap.h */,
 				5B197FD317CB789200E2E608 /* ImageSnap.m */,
-				5B0A99DA17CB808700088E71 /* MainMenu.xib */,
 				5B3A13F3181DA2DE00C1F09E /* Images.xcassets */,
+				5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */,
 				2247EBE015A22FFB00A5C034 /* Supporting Files */,
 			);
 			path = memoryio;
@@ -287,7 +311,10 @@
 			files = (
 				2247EBE415A22FFB00A5C034 /* InfoPlist.strings in Resources */,
 				2247EBEA15A22FFB00A5C034 /* Credits.rtf in Resources */,
-				5B0A99DB17CB808700088E71 /* MainMenu.xib in Resources */,
+				5B6CF8AB1FD0CD050064BC95 /* GifPreferencesView.xib in Resources */,
+				5B6CF8A41FD08A370064BC95 /* GeneralPreferencesView.xib in Resources */,
+				5B6CF8AA1FD0CD050064BC95 /* PhotoPreferencesView.xib in Resources */,
+				5B6CF8B31FD0F9FA0064BC95 /* MainMenu.xib in Resources */,
 				5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,9 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6CF8A61FD08A370064BC95 /* GeneralPreferencesViewController.m in Sources */,
 				2247EBE615A22FFB00A5C034 /* main.m in Sources */,
+				5B6CF8B11FD0CDCB0064BC95 /* PhotoPreferencesViewController.m in Sources */,
 				2247EBED15A22FFB00A5C034 /* TSAppDelegate.m in Sources */,
 				5B040F791CB0ACF20082947C /* NotificationManager.m in Sources */,
+				5B6CF8B01FD0CDCB0064BC95 /* GifPreferencesViewController.m in Sources */,
 				5B197FD417CB789200E2E608 /* ImageSnap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

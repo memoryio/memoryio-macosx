@@ -6,4 +6,5 @@ target "memoryio" do
 pod 'SimpleExif', :git => 'git@github.com:jacobrosenthal/SimpleExif.git', :branch => 'memoryio'
 pod 'NSGIF', :git => 'git@github.com:jacobrosenthal/NSGIF.git', :branch => 'memoryio'
 pod 'AVCapture', :git => 'git@github.com:jacobrosenthal/AVCapture.git'
+pod 'MASPreferences', :git => 'https://github.com/shpakovski/MASPreferences'
 end
