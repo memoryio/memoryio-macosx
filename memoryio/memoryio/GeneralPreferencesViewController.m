@@ -4,10 +4,11 @@
 
 @implementation GeneralPreferencesViewController
 
-@synthesize startupButton;
-@synthesize locationPull;
-@synthesize modePull;
-@synthesize photoDelayText;
+
+NSButton *startupButton;
+NSPopUpButton *locationPull;
+NSPopUpButton *modePull;
+NSTextField *photoDelayText;
 
 // not actually using these atm, but defining them to make mapping clear
 typedef enum : NSUInteger
@@ -21,14 +22,72 @@ typedef enum : NSUInteger
 } ModeValue;
 
 
-- (id)init
+
+- (NSView*)makeView
 {
-    return [super initWithNibName:@"GeneralPreferencesView" bundle:nil];
+    NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0,0,388,231)];
+
+    NSNumberFormatter *dec = [[NSNumberFormatter alloc] init];
+    [dec setNumberStyle:NSNumberFormatterDecimalStyle];
+    [dec setMaximumFractionDigits:1];
+    [dec setMinimumFractionDigits:1];
+
+    NSTextField *locationPullLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(18,166,96,17)];
+    [locationPullLabel setStringValue:@"Save Location"];
+    [locationPullLabel setBezeled:NO];
+    [locationPullLabel setDrawsBackground:NO];
+    [locationPullLabel setEditable:NO];
+    [locationPullLabel setSelectable:NO];
+    [view addSubview:locationPullLabel];
+
+    locationPull = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(165,161,174,26)];
+    [locationPull setBezelStyle:NSRoundedBezelStyle];
+    [locationPull setAction:@selector(setLocation:)];
+    [locationPull setTarget:self];
+    [view addSubview:locationPull];
+
+    NSTextField *modePullLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(18,125,130,17)];
+    [modePullLabel setStringValue:@"Action at lockscreen"];
+    [modePullLabel setBezeled:NO];
+    [modePullLabel setDrawsBackground:NO];
+    [modePullLabel setEditable:NO];
+    [modePullLabel setSelectable:NO];
+    [view addSubview:modePullLabel];
+
+    modePull = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(165,120,73,26)];
+    [modePull setBezelStyle:NSRoundedBezelStyle];
+    [modePull setAction:@selector(setMode:)];
+    [modePull setTarget:self];
+    [view addSubview:modePull];
+
+    NSTextField *photoDelayTextLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(18,81,120,17)];
+    [photoDelayTextLabel setStringValue:@"Delay after Startup"];
+    [photoDelayTextLabel setBezeled:NO];
+    [photoDelayTextLabel setDrawsBackground:NO];
+    [photoDelayTextLabel setEditable:NO];
+    [photoDelayTextLabel setSelectable:NO];
+    [view addSubview:photoDelayTextLabel];
+
+    photoDelayText = [[NSTextField alloc] initWithFrame:NSMakeRect(165,78,54,22)];
+    [photoDelayText setAction:@selector(photoDidChange:)];
+    [photoDelayText setTarget:self];
+    [photoDelayText becomeFirstResponder];
+    [photoDelayText setFormatter:dec];
+    [view addSubview:photoDelayText];
+
+    startupButton = [[NSButton alloc] initWithFrame:NSMakeRect(165,44,112,18)];
+    startupButton.title = @"Run at Startup";
+    [startupButton setButtonType:NSSwitchButton];
+    [startupButton setAction:@selector(startupAction:)];
+    [startupButton setTarget:self];
+    [view addSubview:startupButton];
+
+    return view;
 }
 
 -(void)loadView
 {
-    [super loadView];
+    self.view = [self makeView];
     
     bool launchAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"];
     if(launchAtLogin) {
@@ -86,7 +145,6 @@ typedef enum : NSUInteger
 }
 
 
-//formatting is handled in nib because I cant figure out how to attach it programmatically
 - (IBAction)photoDidChange:(NSTextField*)sender {
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:@"memoryio-photo-delay"];
 }
