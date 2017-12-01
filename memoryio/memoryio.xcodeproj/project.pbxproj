@@ -27,7 +27,6 @@
 		5B60CD7A1CB0D78700F44D91 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B60CD791CB0D78700F44D91 /* AVFoundation.framework */; };
 		5B6CF8A41FD08A370064BC95 /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */; };
 		5B6CF8A61FD08A370064BC95 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A11FD08A370064BC95 /* GeneralPreferencesViewController.m */; };
-		5B6CF8AA1FD0CD050064BC95 /* PhotoPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */; };
 		5B6CF8B01FD0CDCB0064BC95 /* GifPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */; };
 		5B6CF8B11FD0CDCB0064BC95 /* PhotoPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */; };
 /* End PBXBuildFile section */
@@ -90,7 +89,6 @@
 		5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
 		5B6CF8A11FD08A370064BC95 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
 		5B6CF8A31FD08A370064BC95 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
-		5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPreferencesView.xib; sourceTree = "<group>"; };
 		5B6CF8AC1FD0CDCB0064BC95 /* GifPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPreferencesViewController.h; sourceTree = "<group>"; };
 		5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreferencesViewController.m; sourceTree = "<group>"; };
 		5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreferencesViewController.m; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			children = (
 				5B6CF8AC1FD0CDCB0064BC95 /* GifPreferencesViewController.h */,
 				5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */,
-				5B6CF8A81FD0CD040064BC95 /* PhotoPreferencesView.xib */,
 				5B6CF8AF1FD0CDCB0064BC95 /* PhotoPreferencesViewController.h */,
 				5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */,
 				5B6CF89D1FD08A370064BC95 /* GeneralPreferencesView.xib */,
@@ -306,7 +303,6 @@
 				2247EBE415A22FFB00A5C034 /* InfoPlist.strings in Resources */,
 				2247EBEA15A22FFB00A5C034 /* Credits.rtf in Resources */,
 				5B6CF8A41FD08A370064BC95 /* GeneralPreferencesView.xib in Resources */,
-				5B6CF8AA1FD0CD050064BC95 /* PhotoPreferencesView.xib in Resources */,
 				5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

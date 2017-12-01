@@ -6,6 +6,4 @@
 
 @interface PhotoPreferencesViewController : NSViewController <MASPreferencesViewController>
 
-@property (weak) IBOutlet NSTextField *warmupDelayText;
-
 @end
