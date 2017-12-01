@@ -7,8 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TSAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
-    return NSApplicationMain(argc, (const char **)argv);
+    //https://lapcatsoftware.com/articles/working-without-a-nib-part-10.html
+    TSAppDelegate *delegate = [TSAppDelegate new];
+    @autoreleasepool {
+        [NSApplication sharedApplication];
+        [NSApp setDelegate:delegate];
+        //        [NSApp activateIgnoringOtherApps:YES];
+        [NSApp run];
+        return 0;
+    }
 }
+

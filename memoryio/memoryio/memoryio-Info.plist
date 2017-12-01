@@ -28,8 +28,6 @@
 	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2013, Augmentous, LLC</string>
-	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSUserNotificationAlertStyle</key>

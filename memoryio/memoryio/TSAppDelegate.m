@@ -9,11 +9,8 @@
 //
 @implementation TSAppDelegate
 
-@synthesize statusMenu;
-
 NotificationManager *notificationManager;
 NSStatusItem *statusItem;
-NSImage *statusImage;
 
 #pragma Members that setup during instantiate
 - (NSWindowController *)preferencesWindowController
@@ -105,19 +102,42 @@ NSImage *statusImage;
     }
 }
 
-- (void) setupMenuBar{
-
+- (void) setupMenuBar
+{
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setEnabled:YES];
-    [statusItem setToolTip:@"MemoryIO"];
-
+    [statusItem setToolTip:@"memoryIO"];
     [statusItem setTarget:self];
 
-    statusImage = [NSImage imageNamed:@"statusIcon"];
-
     //Sets the images in our NSStatusItem
-    [statusItem setImage:statusImage];
+    [statusItem setImage:[NSImage imageNamed:@"statusIcon"]];
+
+    NSMenu *statusMenu = [NSMenu new];
+
+    NSMenuItem *newItem=[[NSMenuItem alloc]initWithTitle:@"About" action:@selector(aboutAction:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
+
+    [statusMenu addItem:[NSMenuItem separatorItem]];
+
+    newItem=[[NSMenuItem alloc]initWithTitle:@"View Last" action:@selector(preview:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
+
+    newItem=[[NSMenuItem alloc]initWithTitle:@"Force Photo" action:@selector(forceAction:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
+
+    newItem=[[NSMenuItem alloc]initWithTitle:@"Force Gif" action:@selector(forceActionGif:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
+
+    [statusMenu addItem:[NSMenuItem separatorItem]];
+
+    newItem=[[NSMenuItem alloc]initWithTitle:@"Preferences" action:@selector(preferencesAction:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
+
+    [statusMenu addItem:[NSMenuItem separatorItem]];
+
+    newItem=[[NSMenuItem alloc]initWithTitle:@"Quit" action:@selector(quitAction:) keyEquivalent:@""];
+    [statusMenu addItem:newItem];
 
     //put menu in menubar
     [statusItem setMenu:statusMenu];

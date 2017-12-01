@@ -22,7 +22,6 @@
     NSWindowController *_preferencesWindowController;
 }
 
-@property IBOutlet NSMenu *statusMenu;
 @property (nonatomic, readonly) NSWindow *previewWindow;
 @property (nonatomic, readonly) NSWindowController *preferencesWindowController;
 

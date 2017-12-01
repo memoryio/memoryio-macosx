@@ -31,7 +31,6 @@
 		5B6CF8AB1FD0CD050064BC95 /* GifPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8A91FD0CD040064BC95 /* GifPreferencesView.xib */; };
 		5B6CF8B01FD0CDCB0064BC95 /* GifPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */; };
 		5B6CF8B11FD0CDCB0064BC95 /* PhotoPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */; };
-		5B6CF8B31FD0F9FA0064BC95 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +97,6 @@
 		5B6CF8AD1FD0CDCB0064BC95 /* GifPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreferencesViewController.m; sourceTree = "<group>"; };
 		5B6CF8AE1FD0CDCB0064BC95 /* PhotoPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreferencesViewController.m; sourceTree = "<group>"; };
 		5B6CF8AF1FD0CDCB0064BC95 /* PhotoPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreferencesViewController.h; sourceTree = "<group>"; };
-		5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		648603ABED5CBF7AFCA167C1 /* Pods-memoryio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoryio.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-memoryio/Pods-memoryio.debug.xcconfig"; sourceTree = "<group>"; };
 		73431D9DCAF2C3CFADDCD42C /* libPods-memoryio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memoryio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AE536B6D0A0E3F306766E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				5B197FD217CB789200E2E608 /* ImageSnap.h */,
 				5B197FD317CB789200E2E608 /* ImageSnap.m */,
 				5B3A13F3181DA2DE00C1F09E /* Images.xcassets */,
-				5B6CF8B21FD0F9FA0064BC95 /* MainMenu.xib */,
 				2247EBE015A22FFB00A5C034 /* Supporting Files */,
 			);
 			path = memoryio;
@@ -314,7 +311,6 @@
 				5B6CF8AB1FD0CD050064BC95 /* GifPreferencesView.xib in Resources */,
 				5B6CF8A41FD08A370064BC95 /* GeneralPreferencesView.xib in Resources */,
 				5B6CF8AA1FD0CD050064BC95 /* PhotoPreferencesView.xib in Resources */,
-				5B6CF8B31FD0F9FA0064BC95 /* MainMenu.xib in Resources */,
 				5B3A13F4181DA2DE00C1F09E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
