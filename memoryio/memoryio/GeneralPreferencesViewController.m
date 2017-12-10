@@ -156,15 +156,7 @@ typedef enum : NSUInteger
     [locationPull removeAllItems];
     [locationPull addItemWithTitle:defaultPath];
     [locationPull addItemWithTitle:@"Other"];
-    
-    NSString *location = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
-    
-    if([location isEqualToString:defaultPath]) {
-        [locationPull selectItemAtIndex:0];
-    }else{
-        [locationPull addItemWithTitle:location];
-        [locationPull selectItemAtIndex:2];
-    }
+    [locationPull selectItemAtIndex:0];
 }
 
 - (void) populateMode{
