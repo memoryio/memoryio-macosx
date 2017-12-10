@@ -371,7 +371,7 @@ NSImage *statusImage;
 {
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
     NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[NSURL fileURLWithPath:path]
-                                                      includingPropertiesForKeys:@[NSURLContentModificationDateKey]
+                                                      includingPropertiesForKeys:@[NSURLCreationDateKey]
                                                                          options:NSDirectoryEnumerationSkipsHiddenFiles
                                                                            error:nil];
 
@@ -380,10 +380,10 @@ NSImage *statusImage;
                               {
                                   // compare
                                   NSDate *file1Date;
-                                  [file1 getResourceValue:&file1Date forKey:NSURLContentModificationDateKey error:nil];
+                                  [file1 getResourceValue:&file1Date forKey:NSURLCreationDateKey error:nil];
                                   
                                   NSDate *file2Date;
-                                  [file2 getResourceValue:&file2Date forKey:NSURLContentModificationDateKey error:nil];
+                                  [file2 getResourceValue:&file2Date forKey:NSURLCreationDateKey error:nil];
                                   
                                   return [file1Date compare: file2Date];
                               }];
