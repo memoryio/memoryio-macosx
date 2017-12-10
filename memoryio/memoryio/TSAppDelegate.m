@@ -237,13 +237,14 @@ NSImage *statusImage;
 
 - (IBAction)tweet:(id)sender
 {
-    NSImage *backgroundImage = [self getLastImage];
+    NSURL *last = [self urlForLast];
 
-    NSArray * shareItems = [NSArray arrayWithObjects:@"  #memoryio", backgroundImage, nil];
+    NSArray * shareItems = [NSArray arrayWithObjects:@"#memoryio", last, nil];
 
-    NSSharingService *service = [NSSharingService sharingServiceNamed:NSSharingServiceNamePostOnTwitter];
-    service.delegate = self;
-    [service performWithItems:shareItems];
+    NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:shareItems];
+
+    sharingServicePicker.delegate = self;
+    [sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMaxYEdge];
 }
 
 - (void) postNotification:(NSString *) informativeText withActionBoolean:(BOOL)hasActionButton{
@@ -366,7 +367,7 @@ NSImage *statusImage;
     }];
 }
 
--(NSImage*)getLastImage
+-(NSURL*)urlForLast
 {
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
     NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[NSURL fileURLWithPath:path]
@@ -386,10 +387,7 @@ NSImage *statusImage;
                                   
                                   return [file1Date compare: file2Date];
                               }];
-
-    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:sortedContent.lastObject];
-
-    return backgroundImage;
+    return sortedContent.lastObject;
 }
 
 -(void)setPhoto:(NSImage*)backgroundImage
@@ -432,7 +430,7 @@ NSImage *statusImage;
 
 -(IBAction)preview:(id)sender
 {
-    NSImage *backgroundImage = [self getLastImage];
+    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:[self urlForLast]];
 
     if(!backgroundImage){
         backgroundImage = [NSImage imageNamed:@"statusIcon"];
