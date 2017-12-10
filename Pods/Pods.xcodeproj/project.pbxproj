@@ -472,7 +472,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04FE2BB1655BA3941B86D97B775803C0 /* Debug */ = {
+		440EFD03978277C17E60406CDD79A4C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */;
 			buildSettings = {
@@ -482,7 +482,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREFIX_HEADER = "Target Support Files/NSGIF/NSGIF-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -490,49 +490,9 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
-			name = Debug;
+			name = Release;
 		};
-		2F255B51CA4C255BF14D661F111E72EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Debug;
-		};
-		3981A553D01105909468BA806BC45E70 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB72BE165107FF2646FE7B11A0B005D3 /* Pods-memoryio.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		426EB6979474C018714ED9EDF5AED20A /* Release */ = {
+		5771D7AC1792C9F7C6B171E64EE6A883 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
 			buildSettings = {
@@ -542,7 +502,67 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREFIX_HEADER = "Target Support Files/AVCapture/AVCapture-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Debug;
+		};
+		5F80303B7DAFDA0E8E1E2D326B5B8668 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Debug;
+		};
+		6FE1D136047DC92F109CA18D4725CC8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB72BE165107FF2646FE7B11A0B005D3 /* Pods-memoryio.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		777487F4A8B5CA6512E6D448202FA727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/AVCapture/AVCapture-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -552,27 +572,27 @@
 			};
 			name = Release;
 		};
-		859B9B13431B6EE4B8D5062A7577594A /* Release */ = {
+		8C0B6800511CEFCCA34686A8169F1ACC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B717EFEF0EAE7340627471A3B54F42C /* Pods-memoryio.release.xcconfig */;
+			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Release;
 		};
-		B7178E10E3D6939074D122DCF975E1C3 /* Release */ = {
+		AC01B1D975732AC324C05F38AD3474F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */;
 			buildSettings = {
@@ -582,7 +602,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREFIX_HEADER = "Target Support Files/NSGIF/NSGIF-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -590,9 +610,9 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
-			name = Release;
+			name = Debug;
 		};
-		B8F29428FB8A1EE3EDAEEDADBE4805BD /* Release */ = {
+		BEE1DDA830ACA9E39AE3A747643B29F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -638,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
@@ -647,47 +667,7 @@
 			};
 			name = Release;
 		};
-		BB6E13189550F19DB13CB1C844AA157D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Release;
-		};
-		E22717DB6C6B002A1835D5428021F157 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/AVCapture/AVCapture-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Debug;
-		};
-		F8FF074FEE1798A05614311154B79C8F /* Debug */ = {
+		D56B910526BA0E6E5581606541E5D034 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -736,7 +716,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -747,14 +727,34 @@
 			};
 			name = Debug;
 		};
+		DEF014140AD0DEC474D7A9159945457B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B717EFEF0EAE7340627471A3B54F42C /* Pods-memoryio.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8FF074FEE1798A05614311154B79C8F /* Debug */,
-				B8F29428FB8A1EE3EDAEEDADBE4805BD /* Release */,
+				D56B910526BA0E6E5581606541E5D034 /* Debug */,
+				BEE1DDA830ACA9E39AE3A747643B29F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -762,8 +762,8 @@
 		61D94CA86AEACBD14C3610FF68160BDE /* Build configuration list for PBXNativeTarget "AVCapture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E22717DB6C6B002A1835D5428021F157 /* Debug */,
-				426EB6979474C018714ED9EDF5AED20A /* Release */,
+				5771D7AC1792C9F7C6B171E64EE6A883 /* Debug */,
+				777487F4A8B5CA6512E6D448202FA727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -771,8 +771,8 @@
 		8C727F740B07D167CD15659232A03456 /* Build configuration list for PBXNativeTarget "Pods-memoryio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3981A553D01105909468BA806BC45E70 /* Debug */,
-				859B9B13431B6EE4B8D5062A7577594A /* Release */,
+				6FE1D136047DC92F109CA18D4725CC8A /* Debug */,
+				DEF014140AD0DEC474D7A9159945457B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -780,8 +780,8 @@
 		AAC9396D4E7EA78DEE2A1104AB8287E3 /* Build configuration list for PBXNativeTarget "SimpleExif" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2F255B51CA4C255BF14D661F111E72EB /* Debug */,
-				BB6E13189550F19DB13CB1C844AA157D /* Release */,
+				5F80303B7DAFDA0E8E1E2D326B5B8668 /* Debug */,
+				8C0B6800511CEFCCA34686A8169F1ACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -789,8 +789,8 @@
 		F2E91202F355044941DE1176FBD7A178 /* Build configuration list for PBXNativeTarget "NSGIF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04FE2BB1655BA3941B86D97B775803C0 /* Debug */,
-				B7178E10E3D6939074D122DCF975E1C3 /* Release */,
+				AC01B1D975732AC324C05F38AD3474F9 /* Debug */,
+				440EFD03978277C17E60406CDD79A4C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

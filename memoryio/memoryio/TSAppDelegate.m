@@ -36,7 +36,6 @@ typedef enum : NSUInteger
 NotificationManager *notificationManager;
 NSStatusItem *statusItem;
 NSImage *statusImage;
-NSString *defaultPath;
 
 
 #pragma Setup
@@ -60,18 +59,12 @@ NSString *defaultPath;
 }
 
 - (void) populateLocation{
+    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
+
     [locationPull removeAllItems];
-    [locationPull addItemWithTitle:defaultPath];
+    [locationPull addItemWithTitle:path];
     [locationPull addItemWithTitle:@"Other"];
-
-    NSString *location = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
-
-    if([location isEqualToString:defaultPath]) {
-        [locationPull selectItemAtIndex:0];
-    }else{
-        [locationPull addItemWithTitle:location];
-        [locationPull selectItemAtIndex:2];
-    }
+    [locationPull selectItemAtIndex:0];
 }
 
 - (void) populateMode{
@@ -107,6 +100,7 @@ NSString *defaultPath;
 
     //set location
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"]) {
+        NSString *defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
         [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
     }
 
@@ -145,10 +139,7 @@ NSString *defaultPath;
 
     [statusItem setTarget:self];
 
-    //Used to detect where our files are
-    NSBundle *bundle = [NSBundle mainBundle];
-
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+    statusImage = [NSImage imageNamed:@"statusIcon"];
 
     //Sets the images in our NSStatusItem
     [statusItem setImage:statusImage];
@@ -217,8 +208,6 @@ NSString *defaultPath;
 {
 //    verbose("Starting memoryio");
 
-    defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
-
     [self setNSUserDefaults];
     [self setupPreferences];
     [self setupNotifications];
@@ -248,13 +237,14 @@ NSString *defaultPath;
 
 - (IBAction)tweet:(id)sender
 {
-    NSImage *backgroundImage = [self getLastImage];
+    NSURL *last = [self urlForLast];
 
-    NSArray * shareItems = [NSArray arrayWithObjects:@"  #memoryio", backgroundImage, nil];
+    NSArray * shareItems = [NSArray arrayWithObjects:@"#memoryio", last, nil];
 
-    NSSharingService *service = [NSSharingService sharingServiceNamed:NSSharingServiceNamePostOnTwitter];
-    service.delegate = self;
-    [service performWithItems:shareItems];
+    NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:shareItems];
+
+    sharingServicePicker.delegate = self;
+    [sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMaxYEdge];
 }
 
 - (void) postNotification:(NSString *) informativeText withActionBoolean:(BOOL)hasActionButton{
@@ -377,11 +367,11 @@ NSString *defaultPath;
     }];
 }
 
--(NSImage*)getLastImage
+-(NSURL*)urlForLast
 {
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
     NSArray *pictures = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[NSURL fileURLWithPath:path]
-                                                      includingPropertiesForKeys:@[NSURLContentModificationDateKey]
+                                                      includingPropertiesForKeys:@[NSURLCreationDateKey]
                                                                          options:NSDirectoryEnumerationSkipsHiddenFiles
                                                                            error:nil];
 
@@ -390,17 +380,14 @@ NSString *defaultPath;
                               {
                                   // compare
                                   NSDate *file1Date;
-                                  [file1 getResourceValue:&file1Date forKey:NSURLContentModificationDateKey error:nil];
+                                  [file1 getResourceValue:&file1Date forKey:NSURLCreationDateKey error:nil];
                                   
                                   NSDate *file2Date;
-                                  [file2 getResourceValue:&file2Date forKey:NSURLContentModificationDateKey error:nil];
+                                  [file2 getResourceValue:&file2Date forKey:NSURLCreationDateKey error:nil];
                                   
                                   return [file1Date compare: file2Date];
                               }];
-
-    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:sortedContent.lastObject];
-
-    return backgroundImage;
+    return sortedContent.lastObject;
 }
 
 -(void)setPhoto:(NSImage*)backgroundImage
@@ -443,14 +430,10 @@ NSString *defaultPath;
 
 -(IBAction)preview:(id)sender
 {
-    NSImage *backgroundImage = [self getLastImage];
+    NSImage *backgroundImage = [[NSImage alloc] initWithContentsOfURL:[self urlForLast]];
 
     if(!backgroundImage){
-
-        //Used to detect where our files are
-        NSBundle *bundle = [NSBundle mainBundle];
-        backgroundImage = [[NSImage alloc] initWithContentsOfFile:
-                           [bundle pathForResource:@"io_logo" ofType:@"png"]];
+        backgroundImage = [NSImage imageNamed:@"statusIcon"];
     }
 
     [self setPhoto:backgroundImage];
@@ -479,10 +462,7 @@ NSString *defaultPath;
 
 - (IBAction)setLocation:(NSPopUpButton*)sender {
 
-    if([sender indexOfSelectedItem] == 0){
-        [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
-    }
-    else if([sender indexOfSelectedItem] == 1){
+    if([sender indexOfSelectedItem] == 1){
         NSOpenPanel *panel = [NSOpenPanel openPanel];
         [panel setCanChooseFiles:NO];
         [panel setCanChooseDirectories:YES];
