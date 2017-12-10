@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="1070" identifier="macosx"/>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -762,11 +762,11 @@
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="0qy-48-AO9">
                                 <view key="view" ambiguous="YES" id="9iq-Qr-Wcy">
-                                    <rect key="frame" x="10" y="33" width="178" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="388" height="231"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pH8-uV-DZ3">
-                                            <rect key="frame" x="162" y="-96" width="174" height="26"/>
+                                            <rect key="frame" x="162" y="135" width="174" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="moL-32-rNN">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -778,7 +778,7 @@
                                             </connections>
                                         </popUpButton>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyb-dQ-i8M">
-                                            <rect key="frame" x="15" y="-91" width="96" height="17"/>
+                                            <rect key="frame" x="15" y="140" width="96" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Save Location:" id="bnn-z6-VvW">
                                                 <font key="font" metaFont="system"/>
@@ -787,7 +787,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHM-AB-pwF">
-                                            <rect key="frame" x="15" y="-132" width="130" height="17"/>
+                                            <rect key="frame" x="15" y="99" width="130" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Action at lockscreen" id="4s2-sW-lRG">
                                                 <font key="font" metaFont="system"/>
@@ -796,7 +796,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLI-cR-Dr2">
-                                            <rect key="frame" x="162" y="-137" width="73" height="26"/>
+                                            <rect key="frame" x="162" y="94" width="73" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="NN2-2c-l3U">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -808,7 +808,7 @@
                                             </connections>
                                         </popUpButton>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2E-5G-lLJ">
-                                            <rect key="frame" x="162" y="-53" width="112" height="18"/>
+                                            <rect key="frame" x="162" y="178" width="112" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Run at Startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pVb-53-0gQ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -819,7 +819,7 @@
                                             </connections>
                                         </button>
                                         <textField toolTip="Time after wakeup to begin taking photo" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fK5-Ah-VSY">
-                                            <rect key="frame" x="15" y="-176" width="120" height="17"/>
+                                            <rect key="frame" x="15" y="55" width="120" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Delay after Startup" id="suS-eB-91Z">
                                                 <font key="font" metaFont="system"/>
@@ -828,7 +828,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4F-La-fkw">
-                                            <rect key="frame" x="164" y="-179" width="54" height="22"/>
+                                            <rect key="frame" x="164" y="52" width="54" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" toolTip="Seconds to wait after wakeup to enable camera (0-5.00)" drawsBackground="YES" id="Q9H-bA-cdW">
                                                 <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="##0.00" negativeFormat="##0.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="2" maximumFractionDigits="2" id="oPQ-aw-pAf">
