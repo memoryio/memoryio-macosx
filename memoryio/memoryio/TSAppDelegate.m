@@ -36,7 +36,6 @@ typedef enum : NSUInteger
 NotificationManager *notificationManager;
 NSStatusItem *statusItem;
 NSImage *statusImage;
-NSString *defaultPath;
 
 
 #pragma Setup
@@ -60,18 +59,12 @@ NSString *defaultPath;
 }
 
 - (void) populateLocation{
+    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
+
     [locationPull removeAllItems];
-    [locationPull addItemWithTitle:defaultPath];
+    [locationPull addItemWithTitle:path];
     [locationPull addItemWithTitle:@"Other"];
-
-    NSString *location = [[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"];
-
-    if([location isEqualToString:defaultPath]) {
-        [locationPull selectItemAtIndex:0];
-    }else{
-        [locationPull addItemWithTitle:location];
-        [locationPull selectItemAtIndex:2];
-    }
+    [locationPull selectItemAtIndex:0];
 }
 
 - (void) populateMode{
@@ -107,6 +100,7 @@ NSString *defaultPath;
 
     //set location
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"]) {
+        NSString *defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
         [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
     }
 
@@ -213,8 +207,6 @@ NSString *defaultPath;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 //    verbose("Starting memoryio");
-
-    defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
 
     [self setNSUserDefaults];
     [self setupPreferences];
@@ -472,10 +464,7 @@ NSString *defaultPath;
 
 - (IBAction)setLocation:(NSPopUpButton*)sender {
 
-    if([sender indexOfSelectedItem] == 0){
-        [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
-    }
-    else if([sender indexOfSelectedItem] == 1){
+    if([sender indexOfSelectedItem] == 1){
         NSOpenPanel *panel = [NSOpenPanel openPanel];
         [panel setCanChooseFiles:NO];
         [panel setCanChooseDirectories:YES];
