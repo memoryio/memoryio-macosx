@@ -107,7 +107,7 @@ NSImage *statusImage;
 
     //set location
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"memoryio-location"]) {
-        NSString *defaultPath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Pictures/memoryIO/"];
+        NSString *defaultPath = [NSString stringWithFormat:@"/Users/%@/Pictures/memoryIO/", NSUserName()];
         [[NSUserDefaults standardUserDefaults] setObject:defaultPath forKey:@"memoryio-location"];
     }
 
