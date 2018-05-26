@@ -92,7 +92,13 @@ NSImage *statusImage;
 
 - (void)setNSUserDefaults{
     //set startup
-    // boolforkey returns NO if key does not exist
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-launchatlogin"]) {
+        if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES)) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"memoryio-launchatlogin"];
+        }else{
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"memoryio-launchatlogin"];
+        }
+    }
 
     //set mode
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"memoryio-mode"]) {
@@ -149,6 +155,22 @@ NSImage *statusImage;
     [statusItem setMenu:statusMenu];
 }
 
+- (bool) isEnabled{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSArray* jobDicts = CFBridgingRelease(SMCopyAllJobDictionaries(kSMDomainUserLaunchd));
+#pragma clang diagnostic pop
+
+    if (jobDicts && [jobDicts count] > 0){
+        for (NSDictionary* job in jobDicts){
+            if ([@"com.augmentous.LaunchAtLoginHelperApp" isEqualToString:[job objectForKey:@"Label"]] && [[job objectForKey:@"OnDemand"] boolValue]){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 - (void) setupPreferences{
 
     [self populateFrameCount];
@@ -159,10 +181,12 @@ NSImage *statusImage;
     [self populatePhotoDelay];
     [self populateWarmupDelay];
 
-    bool launchAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"];
-    if(launchAtLogin) {
+    //check SMLoginItem directly instead of memoryio-launchatlogin, but keep it around for posterity
+    if ([self isEnabled]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"memoryio-launchatlogin"];
         [startupButton setState:NSOnState];
     }else{
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"memoryio-launchatlogin"];
         [startupButton setState:NSOffState];
     }
 }
