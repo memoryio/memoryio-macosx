@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -656,6 +656,7 @@
                 <outlet property="loopCountText" destination="VBr-Uh-gfo" id="YAt-9Q-cIf"/>
                 <outlet property="modePull" destination="PLI-cR-Dr2" id="oAo-Fg-PuY"/>
                 <outlet property="photoDelayText" destination="o4F-La-fkw" id="7mb-w9-M9r"/>
+                <outlet property="preferencesOutlet" destination="vNx-TJ-nvs" id="i6P-El-6QC"/>
                 <outlet property="previewImage" destination="HGe-kt-fev" id="Blh-eI-OQs"/>
                 <outlet property="startupButton" destination="F2E-5G-lLJ" id="LcS-zI-fuO"/>
                 <outlet property="statusMenu" destination="560" id="573"/>
@@ -695,7 +696,7 @@
                 <menuItem title="Preferences" id="fZV-aP-acE">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="makeKeyAndOrderFront:" target="vNx-TJ-nvs" id="dfG-A6-KiH"/>
+                        <action selector="preferences:" target="494" id="Nq7-mJ-dk5"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="LOj-7z-MQD"/>

@@ -12,6 +12,7 @@
 @synthesize statusMenu;
 @synthesize startupButton;
 @synthesize windowOutlet;
+@synthesize preferencesOutlet;
 @synthesize previewImage;
 @synthesize locationPull;
 @synthesize modePull;
@@ -442,6 +443,11 @@ NSImage *statusImage;
     [NSApp activateIgnoringOtherApps:YES];
 }
 
+- (IBAction)preferences:(id)sender {
+    [preferencesOutlet makeKeyAndOrderFront: self];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
 
 #pragma Preferences
 
@@ -506,6 +512,8 @@ NSImage *statusImage;
 - (IBAction)loopCountDidChange:(NSTextField*)sender {
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)[sender integerValue]] forKey:@"memoryio-gif-loop-count"];
 }
+
+
 
 
 #pragma Delegates

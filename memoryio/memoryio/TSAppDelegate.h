@@ -17,6 +17,7 @@
 @property IBOutlet NSMenu *statusMenu;
 @property IBOutlet NSButton *startupButton;
 @property (weak) IBOutlet NSWindow *windowOutlet;
+@property (weak) IBOutlet NSWindow *preferencesOutlet;
 @property (weak) IBOutlet NSImageView *previewImage;
 @property (weak) IBOutlet NSPopUpButton *locationPull;
 @property (weak) IBOutlet NSPopUpButton *modePull;
@@ -32,6 +33,7 @@
 - (IBAction)aboutAction:(id)sender;
 - (IBAction)startupAction:(id)sender;
 - (IBAction)preview:(id)sender;
+- (IBAction)preferences:(id)sender;
 - (IBAction)tweet:(id)sender;
 
 @end
