@@ -159,12 +159,21 @@ NSImage *statusImage;
     [self populatePhotoDelay];
     [self populateWarmupDelay];
 
-    bool launchAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"memoryio-launchatlogin"];
-    if(launchAtLogin) {
+    //dont want to rely on the memoryio-launchatlogin key which could get out of sync, instead..
+    BOOL enabled = NO;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSArray* jobDicts = CFBridgingRelease(SMCopyAllJobDictionaries(kSMDomainUserLaunchd));
+#pragma clang diagnostic pop
+    if (jobDicts && [jobDicts count] > 0) for (NSDictionary* job in jobDicts)
+        if ([@"com.augmentous.LaunchAtLoginHelperApp" isEqualToString:[job objectForKey:@"Label"]] && [[job objectForKey:@"OnDemand"] boolValue])
+            enabled = YES;
+    if (enabled){
         [startupButton setState:NSOnState];
     }else{
         [startupButton setState:NSOffState];
     }
+
 }
 
 -(void)setupNotifications{
@@ -453,16 +462,10 @@ NSImage *statusImage;
 
 - (IBAction)startupAction:(id)sender
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-
     if ([sender state] == NSOnState){
-        if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES)) {
-            [userDefaults setBool:YES forKey:@"memoryio-launchatlogin"];
-        }
+        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", YES);
     }else{
-        if (SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", NO)) {
-            [userDefaults setBool:NO forKey:@"memoryio-launchatlogin"];
-        }
+        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.augmentous.LaunchAtLoginHelperApp", NO);
     }
 }
 

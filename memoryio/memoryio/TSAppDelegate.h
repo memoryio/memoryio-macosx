@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import "ServiceManagement/SMLoginItem.h"
+#import "ServiceManagement/ServiceManagement.h"
 
 #import "ImageSnap.h"
 #import "NSGIF.h"
