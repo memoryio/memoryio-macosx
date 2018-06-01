@@ -352,7 +352,7 @@
 	// NSLog(@"Did start recording to %f %@", time.doubleValue, [fileURL description]);
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:time.intValue
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:[self time].intValue
                                                       target:self
                                                     selector:@selector(stopRecording)
                                                     userInfo:nil repeats:NO];

@@ -7,51 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		077A903A060C46A4C7662669AEF5FFEB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */; };
-		0E16F113B87B58329AA6547196D5D7B3 /* AVCapture-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DBF67D096EAA6F3CACB66389126565 /* AVCapture-dummy.m */; };
-		315A35BAE4816C67EEFE9ADF89E93FD5 /* ExifContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E65FDDAACF2CEB85990E8B75B7BC47 /* ExifContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3333E8A7B0D17743BAE817E23466AF86 /* AVCaptureDeviceFormat_AVRecorderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD9AD3A305A4015A806B5C51B9E9E7D /* AVCaptureDeviceFormat_AVRecorderAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4FB9997E6B56D9E1129E9BA65A49E5E4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537664CC136A59E5C9541E15822CA760 /* CoreMedia.framework */; };
-		64CD0D3959D54F36398996D02CF88A39 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */; };
-		673B7CB21BCE983711E8B767E6078079 /* SimpleExif-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EF92AD74C45D225C76ED79192F3D8F /* SimpleExif-dummy.m */; };
-		716F1FC9838D33CE06460FC4CCF478F9 /* AVFrameRateRange_AVRecorderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DC5685483BC26B84A3A96521020C08 /* AVFrameRateRange_AVRecorderAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		742580681395BA6C92F0C4CC0030E7E8 /* AVFrameRateRange_AVRecorderAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D86CAE352635DC3A021712825FCB6814 /* AVFrameRateRange_AVRecorderAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F9B2710260B33EA74155C687428055E /* NSGIF-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEECB078311DD3AC0A0ED5C25C624ACE /* NSGIF-dummy.m */; };
-		8A5E8CCD35E8C95E620EF8FA05CC7BAF /* AVRecorderDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A86227E308B09EE2149766025EB26E3 /* AVRecorderDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9E19311DEB5AC8141728233D26A89A58 /* Pods-memoryio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03684E5A693C70F5A739FD0BFC29F4F3 /* Pods-memoryio-dummy.m */; };
-		A4C61580ABA17BF0933D793117F80A3B /* AVRecorderDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0AC8DB1139DB5D8835FEAF9AB05BDD /* AVRecorderDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7B9D17B8B11F5800084FF3C3CBEC94C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */; };
-		AECBA35B579083BA67A55E9F18BB5D7F /* NSGIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 8666483540DD7763387792B098ECFA38 /* NSGIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2C8AAE3E91D4DA46DA7F6053F2FFD3D /* NSImage+Exif.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E97183C240B43A151C1472C9A4A81 /* NSImage+Exif.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B514284117469B5CDB1CA6ECE1092D71 /* ExifContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FC86480E7A318EDE213F78A6F4E37C /* ExifContainer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C2A8AB87E992D8D53CBB31190340F20A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */; };
-		C5A2826B09F6E7D36D6D1D09315F12C5 /* AVCaptureDeviceFormat_AVRecorderAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F130EA3A5F97E8D3C4E5A9046E68D7 /* AVCaptureDeviceFormat_AVRecorderAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB86D4A63C28B7EAB4E9E4D6D6F5011F /* NSGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C6DD3F53D21486A27A7AE3D5105BC /* NSGIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F85A8967E0883E318FC9A37D1F615E72 /* NSImage+Exif.h in Headers */ = {isa = PBXBuildFile; fileRef = ADF3C42E663E30F45508CFBD3AEBC555 /* NSImage+Exif.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDB17E18E20656AD4EF8CFF7DC6A1170 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E9F21C7BDC6CBDE5DA2CB2F8A91054 /* AudioToolbox.framework */; };
+		11541BC477D84306178167981AF93632 /* AVRecorderDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0AC8DB1139DB5D8835FEAF9AB05BDD /* AVRecorderDocument.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		265E88A3528D8CD575E99684EC5907F8 /* ExifContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FC86480E7A318EDE213F78A6F4E37C /* ExifContainer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3037C785B1CEEF0FDC1721A3B26C0C8B /* AVCaptureDeviceFormat_AVRecorderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD9AD3A305A4015A806B5C51B9E9E7D /* AVCaptureDeviceFormat_AVRecorderAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3ACFEE5E2439837FA42F49507FB1C983 /* AVCaptureDeviceFormat_AVRecorderAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F130EA3A5F97E8D3C4E5A9046E68D7 /* AVCaptureDeviceFormat_AVRecorderAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5794F45B3001B3DDBE226B21B62B151A /* NSGIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 8666483540DD7763387792B098ECFA38 /* NSGIF.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6086E29651C74FCAC3A8BABA8EBF2817 /* AVFrameRateRange_AVRecorderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DC5685483BC26B84A3A96521020C08 /* AVFrameRateRange_AVRecorderAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7241D105CAB21A4BC177D9A1C6F9DE53 /* NSImage+Exif.h in Headers */ = {isa = PBXBuildFile; fileRef = ADF3C42E663E30F45508CFBD3AEBC555 /* NSImage+Exif.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7AF3B9A7C22886EAAA8F156943647628 /* NSGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C6DD3F53D21486A27A7AE3D5105BC /* NSGIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7BB6D4139890037B7E05293D2151FA8D /* AVFrameRateRange_AVRecorderAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D86CAE352635DC3A021712825FCB6814 /* AVFrameRateRange_AVRecorderAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		855BC88505E715C61C11ED70ED78410A /* SimpleExif-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EF92AD74C45D225C76ED79192F3D8F /* SimpleExif-dummy.m */; };
+		9BCB528ED9A7B90169651CF8B7755D47 /* AVRecorderDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A86227E308B09EE2149766025EB26E3 /* AVRecorderDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A5ECACC27D240B3CACE67C1C51BC9412 /* NSImage+Exif.m in Sources */ = {isa = PBXBuildFile; fileRef = D59E97183C240B43A151C1472C9A4A81 /* NSImage+Exif.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B509B56672651DAFC47B64B8B34E2225 /* Pods-memoryio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03684E5A693C70F5A739FD0BFC29F4F3 /* Pods-memoryio-dummy.m */; };
+		D9E736C5861393EC828B21F1ABEEEBA6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3909E22DED1E7EF345A4B82B72BEEEB8 /* CoreMedia.framework */; };
+		EDFEC9493DAA9B46167D282B851ABAE4 /* AVCapture-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DBF67D096EAA6F3CACB66389126565 /* AVCapture-dummy.m */; };
+		F09F34F583E1B739315F11F5C0E31823 /* ExifContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E65FDDAACF2CEB85990E8B75B7BC47 /* ExifContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F853C76489510B6EEE2173C2EF603DF2 /* NSGIF-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEECB078311DD3AC0A0ED5C25C624ACE /* NSGIF-dummy.m */; };
+		FC01BD8DDE7B85D767430FFF4587EACF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A43F4062238BFD256E41D50233522 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		706BC3EADA9A7E0C904A41DBDDFB75A8 /* PBXContainerItemProxy */ = {
+		18B391293E6A31E83BD23A42BBB898FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DA80DF66B043648351073118A38C889E;
+			remoteGlobalIDString = ACB8BFDB1AE5CE7CFD06602AE2C7141E;
 			remoteInfo = AVCapture;
 		};
-		7618612C7C8966C396302EB334C5123B /* PBXContainerItemProxy */ = {
+		89B046FA4C800A50C250E67C3A0DD231 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4E7A000F46C47FD6388D07F9AB193493;
-			remoteInfo = SimpleExif;
-		};
-		D0FDBAF2CC5864EA08BC35DBA732DB9D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7CAC83F3F826C73494BE3714493F8415;
+			remoteGlobalIDString = F8A1B5554CFC877EBBA7B16CEFE321D4;
 			remoteInfo = NSGIF;
+		};
+		F627C135B6A08D59BF2A6C26997A0E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61B1EA6E6B94F38F4F3C96581812E348;
+			remoteInfo = SimpleExif;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,20 +59,19 @@
 		24EF92AD74C45D225C76ED79192F3D8F /* SimpleExif-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SimpleExif-dummy.m"; sourceTree = "<group>"; };
 		2A86227E308B09EE2149766025EB26E3 /* AVRecorderDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AVRecorderDocument.m; path = Classes/AVRecorderDocument.m; sourceTree = "<group>"; };
 		2C6C6DD3F53D21486A27A7AE3D5105BC /* NSGIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NSGIF.m; path = NSGIF/NSGIF.m; sourceTree = "<group>"; };
-		31E9F21C7BDC6CBDE5DA2CB2F8A91054 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		33AB18AB6CA215616E418895C8256FA0 /* SimpleExif-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SimpleExif-prefix.pch"; sourceTree = "<group>"; };
+		3909E22DED1E7EF345A4B82B72BEEEB8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		3F1A43F4062238BFD256E41D50233522 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AVCapture.xcconfig; sourceTree = "<group>"; };
 		4994D627A084096E35BE9FC07667E297 /* Pods-memoryio-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-memoryio-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4A184A7132C0AC2AD5E14788B27B544F /* Pods-memoryio-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-memoryio-acknowledgements.plist"; sourceTree = "<group>"; };
 		4D0AC8DB1139DB5D8835FEAF9AB05BDD /* AVRecorderDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AVRecorderDocument.h; path = Classes/AVRecorderDocument.h; sourceTree = "<group>"; };
 		4F4A303F8CB2808CFC8A171EC66E9484 /* Pods-memoryio-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-memoryio-resources.sh"; sourceTree = "<group>"; };
-		537664CC136A59E5C9541E15822CA760 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		55FAF666D82E99466C830963AE6760FB /* AVCapture-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AVCapture-prefix.pch"; sourceTree = "<group>"; };
 		5B234D90F32D5D1705652DE3FDE39B93 /* libAVCapture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAVCapture.a; path = libAVCapture.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D173096505789DCAC162D751960A16E /* Pods-memoryio-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-memoryio-frameworks.sh"; sourceTree = "<group>"; };
 		618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SimpleExif.xcconfig; sourceTree = "<group>"; };
 		69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NSGIF.xcconfig; sourceTree = "<group>"; };
-		7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		8666483540DD7763387792B098ECFA38 /* NSGIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NSGIF.h; path = NSGIF/NSGIF.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93E65FDDAACF2CEB85990E8B75B7BC47 /* ExifContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExifContainer.h; path = Classes/ExifContainer.h; sourceTree = "<group>"; };
@@ -95,53 +90,39 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DCEC418F7F3850183380568B01338A6 /* Frameworks */ = {
+		2D43AEA30744E76353807FFF51AD283A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				077A903A060C46A4C7662669AEF5FFEB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6354AF818CDE4C14561D44C9A26A335F /* Frameworks */ = {
+		9C580B3FE4248D387096D5B74E63146D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64CD0D3959D54F36398996D02CF88A39 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F80ADD0B68530BA9EEDB99F793588AD /* Frameworks */ = {
+		B7FF0696F8D86D6738D1752913898B0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB17E18E20656AD4EF8CFF7DC6A1170 /* AudioToolbox.framework in Frameworks */,
-				C2A8AB87E992D8D53CBB31190340F20A /* Cocoa.framework in Frameworks */,
-				4FB9997E6B56D9E1129E9BA65A49E5E4 /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE4F694955240184ED2F3AE815E1203E /* Frameworks */ = {
+		F9088AAC656288217FB9BB9449621362 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7B9D17B8B11F5800084FF3C3CBEC94C /* Cocoa.framework in Frameworks */,
+				FC01BD8DDE7B85D767430FFF4587EACF /* AudioToolbox.framework in Frameworks */,
+				D9E736C5861393EC828B21F1ABEEEBA6 /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C2C5EFEE27E2A5742E514CD917C5F55 /* OS X */ = {
-			isa = PBXGroup;
-			children = (
-				31E9F21C7BDC6CBDE5DA2CB2F8A91054 /* AudioToolbox.framework */,
-				7F26FF42FACA557CEE91FB74B27D53C3 /* Cocoa.framework */,
-				537664CC136A59E5C9541E15822CA760 /* CoreMedia.framework */,
-			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
 		531D4E6368EAF24CAA72EC0BA4E8B994 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				96D996393384F21972E2DD81788EE22C /* Frameworks */,
+				D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */,
 				E89CA898617AB8EECFFCC6C95DE269C6 /* Pods */,
 				531D4E6368EAF24CAA72EC0BA4E8B994 /* Products */,
 				87E8DDBA106DB45ABF74F6FC34BBD152 /* Targets Support Files */,
@@ -209,14 +190,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		96D996393384F21972E2DD81788EE22C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4C2C5EFEE27E2A5742E514CD917C5F55 /* OS X */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A0062A3DF3146238D7A0346F90AC4A15 /* NSGIF */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +199,23 @@
 			);
 			name = NSGIF;
 			path = NSGIF;
+			sourceTree = "<group>";
+		};
+		CCDFB0C5E532FC11C04F2867E45BFEDC /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				3F1A43F4062238BFD256E41D50233522 /* AudioToolbox.framework */,
+				3909E22DED1E7EF345A4B82B72BEEEB8 /* CoreMedia.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCDFB0C5E532FC11C04F2867E45BFEDC /* OS X */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E89CA898617AB8EECFFCC6C95DE269C6 /* Pods */ = {
@@ -280,43 +270,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0748660F28C245770DC78403F5BDD461 /* Headers */ = {
+		6027FAA8443FAB0C92D3C260D8CAFF16 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5A2826B09F6E7D36D6D1D09315F12C5 /* AVCaptureDeviceFormat_AVRecorderAdditions.h in Headers */,
-				742580681395BA6C92F0C4CC0030E7E8 /* AVFrameRateRange_AVRecorderAdditions.h in Headers */,
-				A4C61580ABA17BF0933D793117F80A3B /* AVRecorderDocument.h in Headers */,
+				F09F34F583E1B739315F11F5C0E31823 /* ExifContainer.h in Headers */,
+				7241D105CAB21A4BC177D9A1C6F9DE53 /* NSImage+Exif.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FA7686FAC12DA14371259A39C449432 /* Headers */ = {
+		B2685C2BF62A29D9FC1272A5BC222A38 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				315A35BAE4816C67EEFE9ADF89E93FD5 /* ExifContainer.h in Headers */,
-				F85A8967E0883E318FC9A37D1F615E72 /* NSImage+Exif.h in Headers */,
+				3ACFEE5E2439837FA42F49507FB1C983 /* AVCaptureDeviceFormat_AVRecorderAdditions.h in Headers */,
+				7BB6D4139890037B7E05293D2151FA8D /* AVFrameRateRange_AVRecorderAdditions.h in Headers */,
+				11541BC477D84306178167981AF93632 /* AVRecorderDocument.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CBCB9EAD1E8D9898AD6B365D127FB5F /* Headers */ = {
+		B7ED8C5587E28D62A7A18D3B9EC9E035 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECBA35B579083BA67A55E9F18BB5D7F /* NSGIF.h in Headers */,
+				5794F45B3001B3DDBE226B21B62B151A /* NSGIF.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4E7A000F46C47FD6388D07F9AB193493 /* SimpleExif */ = {
+		61B1EA6E6B94F38F4F3C96581812E348 /* SimpleExif */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAC9396D4E7EA78DEE2A1104AB8287E3 /* Build configuration list for PBXNativeTarget "SimpleExif" */;
+			buildConfigurationList = 142C10CF2460D4A8777A80ED2E8CCFED /* Build configuration list for PBXNativeTarget "SimpleExif" */;
 			buildPhases = (
-				C5AE6359628691058860528E6B126D23 /* Sources */,
-				6354AF818CDE4C14561D44C9A26A335F /* Frameworks */,
-				2FA7686FAC12DA14371259A39C449432 /* Headers */,
+				66DADA1366322BA7C23AEDB686FD3A3C /* Sources */,
+				B7FF0696F8D86D6738D1752913898B0C /* Frameworks */,
+				6027FAA8443FAB0C92D3C260D8CAFF16 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -327,49 +317,32 @@
 			productReference = BCA2B89BE113A847BCF8A7A38BA8043F /* libSimpleExif.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		7CAC83F3F826C73494BE3714493F8415 /* NSGIF */ = {
+		6AB758ABA7FDC9095DAC1A2B24324B38 /* Pods-memoryio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F2E91202F355044941DE1176FBD7A178 /* Build configuration list for PBXNativeTarget "NSGIF" */;
+			buildConfigurationList = 780E31400DE10492DC15B1C81865C3A8 /* Build configuration list for PBXNativeTarget "Pods-memoryio" */;
 			buildPhases = (
-				5A82587C266F267E34B958E3CFF5EC50 /* Sources */,
-				2DCEC418F7F3850183380568B01338A6 /* Frameworks */,
-				9CBCB9EAD1E8D9898AD6B365D127FB5F /* Headers */,
+				65BEFB953A16A3ADB6F85D31B83F6D22 /* Sources */,
+				2D43AEA30744E76353807FFF51AD283A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = NSGIF;
-			productName = NSGIF;
-			productReference = DFBDCD8A44EC6DD2BB3C5494BA3B4347 /* libNSGIF.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		988E1A623E7B1D62B1F9528E1CDF2AA5 /* Pods-memoryio */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8C727F740B07D167CD15659232A03456 /* Build configuration list for PBXNativeTarget "Pods-memoryio" */;
-			buildPhases = (
-				B5727F54173602C711E2BF63D411B055 /* Sources */,
-				CE4F694955240184ED2F3AE815E1203E /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E2C7DCBE56D313967A74EE7F4032B1B8 /* PBXTargetDependency */,
-				F53F38F383BB34BA5CDDA72E71EE173F /* PBXTargetDependency */,
-				E878ACF7103D913C5BC41036B6FC9707 /* PBXTargetDependency */,
+				0386FD78679E93D96111B81D9C4A936E /* PBXTargetDependency */,
+				17CA8E96B4C1C7121FF4864BAD543A87 /* PBXTargetDependency */,
+				6D9E29AA9AECADC10948A9F8C3A28655 /* PBXTargetDependency */,
 			);
 			name = "Pods-memoryio";
 			productName = "Pods-memoryio";
 			productReference = A4953891E530D1B9B8C19FBE16209039 /* libPods-memoryio.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		DA80DF66B043648351073118A38C889E /* AVCapture */ = {
+		ACB8BFDB1AE5CE7CFD06602AE2C7141E /* AVCapture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61D94CA86AEACBD14C3610FF68160BDE /* Build configuration list for PBXNativeTarget "AVCapture" */;
+			buildConfigurationList = A4A71DE0F74A1BC7C87F2BCD9D7772F2 /* Build configuration list for PBXNativeTarget "AVCapture" */;
 			buildPhases = (
-				7A7022C26C345451014F862B389A688C /* Sources */,
-				8F80ADD0B68530BA9EEDB99F793588AD /* Frameworks */,
-				0748660F28C245770DC78403F5BDD461 /* Headers */,
+				7A035A50FA30E0BEFAAF4904CCCE5B74 /* Sources */,
+				F9088AAC656288217FB9BB9449621362 /* Frameworks */,
+				B2685C2BF62A29D9FC1272A5BC222A38 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -380,14 +353,31 @@
 			productReference = 5B234D90F32D5D1705652DE3FDE39B93 /* libAVCapture.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		F8A1B5554CFC877EBBA7B16CEFE321D4 /* NSGIF */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64B67618A19BB1AEA22326C57A32B18C /* Build configuration list for PBXNativeTarget "NSGIF" */;
+			buildPhases = (
+				B5FDF8494D596ED076B988F91AD8E797 /* Sources */,
+				9C580B3FE4248D387096D5B74E63146D /* Frameworks */,
+				B7ED8C5587E28D62A7A18D3B9EC9E035 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSGIF;
+			productName = NSGIF;
+			productReference = DFBDCD8A44EC6DD2BB3C5494BA3B4347 /* libNSGIF.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -401,78 +391,78 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA80DF66B043648351073118A38C889E /* AVCapture */,
-				7CAC83F3F826C73494BE3714493F8415 /* NSGIF */,
-				988E1A623E7B1D62B1F9528E1CDF2AA5 /* Pods-memoryio */,
-				4E7A000F46C47FD6388D07F9AB193493 /* SimpleExif */,
+				ACB8BFDB1AE5CE7CFD06602AE2C7141E /* AVCapture */,
+				F8A1B5554CFC877EBBA7B16CEFE321D4 /* NSGIF */,
+				6AB758ABA7FDC9095DAC1A2B24324B38 /* Pods-memoryio */,
+				61B1EA6E6B94F38F4F3C96581812E348 /* SimpleExif */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5A82587C266F267E34B958E3CFF5EC50 /* Sources */ = {
+		65BEFB953A16A3ADB6F85D31B83F6D22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F9B2710260B33EA74155C687428055E /* NSGIF-dummy.m in Sources */,
-				DB86D4A63C28B7EAB4E9E4D6D6F5011F /* NSGIF.m in Sources */,
+				B509B56672651DAFC47B64B8B34E2225 /* Pods-memoryio-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7022C26C345451014F862B389A688C /* Sources */ = {
+		66DADA1366322BA7C23AEDB686FD3A3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E16F113B87B58329AA6547196D5D7B3 /* AVCapture-dummy.m in Sources */,
-				3333E8A7B0D17743BAE817E23466AF86 /* AVCaptureDeviceFormat_AVRecorderAdditions.m in Sources */,
-				716F1FC9838D33CE06460FC4CCF478F9 /* AVFrameRateRange_AVRecorderAdditions.m in Sources */,
-				8A5E8CCD35E8C95E620EF8FA05CC7BAF /* AVRecorderDocument.m in Sources */,
+				265E88A3528D8CD575E99684EC5907F8 /* ExifContainer.m in Sources */,
+				A5ECACC27D240B3CACE67C1C51BC9412 /* NSImage+Exif.m in Sources */,
+				855BC88505E715C61C11ED70ED78410A /* SimpleExif-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5727F54173602C711E2BF63D411B055 /* Sources */ = {
+		7A035A50FA30E0BEFAAF4904CCCE5B74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E19311DEB5AC8141728233D26A89A58 /* Pods-memoryio-dummy.m in Sources */,
+				EDFEC9493DAA9B46167D282B851ABAE4 /* AVCapture-dummy.m in Sources */,
+				3037C785B1CEEF0FDC1721A3B26C0C8B /* AVCaptureDeviceFormat_AVRecorderAdditions.m in Sources */,
+				6086E29651C74FCAC3A8BABA8EBF2817 /* AVFrameRateRange_AVRecorderAdditions.m in Sources */,
+				9BCB528ED9A7B90169651CF8B7755D47 /* AVRecorderDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5AE6359628691058860528E6B126D23 /* Sources */ = {
+		B5FDF8494D596ED076B988F91AD8E797 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B514284117469B5CDB1CA6ECE1092D71 /* ExifContainer.m in Sources */,
-				B2C8AAE3E91D4DA46DA7F6053F2FFD3D /* NSImage+Exif.m in Sources */,
-				673B7CB21BCE983711E8B767E6078079 /* SimpleExif-dummy.m in Sources */,
+				F853C76489510B6EEE2173C2EF603DF2 /* NSGIF-dummy.m in Sources */,
+				7AF3B9A7C22886EAAA8F156943647628 /* NSGIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E2C7DCBE56D313967A74EE7F4032B1B8 /* PBXTargetDependency */ = {
+		0386FD78679E93D96111B81D9C4A936E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AVCapture;
-			target = DA80DF66B043648351073118A38C889E /* AVCapture */;
-			targetProxy = 706BC3EADA9A7E0C904A41DBDDFB75A8 /* PBXContainerItemProxy */;
+			target = ACB8BFDB1AE5CE7CFD06602AE2C7141E /* AVCapture */;
+			targetProxy = 18B391293E6A31E83BD23A42BBB898FC /* PBXContainerItemProxy */;
 		};
-		E878ACF7103D913C5BC41036B6FC9707 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SimpleExif;
-			target = 4E7A000F46C47FD6388D07F9AB193493 /* SimpleExif */;
-			targetProxy = 7618612C7C8966C396302EB334C5123B /* PBXContainerItemProxy */;
-		};
-		F53F38F383BB34BA5CDDA72E71EE173F /* PBXTargetDependency */ = {
+		17CA8E96B4C1C7121FF4864BAD543A87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NSGIF;
-			target = 7CAC83F3F826C73494BE3714493F8415 /* NSGIF */;
-			targetProxy = D0FDBAF2CC5864EA08BC35DBA732DB9D /* PBXContainerItemProxy */;
+			target = F8A1B5554CFC877EBBA7B16CEFE321D4 /* NSGIF */;
+			targetProxy = 89B046FA4C800A50C250E67C3A0DD231 /* PBXContainerItemProxy */;
+		};
+		6D9E29AA9AECADC10948A9F8C3A28655 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SimpleExif;
+			target = 61B1EA6E6B94F38F4F3C96581812E348 /* SimpleExif */;
+			targetProxy = F627C135B6A08D59BF2A6C26997A0E15 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		440EFD03978277C17E60406CDD79A4C3 /* Release */ = {
+		03E8197642B40FA36AE2A8EEE7A6A7A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */;
 			buildSettings = {
@@ -486,33 +476,16 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = NSGIF;
+				PRODUCT_NAME = NSGIF;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Release;
-		};
-		5771D7AC1792C9F7C6B171E64EE6A883 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/AVCapture/AVCapture-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Debug;
 		};
-		5F80303B7DAFDA0E8E1E2D326B5B8668 /* Debug */ = {
+		25E2CCCE753B5EFA91B52A12DE05B577 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
 			buildSettings = {
@@ -526,16 +499,20 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SimpleExif;
+				PRODUCT_NAME = SimpleExif;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Debug;
 		};
-		6FE1D136047DC92F109CA18D4725CC8A /* Debug */ = {
+		2F77830BE08D65E9A2EC6A1721954653 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB72BE165107FF2646FE7B11A0B005D3 /* Pods-memoryio.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -552,7 +529,28 @@
 			};
 			name = Debug;
 		};
-		777487F4A8B5CA6512E6D448202FA727 /* Release */ = {
+		600AB8C2174B90A0ABEEF6B6E22DF2FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B717EFEF0EAE7340627471A3B54F42C /* Pods-memoryio.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		77BBDBF8B33482C706DA78421E6BE195 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
 			buildSettings = {
@@ -566,53 +564,16 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = AVCapture;
+				PRODUCT_NAME = AVCapture;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Release;
-		};
-		8C0B6800511CEFCCA34686A8169F1ACC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Release;
-		};
-		AC01B1D975732AC324C05F38AD3474F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/NSGIF/NSGIF-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Debug;
 		};
-		BEE1DDA830ACA9E39AE3A747643B29F2 /* Release */ = {
+		972FBC02E2BEF346DB80570351F6FA83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -622,10 +583,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -633,6 +596,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -641,61 +605,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		D56B910526BA0E6E5581606541E5D034 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -720,77 +630,183 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		DEF014140AD0DEC474D7A9159945457B /* Release */ = {
+		9C1F5245BEED073FFB5962C2FE59A23F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B717EFEF0EAE7340627471A3B54F42C /* Pods-memoryio.release.xcconfig */;
+			baseConfigurationReference = 42A59FAB1CCE819800F380333FCC2E86 /* AVCapture.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/AVCapture/AVCapture-prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = AVCapture;
+				PRODUCT_NAME = AVCapture;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Release;
+		};
+		A29FB93790A41BC808B0BC6BE8A77CF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B67DF84DFAA2FE795E11A1DA213DCB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69D6E1608FE0560C80D8DC37F4ED08C7 /* NSGIF.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/NSGIF/NSGIF-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = NSGIF;
+				PRODUCT_NAME = NSGIF;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Release;
+		};
+		DF4F0E68C39AA43E324B0E5469C170CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 618F22D89AB4CFD90A13636BF52A45A3 /* SimpleExif.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleExif/SimpleExif-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SimpleExif;
+				PRODUCT_NAME = SimpleExif;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		142C10CF2460D4A8777A80ED2E8CCFED /* Build configuration list for PBXNativeTarget "SimpleExif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25E2CCCE753B5EFA91B52A12DE05B577 /* Debug */,
+				DF4F0E68C39AA43E324B0E5469C170CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D56B910526BA0E6E5581606541E5D034 /* Debug */,
-				BEE1DDA830ACA9E39AE3A747643B29F2 /* Release */,
+				972FBC02E2BEF346DB80570351F6FA83 /* Debug */,
+				A29FB93790A41BC808B0BC6BE8A77CF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61D94CA86AEACBD14C3610FF68160BDE /* Build configuration list for PBXNativeTarget "AVCapture" */ = {
+		64B67618A19BB1AEA22326C57A32B18C /* Build configuration list for PBXNativeTarget "NSGIF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5771D7AC1792C9F7C6B171E64EE6A883 /* Debug */,
-				777487F4A8B5CA6512E6D448202FA727 /* Release */,
+				03E8197642B40FA36AE2A8EEE7A6A7A5 /* Debug */,
+				B67DF84DFAA2FE795E11A1DA213DCB9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C727F740B07D167CD15659232A03456 /* Build configuration list for PBXNativeTarget "Pods-memoryio" */ = {
+		780E31400DE10492DC15B1C81865C3A8 /* Build configuration list for PBXNativeTarget "Pods-memoryio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6FE1D136047DC92F109CA18D4725CC8A /* Debug */,
-				DEF014140AD0DEC474D7A9159945457B /* Release */,
+				2F77830BE08D65E9A2EC6A1721954653 /* Debug */,
+				600AB8C2174B90A0ABEEF6B6E22DF2FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAC9396D4E7EA78DEE2A1104AB8287E3 /* Build configuration list for PBXNativeTarget "SimpleExif" */ = {
+		A4A71DE0F74A1BC7C87F2BCD9D7772F2 /* Build configuration list for PBXNativeTarget "AVCapture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F80303B7DAFDA0E8E1E2D326B5B8668 /* Debug */,
-				8C0B6800511CEFCCA34686A8169F1ACC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F2E91202F355044941DE1176FBD7A178 /* Build configuration list for PBXNativeTarget "NSGIF" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AC01B1D975732AC324C05F38AD3474F9 /* Debug */,
-				440EFD03978277C17E60406CDD79A4C3 /* Release */,
+				77BBDBF8B33482C706DA78421E6BE195 /* Debug */,
+				9C1F5245BEED073FFB5962C2FE59A23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

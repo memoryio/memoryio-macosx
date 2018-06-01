@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7CAC83F3F826C73494BE3714493F8415'
-               BlueprintName = 'NSGIF'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libNSGIF.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F8A1B5554CFC877EBBA7B16CEFE321D4"
+               BlueprintName = "NSGIF"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libNSGIF.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

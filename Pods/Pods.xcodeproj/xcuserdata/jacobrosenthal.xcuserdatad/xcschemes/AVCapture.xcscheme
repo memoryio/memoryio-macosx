@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DA80DF66B043648351073118A38C889E'
-               BlueprintName = 'AVCapture'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libAVCapture.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ACB8BFDB1AE5CE7CFD06602AE2C7141E"
+               BlueprintName = "AVCapture"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libAVCapture.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

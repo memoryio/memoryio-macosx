@@ -95,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */,
 				5B60CD7A1CB0D78700F44D91 /* AVFoundation.framework in Frameworks */,
 				5B197FE917CB7BE400E2E608 /* CoreFoundation.framework in Frameworks */,
 				5B197FE617CB7BD800E2E608 /* Quartz.framework in Frameworks */,
@@ -102,7 +103,6 @@
 				5B197FE317CB7BCD00E2E608 /* IOKit.framework in Frameworks */,
 				5B197FE117CB7BC300E2E608 /* CoreServices.framework in Frameworks */,
 				5B197FDF17CB7BBA00E2E608 /* ApplicationServices.framework in Frameworks */,
-				2247EC6615A2364F00A5C034 /* ServiceManagement.framework in Frameworks */,
 				2247EBDA15A22FFB00A5C034 /* Cocoa.framework in Frameworks */,
 				37847B9531E4B9858F4A2132 /* libPods-memoryio.a in Frameworks */,
 			);
@@ -220,8 +220,6 @@
 				2247EBD215A22FFB00A5C034 /* Frameworks */,
 				2247EBD315A22FFB00A5C034 /* Resources */,
 				2247EC6315A2323900A5C034 /* Copy Helper App */,
-				762EA2ABD340C7FB17678C08 /* [CP] Embed Pods Frameworks */,
-				F29DD83F0313A0BFCD2B75D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,10 +237,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TS;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Augmentous;
 				TargetAttributes = {
 					2247EBD415A22FFB00A5C034 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -313,36 +312,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		762EA2ABD340C7FB17678C08 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-memoryio/Pods-memoryio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F29DD83F0313A0BFCD2B75D3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-memoryio/Pods-memoryio-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -389,11 +358,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -437,11 +408,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
