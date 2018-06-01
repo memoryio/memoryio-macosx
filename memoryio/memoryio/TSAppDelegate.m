@@ -21,6 +21,7 @@
 @synthesize frameCountText;
 @synthesize frameDelayText;
 @synthesize loopCountText;
+@synthesize sharingButton;
 
 // not actually using these atm, but defining them to make mapping clear
 typedef enum : NSUInteger
@@ -237,6 +238,9 @@ NSImage *statusImage;
     [self setupPreferences];
     [self setupNotifications];
     [self setupMenuBar];
+
+    //fix for #41 because I cant figure a way to set on mouse down event in interface builder
+    [sharingButton sendActionOn:NSLeftMouseDownMask];
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification

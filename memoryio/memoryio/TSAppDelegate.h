@@ -27,6 +27,7 @@
 @property (weak) IBOutlet NSTextField *frameCountText;
 @property (weak) IBOutlet NSTextField *frameDelayText;
 @property (weak) IBOutlet NSTextField *loopCountText;
+@property (weak) IBOutlet NSButton *sharingButton;
 
 - (IBAction)quitAction:(id)sender;
 - (IBAction)forceAction:(id)sender;

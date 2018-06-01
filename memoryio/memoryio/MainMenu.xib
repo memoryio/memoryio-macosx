@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -658,6 +658,7 @@
                 <outlet property="photoDelayText" destination="o4F-La-fkw" id="7mb-w9-M9r"/>
                 <outlet property="preferencesOutlet" destination="vNx-TJ-nvs" id="i6P-El-6QC"/>
                 <outlet property="previewImage" destination="HGe-kt-fev" id="Blh-eI-OQs"/>
+                <outlet property="sharingButton" destination="9g8-XL-rdf" id="8Rm-4O-EnY"/>
                 <outlet property="startupButton" destination="F2E-5G-lLJ" id="LcS-zI-fuO"/>
                 <outlet property="statusMenu" destination="560" id="573"/>
                 <outlet property="warmupDelayText" destination="myb-ZW-zgu" id="pnG-ba-Hax"/>
